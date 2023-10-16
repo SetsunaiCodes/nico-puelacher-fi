@@ -6,5 +6,3 @@ imagepath: articlesheads/firstpost.jpg
 id: Hausaufgabe
 topic: Hausaufgabe 01
 ---
-
-Ullamco et nostrud magna commodo nostrud ...
