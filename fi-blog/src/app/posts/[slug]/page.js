@@ -1,5 +1,7 @@
-import { format, parseISO } from 'date-fns'
+import { compareDesc, format, parseISO } from 'date-fns'
 import { allPosts } from 'contentlayer/generated'
+import Link from 'next/link'
+import { Navbar } from 'src/app/page'
 
 export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
 
@@ -13,16 +15,67 @@ const PostLayout = ({ params }) => {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`)
 
+function AsideaBar() {
+  const posts = allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
+  
+  return(
+    <div>
+          <div className='personal-card flex-a-j-center gap'>
+            <img src='/JAKEPB.jpg'/>
+              <div>
+                <p>Nico Puelacher</p>
+                <p>Programmierer</p>
+              </div>
+          </div>
+          <div className='section'>
+            <h3>Quick Links</h3>
+            <ul className='quick-links'>
+              {posts.map((post, idx) => (
+                <li key={idx}>
+                  <div>
+                    <p className='no-margin topic-quick'>{post.topic}</p>
+                    <Link className='no-margin title-quick' href={post.url}>
+                      {post.title}
+                    </Link>
+                  </div>
+                  <div className='divider-hor'></div>
+                </li>
+              ))}
+            </ul>
+          </div>
+    </div>
+  )
+}
+
+const currentImagePath = ('/' + post.imagepath)
   return (
-    <article className="mx-auto max-w-xl py-8">
-      <div className="mb-8 text-center">
-        <time dateTime={post.date} className="mb-1 text-xs text-gray-600">
-          {format(parseISO(post.date), 'LLLL d, yyyy')}
-        </time>
-        <h1 className="text-3xl font-bold">{post.title}</h1>
+    <div>
+      <Navbar/>
+      <div className='section'>
+        <div className='flex-a-start-j-center'>
+          <main>
+          <article>
+            <div>
+            <img className='artikel-image' src= {currentImagePath}/>
+            <div className='article-heading-container flex-a-j-center'>
+            <h1 className='article-heading'>{post.title}</h1>
+              <div className='divider-sen'></div>
+              <time className='font-bold' dateTime={post.date}>
+                {format(parseISO(post.date), 'dd.MM.yyyy')}
+              </time>
+            </div>
+
+            </div>
+            <div dangerouslySetInnerHTML={{ __html: post.body.html }} />
+        </article>
+          </main>
+          <aside className='margin-aside'>
+            <AsideaBar/>
+          </aside>
+        </div>
+      
       </div>
-      <div className="[&>*]:mb-3 [&>*:last-child]:mb-0" dangerouslySetInnerHTML={{ __html: post.body.html }} />
-    </article>
+    </div>
   )
 }
 
