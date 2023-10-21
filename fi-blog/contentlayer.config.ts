@@ -7,7 +7,7 @@ export const Post = defineDocumentType(() => ({
     title: { type: 'string', required: true },
     date: { type: 'date', required: true },
     des: {type: 'string', required: false},
-    imagepath: {type: 'string', required: false},
+    imagepath: {type: 'string', required: true},
     topic: {type: 'string', required: false},
     id: {type: 'string', required: false}
   },
