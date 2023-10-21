@@ -1,8 +1,213 @@
 ---
-title: Getting started mit PyGame
-des: In diesem Artikel schildere ich, wie man ein PyGame Projekt so aufsetzt, dass man danach mit dem Entwickeln eines Spiels beginnen kann.
-date: 2023-10-16
-imagepath: articlesheads/firstpost.jpg
+title: Getting started
+des: Ziel diesen Artikels ist es die grundsätzliche Anmerkungen zu thematisieren und bereits ein laufendes Spielfenster zu erhalten.
+date: 2023-10-17
+imagepath: articlesheads/DevLog0Thumb.jpg
 id: DevLog
-topic: DevLog 0
+topic: DevLog 00
 ---
+
+# Anmerkungen
+Es dürfte offensichtlich sein, aber ich möchte kurz hervorgeben, dass es für das Schreiben von PyGame Games viele Wege gibt, die sich teilweise sehr in der Performance unterscheiden können aber auch teilweise einfach strukturierter und “schöner” aussehen. Neben meinem Weg wird es noch viele andere Wege geben Probleme anzugehen. Klingt erstmal offensichtlich, wenn es um das Thema “Programmierung” geht, dennoch wollte ich dies einfach losgeworden sein.
+
+# Terminologie
+Grundsätzlich nicht notwendig, allerdings hat es sich bei PyGame Games etabliert, dass man die “Hauptdatei” (damit meine ich jene Datei, in der schlussendlich das Spiel läuft) als “game.py” benannt wird, so auch in diesem Projekt. 
+
+# Die Klasse "Game"
+Ich speichere alles, was relevant für den direkten Spielfluss ist in einer gesonderten Klasse, mit dem Namen “Game”. Dazu zählen unter anderem Faktoren wie:
+
+- Screen Width und Screen Height
+- Clock
+- Name des Spiels
+- Assets
+- Player Position und Größe
+- Tilemaps
+- Particles
+- Kameraposition beim Start
+
+für das reine Starten eines Spielfensters braucht es in der Klasse Game erstmal nur folgendes:
+
+## Screen Width und Screen Height
+
+Nach dem Grundliegendes wie das Initialisieren von PyGame und das erstellen der Klasse Game erfolgt ist erstelle ich eine Variable “self.screen” und speichere darin, wie groß mein Fenster werden soll. Hierfür lässt sich eine Funktion aus der PyGame Bibliothek verwenden, die einen Tupel entgegen nimmt, der erst die Höhe, dann die Breite des Spiels speichert.
+
+```Python
+import pygame
+
+class Game:
+    def __init__(self):
+        pygame.init()
+
+        self.screen = pygame.display.set_mode((1280, 960))
+```
+
+“set_mode” klingt eigentlich ein bisschen irreführend, wenn man so darüber nachdenkt…
+
+## Clock
+Jetzt möchte ich mich darum kümmern mit welcher Framerate das Spiel laufen soll.
+
+In der Regel sind 60 Frames per Second eigentlich Standard geworden. Es gibt zwar heute auch noch Spiele, die es nicht hinkriegen, 60 Bilder pro Sekunde anzuzeigen, besonders wenn man seinen Blick auf die Nintendo Switch richtet, aber das ist ein anderes Thema. Jedenfalls laufen die meisten Spiele entweder mit 30 oder 60 FPS. 
+
+In PyGame spielt dies ein **sehr** relevante Rolle. Wenn man kurz darüber nachdenkt, was FPS eigentlich heißt, dann erschließt sich, dass die schlussendliche Gameloop 60 (oder 30) Mal pro Sekunde durchgerannt wird.
+
+**Übrigens:** würde man keine Clock festlegen, dann würde die GameLoop so schnell es geht wieder und wieder durchgerannt werden, was A zu 100% CPU Auslastung und B zu inkonsistenten Werten führen würde.
+Die Bildwiderholrate steht in Zusammenhang damit, wie schnell der Player laufen kann zum Beispiel. Generell werden Bewegungsabläufe beeinflusst. 
+
+Ich habe hierfür eine Anlage verlinkt, die den hier zwar sehr kleinen, aber doch existierenden Unterschied am Beispiel Super Mario 64 zeigt. Dort spielt ein Speedrunner genau den selben Bewegungsablauf, aber das Spiel reagiert marginal anders. 
+
+*”Dafür muss doch aber eine Lösung geben, das kann ja eigentlich nicht sein, die meisten Spiele haben doch sogar mehr Option, um unterschiedliche Framerates festzulegen und da geht nicht alles kaputt???”*  wäre an dieser Stelle eine gute Anmerkung. 
+
+Die Antwort hier ist: *“Natürlich gibt es dafür eine Lösung. Diese nennt sich Delta-Time!”*
+
+Was genau das ist und ob wir diese überhaupt verwenden werden, wird in einem späteren Artikel geklärt, dann bei Arcade Automaten gibt es eigentlich keine Einstellungen zu Bildrate, oder Fenstergröße, dennoch wollte ich dies ein Mal erwähnt haben.  
+
+Nun aber zurück zum Code:
+
+In der Klasse Game wird die Clock nun erstmal initialisiert. Den FPS Wert werde ich erst in der Gameloop festlegen. Clock ist ebenfalls eine Funktion, die sich aus der PyGame Library holen lässt.
+
+```Python
+import pygame
+
+class Game:
+    def __init__(self):
+        pygame.init()
+
+        self.screen = pygame.display.set_mode((1280, 960))
+        self.clock = pygame.time.Clock()
+```
+
+## Name des Spiels
+Eine Kleinigkeit, aber es wäre schön, wenn beim Start des Spiels nicht “PyGame Projekt #1” Am Fensterrand stehen würde.
+
+Dafür lässt sich diese Methode verwenden:
+```Python
+import pygame
+
+class Game:
+    def __init__(self):
+        pygame.init()
+
+        pygame.display.set_caption('Tower Defense Game')
+        self.screen = pygame.display.set_mode((1280, 960))
+        self.clock = pygame.time.Clock()
+```
+Bis der Gruppe ein passender Name eingefallen ist, wird das Projekt *“Tower Defense Game”* heißen.
+
+Diese grundsätzlichen Dinge reichen für die Klasse Game auch erstmal, um ein Fenster zu erstellen.
+
+# Die GameLoop
+Damit jetzt wirklich was passieren kann brauchts eine GameLoop
+
+## Das Erstellen einer GameLoop
+
+Eigentlich wird uns im Unterricht (besonders bei Java) immer beigebracht, dass Endlosschleifen katastrophal wären und dazu führen, dass sich ein schwarzen Loch vor unserem Bildschirm bildet und das Universum vernichten wird (Quelle: Professor Richter). 
+
+NA DANN PROBIEREN WIR DIES DOCH MAL AUS!
+
+Denn damit ein Spiel “laufen kann” braucht es eine solche Endlosschleife. 
+
+Hierfür erstelle ich eine Funktion und setze diese einfach permanent auf True.
+
+```Python
+import pygame
+
+class Game:
+    def __init__(self):
+        pygame.init()
+
+        pygame.display.set_caption('Tower Defense Game')
+        self.screen = pygame.display.set_mode((1280, 960))
+        self.clock = pygame.time.Clock() 
+
+
+		def run(self):
+		    while True:
+```
+
+Ich lege noch einen schwarzen Hintergrund fest, damit gleich genossen werden kann, dass wir nichts sehen werden.
+
+Da dieser Artikel im Internet gelandet ist, wird zum Stand 17.10.2023, 12:47 kein schwarzes Loch aufgetaucht sein. Wir wurden also 3 Monate belogen...
+
+## DOCH VORSICHT!
+
+Jetzt gibt es eine Kleinigkeit, die ich, als ich mit PyGame begonnen habe wieder und wieder vergessen habe. In PyGame ist es so, dass wirklich jeder Input in der Gameloop in einem Event Handler untergerbacht werden muss…
+
+Darunter fällt auch, dass sich das Spiel schließen soll, wenn ich auf das rote X oben rechts am Bildschirmrand klicke. 
+Im späteren Verlauf wird die Anwendung über ein Shell Script beendet werden, sobald man den Automaten ausschaltet, aber für die Entwicklung des Spiel wäre es ratsam, wenn ich das Fenster wieder schließen könnte. 
+
+Daher schreibe ich diesen Eventhandler, der später auch dafür zuständig sein wird alle anderen Inputs entgegen zu nehmen:
+```Python
+import sys
+import pygame
+
+class Game:
+    def __init__(self):
+        pygame.init()
+
+        pygame.display.set_caption('Tower Defense Game')
+        self.screen = pygame.display.set_mode((1280, 960))
+        self.clock = pygame.time.Clock() 
+
+
+		def run(self):
+		    while True:
+		        self.screen.fill((0,0,0))
+		
+		        for event in pygame.event.get():
+		            if event.type == pygame.QUIT:
+		                pygame.quit()
+		                sys.exit()
+```
+
+So, nun sind wir alle auf der sicheren Seite und müssen die Anwendung nicht über den Taskmanager zum Schließen zwingen… Glück gehabt.
+
+## Framerate und Update
+
+Jetzt gibt es noch eine Kleinigkeit zu beachten. Damit nicht jeder Frame den anderen einfach überschreibt, sollte man den Screen mit jedem neuen Frame 1 Mal leeren. Das merkt der Spieler so auch nicht. 
+
+Dann wird schlussendlich die Framerate festgelegt. In diesem Fall werden wie bereits erwähnt keine Delta Time Keys verwendet, sondern einfach die Zahl 60.
+
+
+```Python
+import sys
+import pygame
+
+class Game:
+    def __init__(self):
+        pygame.init()
+
+        pygame.display.set_caption('Tower Defense Game')
+        self.screen = pygame.display.set_mode((1280, 960))
+        self.clock = pygame.time.Clock() 
+
+
+		def run(self):
+		    while True:
+		        self.screen.fill((0,0,0))
+		
+		        for event in pygame.event.get():
+		            if event.type == pygame.QUIT:
+		                pygame.quit()
+		                sys.exit()
+		
+        pygame.display.update()
+        self.clock.tick(60)
+
+Game().run()
+```
+
+Dann wird das Spiel zusammen mit seiner neuen Methode **run** ausgeführt und das Ergebnis ist ein solcher Bildschirm hier:
+![Screenshot](/articlecontents/ScreenshotOfEmpty.png)
+
+# Schlusswort
+
+Damit ist es vollbracht. Die Entwicklung am Spiel kann nun beginnen, wir haben nun die “Leinwand” geschaffen und die Kreativität kann ihren Lauf nehmen kann.
+
+In den kommenden Artikeln wird sich mit der Grundmechanik eines Tower Defense Spiels beschäftigt.
+
+---
+
+# Anlagen
+
+Super Mario 64: 30 vs 60 FPS:
+[Super Mario 64 - 60 Fps vs 30 Fps](https://youtu.be/3XEvED6VEfQ)

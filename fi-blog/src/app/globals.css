@@ -14,6 +14,7 @@ body,html{
   
   /*white colors*/
   --whiteMain: rgb(249, 249, 249);
+  --whiteSecondary: rgb(230, 230, 230);
   --whiteShadow: 0px 3px 18px rgb(227, 227, 227);
 
 
@@ -43,11 +44,34 @@ aside{
   margin: 0 25%;
 }
 
+pre{
+  padding: 20px;
+  background-color: var(--whiteSecondary);
+  border-radius: 12px;
+}
+
+code{
+  font-size: 15px;
+}
+
 nav{
   height: 8vh;
   width: 100%;
   background-color: var(--whiteMain);
   box-shadow: var(--whiteShadow);
+}
+
+nav button{
+  padding: 10px 15px;
+  background-color: var(--blackMain);
+  color: var(--whiteMain);
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+}
+
+nav button:hover{
+  background-color: var(--blackHover);
 }
 
 nav p {
@@ -59,24 +83,34 @@ nav span {
   color: var(--mainBlue);
 }
 
+.quick-links{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 .quick-links li{
 
   margin: 10px 0;
 }
 
-ul{
+img{
+  max-width: 100%;
+}
+
+nav ul{
   list-style: none;
   margin: 0;
   padding: 0;
   font-weight: 600;
 }
 
-ul li a{
+nav ul li a{
   color: var(--blackMain);
   text-decoration: none;
 }
 
-ul li a:hover{
+nav ul li a:hover{
   color: var(--blackHover);
 }
 
@@ -161,6 +195,9 @@ ul li a:hover{
 }
 
 .title-quick{
+  color: var(--blackMain);
+  text-decoration: none;
+  font-weight: 600;
   font-size: 16px;
 }
 
@@ -191,18 +228,6 @@ ul li a:hover{
 .article-heading{
   font-size: 35px;
 }
-.taglist a{
-  margin: 5px 10px;
-  padding: 5px 10px;
-  border: 2px solid var(--blackMain);
-  border-radius: 12px;
-  font-weight: 600;
-}
-
-.taglist-active{
-  color: var(--whiteMain);
-  background-color: var(--blackMain);
-}
 
 /*boundering*/
 .gap{
@@ -214,7 +239,7 @@ ul li a:hover{
 }
 
 .margin-aside {
-  margin-top: 120px;
+  margin-top: 80px;
 }
 
 .no-margin{
