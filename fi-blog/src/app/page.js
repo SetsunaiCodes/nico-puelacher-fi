@@ -13,7 +13,9 @@ const cardContainerStyle = {
 function PostCard(post) {
   return (
     <div className='article-cards'>
-      <img src={post.imagepath}/>
+      <Link href={post.url}>
+        <img src={post.imagepath}/>
+      </Link>
       <div className='section flex-a-center-j-start-column'>
         <div className='flex-a-j-center'>
         <time dateTime={post.date}>
@@ -45,14 +47,11 @@ export function Navbar() {
         <p>Nico Puelacher <span>.</span></p>
         <div className='flex-a-j-center'>
           <ul className='flex gap'>
-            <li><a href=''>Home</a></li>
-            <li><a href=''>Projekt</a></li>
-            <li><a href=''>Hausaufgaben</a></li>
-            <li><a href=''>Gedankengänge</a></li>
+            <li><Link href="/">Home</Link></li>            
           </ul>
 
           <div className='btn-container-nav'>
-            <button>GitHub</button>
+            <a target='_blank' href='https://github.com/SetsunaiCodes'><button>GitHub</button></a>
           </div>
         </div>
 
@@ -70,12 +69,6 @@ export default function Home() {
       <div className='flex-a-start-j-center section margintop'>
         <main>
           <h1>Uploads</h1>
-          <div className='flex taglist'>
-            <a className='taglist-active'>Alles</a>
-            <a>Gedankengänge</a>
-            <a>Projekte</a>
-            <a>Hausaufgaben</a>
-          </div>
           <div style={cardContainerStyle}>
             {posts.map((post, idx) => (
             <PostCard key={idx} {...post} />
@@ -91,9 +84,47 @@ export default function Home() {
               </div>
           </div>
           <div className='section'>
-            <h3>Quick Links</h3>
+            <h2>Quick Links</h2>
+
+            <h3>Gedankengänge</h3>
             <ul className='quick-links'>
-              {posts.map((post, idx) => (
+              {posts
+              .filter(post => post.id === 'Gedankengänge')
+              .map((post, idx) => (
+                <li key={idx}>
+                  <div>
+                    <p className='no-margin topic-quick'>{post.topic}</p>
+                    <Link className='no-margin title-quick' href={post.url}>
+                      {post.title}
+                    </Link>
+                  </div>
+                  <div className='divider-hor'></div>
+                </li>
+              ))}
+            </ul>
+
+            <h3>Hausaufgaben</h3>
+            <ul className='quick-links'>
+              {posts
+              .filter(post => post.id === 'Hausaufgabe')
+              .map((post, idx) => (
+                <li key={idx}>
+                  <div>
+                    <p className='no-margin topic-quick'>{post.topic}</p>
+                    <Link className='no-margin title-quick' href={post.url}>
+                      {post.title}
+                    </Link>
+                  </div>
+                  <div className='divider-hor'></div>
+                </li>
+              ))}
+            </ul>
+
+            <h3>DevLogs</h3>
+            <ul className='quick-links'>
+              {posts
+              .filter(post => post.id === 'DevLog')
+              .map((post, idx) => (
                 <li key={idx}>
                   <div>
                     <p className='no-margin topic-quick'>{post.topic}</p>
