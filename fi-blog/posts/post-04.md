@@ -1,7 +1,7 @@
 ---
 title: Animationen
 des: In diesem Artikel möchte ich näher bringen, wie man in PyGame mit Spritesheets umgehen kann und diese in einer Liste (einem “Frame by Frame Animation - Array” ) zwischenspeichert und an das Spiel übergeben kann.
-date: 2023-10-17
+date: 2023-10-19
 imagepath: articlesheads/Animation.png
 id: Hausaufgabe
 topic: Hausaufgabe 02
