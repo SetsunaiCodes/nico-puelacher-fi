@@ -9,17 +9,17 @@ topic: Hausaufgabe 02
 
 # Das Spritesheet
 
-![Spritesheet](/articlecontents/Sprites.png)
+![Spritesheet](../public/articlecontents/Sprites.png)
 
-Das hier ist das Spritesheet, was mir für die Ausarbeitung dieser Aufgabe zur Verfügung gestellt wurde. An diesem Image gibt es mehrere Probleme, die alle nacheinander durchgearbeitet werden, um diese zu lösen. Es existieren folgende 3 Probleme:
+Das hier ist das Spritesheet, was mir für die Ausarbeitung dieser Aufgabe zur Verfügung gestellt wurde. An diesem Spritesheet gibt es mehrere Probleme, die alle nacheinander durchgearbeitet werden, um diese zu lösen. Es existieren folgende 3 Probleme:
 
-## Das Image ist weiß und nicht transparent
+## Das Spritesheet ist weiß und nicht transparent
 
 Immer dann, wenn unser Läufer über einem nicht weißen Hintergrund laufen wird, dann wird ihn ein Viereck umranden. Das wünscht man ja keinem, daher sollte dieser verschwinden. 
 
 ## Das hier ist 1 Image
 
-Das ist grundsätzlich **eigentlich** kein Problem. Es wäre kein Problem einen “Leser” zu schreiben, der sich die einzelnen Frames selbst holt, allerdings ist mir dieser Ansatz zu Performance fressend, daher wird dieses Problem anderweitig gelöst.
+Das ist grundsätzlich **eigentlich** kein Problem. Es wäre kein Problem einen “Leser” zu schreiben, der sich die einzelnen Frames selbst holt, allerdings ist mir dieser Ansatz zu performancefressend, daher wird dieses Problem anderweitig gelöst.
 
 ## Es gibt keine Idle Animation
 
@@ -62,7 +62,7 @@ Bevor nun weiter am Code gearbeitet werden kann, müssen die zuvor geschilderten
 
 ## Lösung 01: Das Bild aufteilen
 
-Das hier ist die zeitlich weitaus aufwendigere, aber ressourcenfreundlichere Lösung, die auch schöneren Code hervorbringen wird.
+Das hier ist die zeitlich weitaus aufwendigste, aber ressourcenfreundlichste Lösung, die auch weniger Code hervorbringen wird.
 
 Ich nehme mir das Bildbearbeitungsprogramm meines Vertrauens GIMP und teile das Bild in 34 (17 Laufsprites +17 Sprintsprites) Teile auf…
 
@@ -72,13 +72,13 @@ Gesagt getan.
 
 Die einzelnen Sprites werden dann auf 2 Ordner im Projekt aufgeteilt. Ein Ordner “running” und ein Ordner “walking”.
 
-**Kleine Anmerkung:** Beim aufteilen der Sprites ist es ratsam darauf zu achten, dass die Bilder alle gleich groß sind. Ich zeige später im Code einen kleinen Trick mit dem dieses Detail unwichtig wird. Dies sorgt für ein bisschen mehr Code, aber viel mehr Freiheit. In diesem Fall haben wir das Glück, dass beide Animationsabfolgen 17 Sprites lang sind. Das ist aber nicht der Regelfall, daher werden wir auch diese Abhängigkeit später im Code relativieren, einfach damit ich auch diese Thematiken in diesem Blog festhalten kann
+**Anmerkung:** Beim Aufteilen der Sprites ist es ratsam darauf zu achten, dass die Bilder alle gleich groß sind. Ich zeige später im Code einen kleinen Trick mit dem dieses Detail unwichtig wird. Dies sorgt für ein bisschen mehr Code, aber viel mehr Freiheit. In diesem Fall haben wir das Glück, dass beide Animationsabfolgen 17 Sprites lang sind. Das ist aber nicht der Regelfall, daher werden wir auch diese Abhängigkeit später im Code relativieren, einfach damit ich auch diese Thematiken in diesem Blog festhalten kann.
 
 ## Lösung  02: Es gibt keine Idle Animation
 
-Damit es wenigstens so Aussieht, als könnte unser Läufer stehen, entschied ich mit dazu einen bestehenden Sprite zu nehmen und zu verändern. Ich nach dem Sprite, der am nächsten an “stehen” dran war und versuche eine Animation dafür zu entwerfen. Ausgehend von Sprite 7 in der oberen Reihe entstand dann dieser 18. Sprite:
+Damit es wenigstens so aussieht, als könnte unser Läufer stehen, entschied ich mich dazu einen bestehenden Sprite zu nehmen und zu verändern. Ich nach dem Sprite, der am nächsten an “stehen” dran war und versuche eine Animation dafür zu entwerfen. Ausgehend von Sprite 7 in der oberen Reihe entstand dann dieser 18. Sprite:
 
-![IdleSprite](/articlecontents/IdleSprite.png)
+![IdleSprite](../public/articlecontents/IdleSprite.png)
 
 
 Alles, was ich getan habe ist das “hintere” Bein wegzuschneiden. Dann sieht es so aus, als hätte der Läufer beide Beine nebeneinanderstehen und man könnte das andere Bein einfach nicht sehen. Da es sich bei diesem Läufer um kein hochauflösendes Bild handelt, fällt diese Herangehensweise auch nicht auf. Jetzt kann unser Läufer auch mal durchatmen und muss sich nicht permanent anstrengen.
@@ -89,9 +89,9 @@ Lösung 3 folgt im Laufe des nächsten Abschnittes.
 
 Nachdem diese Vorarbeit geleistet wurde, konnte ich mich wieder dem Code widmen.
 
-Zum Verständnis hänge hier hier nochmal die aktuelle Struktur des Ordners “Walking” im Verzeichnis data / images / enteties / player / walking an: 
+Zum Verständnis hänge ich hier nochmal die aktuelle Struktur des Ordners “walking” im Verzeichnis data / images / enteties / player / walking an: 
 
-![StructureOfSprite](/articlecontents/StructureOfSprites.png)
+![StructureOfSprite](../public/articlecontents/StructureOfSprites.png)
 
 Hier möchte ich anmerken:
 
@@ -100,7 +100,7 @@ Daher die Struktur. Diese ist relevant, da die Einträge später chronologisch a
 
 ## Das Utility Script
 
-Für die reine Übersicht erstellte ich einen Ordner Scripts, wo dann die erste neue Datei [Ultils.py](http://Ultils.py) entsteht. Hier sollen alle Funktionen gelagert werden, die damit zusammenhängen Ladevorgänge zu verwalten.
+Für die reine Übersicht erstellte ich einen Ordner Scripts, wo dann die erste neue Datei utiliy.py entsteht. Hier sollen alle Funktionen gelagert werden, die damit zusammenhängen, Ladevorgänge zu verwalten.
 
 ### Load_Image(path)
 
@@ -115,7 +115,7 @@ def load_image(path):
     return img
 ```
 
-Load_Image ist eine Funktion die eigentlich nichts anderes machen wird, als sich ein Image aus einem bestimmten Path zu nehmen und dieses zu returnen. Dafür muss der Funktion nur der hintere Teil des paths mitübergeben werden. Da der Anfang aller paths ohnehin immer gleich ist, kann man diesen auch zwischenspeichern (siehe BASE_IMG_PATH).
+Load_Image() ist eine Funktion, die eigentlich nichts anderes machen wird, als sich ein Image aus einem bestimmten Path zu nehmen und dieses zu returnen. Dafür muss der Funktion nur der hintere Teil des Paths mitübergeben werden. Da der Anfang aller Paths ohnehin immer gleich ist, kann man diesen auch zwischenspeichern (siehe BASE_IMG_PATH).
 Was diese Funktion ebenfalls übernimmt ist die Lösung für das Problem “Die Sprites haben einen weißen Hintergrund”.
 
 Der Ablauf ist wie folgt: 
@@ -147,17 +147,17 @@ def load_images(path):
     return images
 ```
 
-Der Unterschied liegt nicht nur im hinteren s, sondern auch in der funktionsweise. Ziel dieser Funktion ist es alle Sprites in einer Liste / einem Array zu speichern und zurück zugeben.
+Der Unterschied liegt nicht nur im hinteren s, sondern auch in der Funktionsweise. Ziel dieser Funktion ist es, alle Sprites in einer Liste / einem Array zu speichern und zurückzugeben.
 
-Dafür wird erst die leere Liste images erstellt und danach wird über eine for-Schleife chronologisch durch den Ordner iteriert, um dann nacheinander die Liste mit Einträgen zu füllen und schlussendlich wieder zurück zu geben. Dabei kann diese Funktion von der vorherigen profitieren, da die Bilder so leichter “herangezogen” werden können.
+Dafür wird erst die leere Liste "images" erstellt und danach wird über eine for-Schleife chronologisch durch den Ordner iteriert, um dann nacheinander die Liste mit Einträgen zu füllen und schlussendlich wieder zurückzugeben. Dabei kann diese Funktion von der vorherigen profitieren, da die Bilder so leichter “herangezogen” werden können.
 
-*”Was ist dieses sorted und os.listdir ?”* wäre an dieser Stelle eine durchaus berechtigte Frage. 
+*”Was ist dieses sorted und os.listdir?”* wäre an dieser Stelle eine durchaus berechtigte Frage. 
 
-Ich habe bereits thematisiert, dass sich die Reihenfolge der abzuspielenden Sprites ändert je nachdem, ob ich nun 1.png, oder 01.png schreibe. Bei Linux Betriebssystem kommt es bei manchen fällen immernoch zu Fehlern, die teilweise die Spiele kaputt machen können.  Um sich also doppelt und dreifach abzusichern, dass der Ordner wirklich von oben nach unten gelesen wird er zunächsten “gesorted”, was eine Python interne Funktion ist und dann nochmal über die Python Library os der Liste hinzugefügt, damit wirklich nichts mehr schief gehen kann und man auf der absolut sicheren Seite ist.
+Ich habe bereits thematisiert, dass sich die Reihenfolge der abzuspielenden Sprites ändert je nachdem, ob ich nun 1.png, oder 01.png schreibe. Bei Linux Betriebssystemen kommt es bei manchen Fällen immernoch zu Fehlern, die teilweise die Spiele kaputt machen können.  Um sich also doppelt und dreifach abzusichern, dass der Ordner wirklich von oben nach unten gelesen wird, wird er zunächsten “gesorted”, was eine pythoninterne Funktion ist und dann nochmal über die Python Library os der Liste hinzugefügt, damit wirklich nichts mehr schief gehen kann und man auf der absolut sicheren Seite ist (os ist dafür zuständig ebenfalls zu sortieren).
 
 ### Animation Klasse
 
-Mit dem aktuellen Code ist es möglich die Sprites in einer Liste zu speichern. Jetzt sollte ich mich darum kümmern, dass diese Sprites nacheinander abgespielt werden, sodass eine Animation entsteht. Dafür erstellte ich die Klasse Animation:
+Mit dem aktuellen Code ist es möglich, die Sprites in einer Liste zu speichern. Jetzt sollte ich mich darum kümmern, dass diese Sprites nacheinander abgespielt werden, sodass eine Animation entsteht. Dafür erstellte ich die Klasse Animation:
 
 ```python
 import os
@@ -185,15 +185,15 @@ class Animation:
         self.frame = 0
 ```
 
-Diese Klasse muss ein Paar Parameter entgegen nehmen, damit am Ende richtig operiert werden kann. 
+Diese Klasse muss diverse Parameter entgegen nehmen, damit am Ende richtig operiert werden kann. 
 
-Wirklich besonders erwähnenswert sind hier aber nur die img_dur, die darüber entscheiden wird, wie schnell die Bilder nacheinander abgespielt werden und die loop. Ein Boolean der darüber entscheidet ob nach Ablauf der Animation wieder von vorne begonnen wird, oder nicht. 
+Wirklich besonders erwähnenswert sind hier aber nur die self.img_dur, die darüber entscheiden wird, wie schnell die Bilder nacheinander abgespielt werden und die self.loop. Ein Boolean, der darüber entscheidet ob nach Ablauf der Animation wieder von vorne begonnen wird, oder nicht.
 
-Frame startet bei 0, was klar ist, die Animation soll ja am Anfang starten. 
+self.frame startet bei 0, was klar ist, die Animation soll ja am Anfang starten. 
 
-done geht mit Loop einher, damit geschaut werden kann, wann wieder neu gestartet wird. 
+self.done geht mit Loop einher, damit geschaut werden kann, wann wieder neu gestartet wird. 
 
-images ist die Liste an Bildern.
+self.images ist die Liste an Bildern.
 
 Dieser Klasse habe ich 3 Funktionen zugefügt, um möglichst flexibel zu sein.
 
@@ -239,11 +239,12 @@ class Animation:
 
 Copy ruft die Klasse in sich abermals auf.
 
-img returnt das entsprechende Image, was laut self.frame geteilt durch die image duration gerade dran ist. Dies wird als separierte Funktion geregelt, da dies in der Implementierung in der [game.py](http://game.py) gleich große Vorteile mit sich bringt.
+img returnt das entsprechende Image, was laut self.frame geteilt durch die image duration gerade dran ist. Dies wird als separierte Funktion geregelt, da dies in der Implementierung in der game.py gleich große Vorteile mit sich bringt.
 
-Wirklich interessant ist die update Funktion. Dort wird abgefragt ob loop auf True ist erhöht dadurch den Frame und teilt diese mittels Modulo durch den Wert aus der duration und oder länge der images Liste. 
+Wirklich interessant ist die update Funktion. Dort wird abgefragt ob loop True ist und erhöht dadurch den Frame und teilt diese mittels Modulo durch den Wert aus der Duration und oder Länge der Images Liste. 
 
-Ist loop gerade False, dann wird frame auf den minimalen Wert bestehend aus Frame +1, der Image Duration mal der Länge der Imageliste -1 genommen und done auf True gesetzt.
+Ist loop gerade False, dann wird self.frame auf den minimalen Wert bestehend aus Frame +1, der Image Duration mal der Länge der Imageliste -1 genommen und self.done auf True gesetzt.
+
 Schnell formuliert ist die Idee hinter der update Funktion, dass die Loop so entsprechend verwaltet werden kann und durch die Liste iteriert werden kann, um die Animation schlussendlich in einer bestimmten Geschwindigkeit anzeigen zu können.
 
 ## Integration in die Game Klasse
@@ -290,4 +291,4 @@ Innerhalb der Game Klasse wird self.assets dazu genutzt alle spielrelevanten Ass
 
 # Schlusswort
 
-Das wars auch schon. Damit müssen diese Animationen nur noch einen Player zugewiesen werden, dann man dann auch entsprechend steuern kann. Wie das funktioniert zeige ich im nächsten Artikel.
+Das wars schon. Damit müssen diese Animationen nur noch einem Player zugewiesen werden, damit man diesen dann auch entsprechend steuern kann. Wie das funktioniert zeige ich im nächsten Artikel.
