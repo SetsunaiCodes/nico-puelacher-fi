@@ -47,14 +47,13 @@ export function Navbar() {
         <p>Nico Puelacher <span>.</span></p>
         <div className='flex-a-j-center'>
           <ul className='flex gap'>
-            <li><Link href="/">Home</Link></li>            
+            <li><Link href="/">Home</Link></li>   
           </ul>
 
           <div className='btn-container-nav'>
             <a target='_blank' href='https://github.com/SetsunaiCodes'><button>GitHub</button></a>
           </div>
         </div>
-
       </div>
     </nav>
   )
