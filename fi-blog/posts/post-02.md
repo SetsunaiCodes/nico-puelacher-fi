@@ -34,7 +34,7 @@ Für das reine Starten eines Spielfensters braucht es in der Klasse Game erstmal
 
 Nachdem Grundliegendes wie das Initialisieren von PyGame und das Erstellen der Klasse Game erfolgt ist, erstelle ich eine Variable “self.screen” und speichere darin wie groß mein Fenster werden soll. Hierfür lässt sich eine Funktion aus der PyGame Bibliothek verwenden, die einen Tupel entgegen nimmt, der erst die Höhe und dann die Breite des Spiels speichert.
 
-```Python
+```py
 import pygame
 
 class Game:
@@ -69,7 +69,7 @@ Nun aber zurück zum Code:
 
 In der Klasse Game wird die Clock nun initialisiert. Den FPS Wert werde ich erst in der Gameloop festlegen. Clock ist ebenfalls eine Funktion, die sich aus der PyGame Library importieren lässt.
 
-```Python
+```py
 import pygame
 
 class Game:
@@ -86,7 +86,7 @@ Eine Kleinigkeit, aber es wäre schön, wenn beim Start des Spiels nicht “PyGa
 
 Dafür lässt sich diese Methode verwenden:
 
-```Python
+```py
 import pygame
 
 class Game:
@@ -116,7 +116,7 @@ Denn damit ein Spiel “laufen kann”, braucht es eine solche Endlosschleife.
 
 Hierfür erstelle ich eine while-Schleife und setze diese einfach permanent auf True.
 
-```Python
+```py
 import pygame
 
 class Game:
@@ -145,7 +145,7 @@ Im späteren Verlauf wird die Anwendung über ein Shell Script beendet werden, s
 
 Daher schreibe ich diesen Event-Handler, der später auch dafür zuständig sein wird alle anderen Inputs entgegen zu nehmen:
 
-```Python
+```py
 import sys
 import pygame
 
@@ -176,7 +176,7 @@ Jetzt gibt es noch eine Kleinigkeit zu beachten. Damit nicht jeder Frame den and
 
 Dann wird schlussendlich die Framerate festgelegt. In diesem Fall werden wie bereits erwähnt keine Delta-Time Keys verwendet, sondern einfach die Zahl 60.
 
-```Python
+```py
 import sys
 import pygame
 
