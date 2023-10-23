@@ -54,73 +54,60 @@ export function PostCard(post) {
   );
 }
 
-export function AsideBar() {
+function PersonalCard(){
+  const name = "Nico Puelacher"
+  const role = "Programmierer"
+
+  return(
+    <div className="personal-card flex-a-center-j-start-column gap">
+        <img src="/JAKEPB.jpg" />
+        <div>
+          <div className="flex gap"><b>Name:</b><p>{name}</p></div>
+          <div className="flex gap"><b>Rolle:</b><p>{role}</p></div>
+        </div>
+      </div>
+  )
+}
+
+function QuickSelectGroup(props) {
   const posts = allPosts.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date)),
-  );
+  compareDesc(new Date(a.date), new Date(b.date)),
+);
+
+const id = props.title;
+
+  return(
+    <div>
+        <h3>{props.title}</h3>
+        <ul className="quick-links">
+          {posts
+            .filter((post) => post.id === id)
+            .map((post, idx) => (
+              <li key={idx}>
+                <div>
+                  <p className="no-margin topic-quick">{post.topic}</p>
+                  <Link className="no-margin title-quick" href={post.url}>
+                    {post.title}
+                  </Link>
+                </div>
+                <div className="divider-hor"></div>
+              </li>
+            ))}
+        </ul>
+    </div>
+  )
+}
+
+export function AsideBar() {
 
   return (
     <div>
-      <div className="personal-card flex-a-j-center gap">
-        <img src="/JAKEPB.jpg" />
-        <div>
-          <p>Nico Puelacher</p>
-          <p>Programmierer</p>
-        </div>
-      </div>
+      <PersonalCard/>
       <div className="section">
         <h2>Quick Links</h2>
-
-        <h3>Gedankengänge</h3>
-        <ul className="quick-links">
-          {posts
-            .filter((post) => post.id === "Gedankengänge")
-            .map((post, idx) => (
-              <li key={idx}>
-                <div>
-                  <p className="no-margin topic-quick">{post.topic}</p>
-                  <Link className="no-margin title-quick" href={post.url}>
-                    {post.title}
-                  </Link>
-                </div>
-                <div className="divider-hor"></div>
-              </li>
-            ))}
-        </ul>
-
-        <h3>Hausaufgaben</h3>
-        <ul className="quick-links">
-          {posts
-            .filter((post) => post.id === "Hausaufgabe")
-            .map((post, idx) => (
-              <li key={idx}>
-                <div>
-                  <p className="no-margin topic-quick">{post.topic}</p>
-                  <Link className="no-margin title-quick" href={post.url}>
-                    {post.title}
-                  </Link>
-                </div>
-                <div className="divider-hor"></div>
-              </li>
-            ))}
-        </ul>
-
-        <h3>DevLogs</h3>
-        <ul className="quick-links">
-          {posts
-            .filter((post) => post.id === "DevLog")
-            .map((post, idx) => (
-              <li key={idx}>
-                <div>
-                  <p className="no-margin topic-quick">{post.topic}</p>
-                  <Link className="no-margin title-quick" href={post.url}>
-                    {post.title}
-                  </Link>
-                </div>
-                <div className="divider-hor"></div>
-              </li>
-            ))}
-        </ul>
+        <QuickSelectGroup title = "Gedankengänge"/>
+        <QuickSelectGroup title = "Hausaufgabe"/>
+        <QuickSelectGroup title = "DevLog"/>
       </div>
     </div>
   );
