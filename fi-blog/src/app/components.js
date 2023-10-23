@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts } from "contentlayer/generated";
+import { FaHtml5, FaCss3, FaJs, FaReact, FaPython, FaGithub } from 'react-icons/fa';
 
+/*Page Layout*/
 export function Navbar() {
   return (
     <nav className="flex-a-j-center">
@@ -14,11 +16,14 @@ export function Navbar() {
             <li>
               <Link href="/">Home</Link>
             </li>
+            <li>
+              <Link href="/about">About</Link>
+            </li>
           </ul>
 
           <div className="btn-container-nav">
             <a target="_blank" href="https://github.com/SetsunaiCodes">
-              <button>GitHub</button>
+              <button><FaGithub/></button>
             </a>
           </div>
         </div>
@@ -27,6 +32,34 @@ export function Navbar() {
   );
 }
 
+export function AsideBar() {
+
+  return (
+    <div>
+      <PersonalCard/>
+      <div className="section">
+        <h2>Quick Links</h2>
+        <QuickSelectGroup title = "Gedankengänge"/>
+        <QuickSelectGroup title = "Hausaufgabe"/>
+        <QuickSelectGroup title = "DevLog"/>
+      </div>
+    </div>
+  );
+}
+
+export function FooterComp(){
+  return(
+    <div className="footer">
+      <div className="techstack flex-a-j-center height100">
+        <a className="footer-content">
+          <FaGithub/>
+        </a>
+      </div>
+    </div>
+  )
+}
+
+/*Posts*/
 export function PostCard(post) {
   return (
     <div className="article-cards">
@@ -98,17 +131,22 @@ const id = props.title;
   )
 }
 
-export function AsideBar() {
-
-  return (
-    <div>
-      <PersonalCard/>
-      <div className="section">
-        <h2>Quick Links</h2>
-        <QuickSelectGroup title = "Gedankengänge"/>
-        <QuickSelectGroup title = "Hausaufgabe"/>
-        <QuickSelectGroup title = "DevLog"/>
+/*About Me*/
+export function AboutMeCard() {
+  return(
+    <div className="flex gap about-card">
+      <img src="/JAKEPB.jpg" alt="ProfileImage"/>
+      <div>
+        <p><i>Philosphoscher Supertext</i></p>
+        <p>~Nico Puelacher~</p>
+        <div className="techstack flex gap">
+          <FaHtml5/>
+          <FaCss3/>
+          <FaJs/>
+          <FaReact/>
+          <FaPython/>
+        </div>
       </div>
     </div>
-  );
+  )
 }

@@ -1,11 +1,14 @@
 /*Components*/
 import { Navbar } from "../components";
+import { AboutMeCard } from "../components";
 
 export default function About() {
   return (
     <div>
-      <Navbar />
-      <h1>Das ist die Aboutseite</h1>
+      <Navbar/>
+      <div className="flex-a-j-center height70">
+        <AboutMeCard/>
+      </div>
     </div>
   );
 }
