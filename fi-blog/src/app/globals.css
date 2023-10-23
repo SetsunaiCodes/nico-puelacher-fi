@@ -1,22 +1,21 @@
 /*Set Up*/
-body,html{
+body,
+html {
   margin: 0;
   padding: 0;
 }
-::-webkit-scrollbar{
+::-webkit-scrollbar {
   width: 0rem;
 }
 /*root*/
-:root{
-
+:root {
   /*Main colors*/
   --mainBlue: rgb(86, 86, 231);
-  
+
   /*white colors*/
   --whiteMain: rgb(249, 249, 249);
   --whiteSecondary: rgb(230, 230, 230);
   --whiteShadow: 0px 3px 18px rgb(227, 227, 227);
-
 
   /*black colors*/
   --blackMain: rgb(15, 15, 15);
@@ -26,42 +25,42 @@ body,html{
 
 /*Components*/
 
-main{
+main {
   width: 80%;
 }
-aside{
+aside {
   height: 10vh;
   width: 20%;
 }
 
-.section{
+.section {
   width: 80%;
   margin: 0 10%;
 }
 
-.artikel-section{
+.artikel-section {
   width: 50%;
   margin: 0 25%;
 }
 
-pre{
+pre {
   padding: 20px;
   background-color: var(--whiteSecondary);
   border-radius: 12px;
 }
 
-code{
+code {
   font-size: 15px;
 }
 
-nav{
+nav {
   height: 8vh;
   width: 100%;
   background-color: var(--whiteMain);
   box-shadow: var(--whiteShadow);
 }
 
-nav button{
+nav button {
   padding: 10px 15px;
   background-color: var(--blackMain);
   color: var(--whiteMain);
@@ -70,7 +69,7 @@ nav button{
   border-radius: 8px;
 }
 
-nav button:hover{
+nav button:hover {
   background-color: var(--blackHover);
 }
 
@@ -83,42 +82,41 @@ nav span {
   color: var(--mainBlue);
 }
 
-.quick-links{
+.quick-links {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.quick-links li{
-
+.quick-links li {
   margin: 10px 0;
 }
 
-img{
+img {
   max-width: 100%;
 }
 
-nav ul{
+nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
   font-weight: 600;
 }
 
-nav ul li a{
+nav ul li a {
   color: var(--blackMain);
   text-decoration: none;
 }
 
-nav ul li a:hover{
+nav ul li a:hover {
   color: var(--blackHover);
 }
 
-.btn-container-nav{
+.btn-container-nav {
   margin-left: 10px;
 }
 
-.personal-card{
+.personal-card {
   height: 70px;
   width: 90%;
   margin: 0 5%;
@@ -131,110 +129,110 @@ nav ul li a:hover{
   margin: 0;
 }
 
-.personal-card img{
+.personal-card img {
   height: 60px;
   width: 60px;
   border-radius: 50%;
   object-fit: cover;
 }
 
-.article-cards{
+.article-cards {
   height: 600px;
   width: 450px;
   background-color: var(--whiteMain);
   box-shadow: var(--whiteShadow);
 }
-.article-cards img{
+.article-cards img {
   height: 300px;
   width: 100%;
 }
 
 /*flex classes*/
 
-.flex{
+.flex {
   display: flex;
 }
 
-.flex-a-j-center{
+.flex-a-j-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.flex-a-start-j-center{
+.flex-a-start-j-center {
   display: flex;
   align-items: start;
   justify-content: center;
 }
 
-.flex-a-center-j-between{
+.flex-a-center-j-between {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.flex-a-center-j-start-column{
+.flex-a-center-j-start-column {
   display: flex;
   justify-content: start;
   align-items: center;
   flex-direction: column;
 }
 
-.article-heading-container{
+.article-heading-container {
   height: 8vh;
 }
 
-.topic-quick{
+.topic-quick {
   font-size: 13px;
   color: var(--blackSecondary);
 }
 
-.card-heading{
+.card-heading {
   color: var(--blackMain);
   text-decoration: none;
 }
 
-.title-quick{
+.title-quick {
   color: var(--blackMain);
   text-decoration: none;
   font-weight: 600;
   font-size: 16px;
 }
 
-.divider-hor{
+.divider-hor {
   height: 1px;
   width: 80%;
   background-color: grey;
 }
 
-.divider-sen{
+.divider-sen {
   height: 80%;
   width: 1px;
   margin: 0 5px;
   background-color: grey;
 }
 
-.artikel-image{
+.artikel-image {
   width: 80%;
   margin: 20px 10%;
   border-radius: 12px;
 }
 
-.font-bold{
+.font-bold {
   font-weight: 600;
   font-size: 19px;
 }
 
-.article-heading{
+.article-heading {
   font-size: 35px;
 }
 
 /*boundering*/
-.gap{
-  gap: 10px
+.gap {
+  gap: 10px;
 }
 
-.margintop{
+.margintop {
   margin-top: 10px;
 }
 
@@ -242,6 +240,6 @@ nav ul li a:hover{
   margin-top: 80px;
 }
 
-.no-margin{
+.no-margin {
   margin: 0;
 }
