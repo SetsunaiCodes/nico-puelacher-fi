@@ -1,8 +1,7 @@
-import { Navbar } from "../page"
+/*Components*/
+import { Navbar} from "../components"
 
 export default function About() {
-
-
     return(
         <div>
             <Navbar/>

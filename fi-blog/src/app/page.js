@@ -2,6 +2,11 @@ import Link from 'next/link'
 import { compareDesc, format, parseISO } from 'date-fns'
 import { allPosts, Post } from 'contentlayer/generated'
 
+/*Components*/
+import { Navbar } from './components'
+import { PostCard } from './components'
+
+
 
 const cardContainerStyle = {
   display: 'flex',
@@ -10,54 +15,7 @@ const cardContainerStyle = {
 }
 
 
-function PostCard(post) {
-  return (
-    <div className='article-cards'>
-      <Link href={post.url}>
-        <img src={post.imagepath}/>
-      </Link>
-      <div className='section flex-a-center-j-start-column'>
-        <div className='flex-a-j-center'>
-        <time dateTime={post.date}>
-          {format(parseISO(post.date), 'dd.MM.yyyy')}
-        </time>
-        <p>/{post.topic}</p>
-        </div>
 
-        <h2>
-          <Link className='card-heading' href={post.url}>
-            {post.title}
-          </Link>
-        </h2>
-        <div>
-          <p>
-            {post.des}
-          </p>
-        </div>
-      </div>
-      
-    </div>
-  )
-}
-
-export function Navbar() {
-  return(
-    <nav className='flex-a-j-center'>
-      <div className='section flex-a-center-j-between'>
-        <p>Nico Puelacher <span>.</span></p>
-        <div className='flex-a-j-center'>
-          <ul className='flex gap'>
-            <li><Link href="/">Home</Link></li>   
-          </ul>
-
-          <div className='btn-container-nav'>
-            <a target='_blank' href='https://github.com/SetsunaiCodes'><button>GitHub</button></a>
-          </div>
-        </div>
-      </div>
-    </nav>
-  )
-}
 
 export default function Home() {
   const posts = allPosts.sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)))
@@ -138,7 +96,6 @@ export default function Home() {
           </div>
         </aside>
       </div>
-
     </div>
   )
 }
