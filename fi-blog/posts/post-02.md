@@ -198,7 +198,7 @@ Game().run()
 
 Dann wird das Spiel zusammen mit seiner neuen Methode **run** ausgeführt und das Ergebnis ist ein solcher Bildschirm hier:
 
-![Screenshot](../public/articlecontents/ScreenshotOfEmpty.png)
+![Screenshot](/articlecontents/ScreenshotOfEmpty.png)
 
 # Schlusswort
 
