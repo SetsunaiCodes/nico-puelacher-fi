@@ -9,7 +9,7 @@ topic: Hausaufgabe 02
 
 # Das Spritesheet
 
-![Spritesheet](../public/articlecontents/Sprites.png)
+![Spritesheet](/articlecontents/Sprites.png)
 
 Das hier ist das Spritesheet, was mir für die Ausarbeitung dieser Aufgabe zur Verfügung gestellt wurde. An diesem Spritesheet gibt es mehrere Probleme, die alle nacheinander durchgearbeitet werden, um diese zu lösen. Es existieren folgende 3 Probleme:
 
@@ -78,8 +78,7 @@ Die einzelnen Sprites werden dann auf 2 Ordner im Projekt aufgeteilt. Ein Ordner
 
 Damit es wenigstens so aussieht, als könnte unser Läufer stehen, entschied ich mich dazu einen bestehenden Sprite zu nehmen und zu verändern. Ich nach dem Sprite, der am nächsten an “stehen” dran war und versuche eine Animation dafür zu entwerfen. Ausgehend von Sprite 7 in der oberen Reihe entstand dann dieser 18. Sprite:
 
-![IdleSprite](../public/articlecontents/IdleSprite.png)
-
+![IdleSprite](/articlecontents/IdleSprite.png)
 
 Alles, was ich getan habe ist das “hintere” Bein wegzuschneiden. Dann sieht es so aus, als hätte der Läufer beide Beine nebeneinanderstehen und man könnte das andere Bein einfach nicht sehen. Da es sich bei diesem Läufer um kein hochauflösendes Bild handelt, fällt diese Herangehensweise auch nicht auf. Jetzt kann unser Läufer auch mal durchatmen und muss sich nicht permanent anstrengen.
 
@@ -91,7 +90,7 @@ Nachdem diese Vorarbeit geleistet wurde, konnte ich mich wieder dem Code widmen.
 
 Zum Verständnis hänge ich hier nochmal die aktuelle Struktur des Ordners “walking” im Verzeichnis data / images / enteties / player / walking an: 
 
-![StructureOfSprite](../public/articlecontents/StructureOfSprites.png)
+![StructureOfSprite](/articlecontents/StructureOfSprites.png)
 
 Hier möchte ich anmerken:
 
