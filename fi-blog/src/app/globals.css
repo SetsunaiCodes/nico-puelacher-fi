@@ -16,6 +16,7 @@ html {
   --whiteMain: rgb(249, 249, 249);
   --whiteSecondary: rgb(230, 230, 230);
   --whiteShadow: 0px 3px 18px rgb(227, 227, 227);
+  --whiteFooter: rgb(229, 229, 229);
 
   /*black colors*/
   --blackMain: rgb(15, 15, 15);
@@ -43,6 +44,16 @@ aside {
   margin: 0 25%;
 }
 
+.footer{
+  height: 25vh;
+  background-color: var(--whiteFooter);
+}
+.footer-content{
+  font-size: 35px;
+  cursor: pointer;
+  color: var(--blackSecondary);
+}
+
 pre {
   padding: 20px;
   background-color: var(--whiteSecondary);
@@ -61,16 +72,20 @@ nav {
 }
 
 nav button {
-  padding: 10px 15px;
-  background-color: var(--blackMain);
-  color: var(--whiteMain);
-  font-weight: 600;
-  border: none;
-  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  font-size: 20px;
+  border: grey 2px solid;
+  background-color: transparent;
+  border-radius: 50%;
 }
 
 nav button:hover {
-  background-color: var(--blackHover);
+  color: var(--blackHover);
+  border: 2px solid var(--blackHover);
 }
 
 nav p {
@@ -123,6 +138,18 @@ nav ul li a:hover {
   background-color: var(--whiteMain);
   box-shadow: var(--whiteShadow);
   border-radius: 12px;
+}
+
+.about-card{
+  height: 200px;
+  width: 60%;
+  background-color: var(--whiteMain);
+  box-shadow: var(--whiteShadow);
+}
+
+.about-card img{
+  height: 100%;
+  object-fit: cover;
 }
 
 .personal-card p {
@@ -227,6 +254,10 @@ nav ul li a:hover {
   font-size: 35px;
 }
 
+.techstack{
+  font-size: 28px;
+}
+
 /*boundering*/
 .gap {
   gap: 10px;
@@ -234,6 +265,14 @@ nav ul li a:hover {
 
 .margintop {
   margin-top: 10px;
+}
+
+.height70{
+  height: 70vh;
+}
+
+.height100{
+  height: 100%;
 }
 
 .margin-aside {
