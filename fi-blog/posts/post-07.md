@@ -1,67 +1,156 @@
 ---
-title: Roadmap
-des: In diesem Artikel befindet sich die Roadmap des Projekts
-date: 2023-10-31
+title: JoyStick Inputs mit PyGame
+des: In diesem Artikel versuche ich ein Script zu schreiben, welches JoyStick Inputs von einem RasberryPi entgegen nimmt
+date: 2023-11-06
 imagepath: articlecontents/FirstScetch.jpg
-id: DevLog
-topic: DevLog 02
+id: Hausaufgabe
+topic: Hausaufgabe 03
 ---
 
 # Einleitung
 
-In diesem Artikel möchte ich die angesetzte Roadmap für das Projekt “Tower Defense Game” zeigen. Damit keinerlei Missverstände auftreten rate ich den DevLog 01 zu lesen, damit wirklich alles klar verständlich ist. Ich werde hier nicht mehr darauf eingehen, was eine Roadmap ist und oder wofür diese gut ist.
+Hier wandere ich tatsächlich auf vollkommen fremden Terrain. Ich hab mich immer für Arcade Automaten interessiert, aber nie darüber nachgedacht selbst welche zu bauen, was sich nach diesem Modul durchaus ändern könnte, weil ich das Thema durchaus spannend finde und man so ein Projekt über ein ganzen Jahr haben könnte. Immer nebenbei. Jedenfalls soll es in diesem Artikel darum gehen, wie man mit PyGame JoyStick Inputs einließt. Wie bereits erwähnt weiß ich nicht zu 100%, wie dies funktioniert, ich weiß aber wie man Controller (PlayStation oder XBOX) als Input Source für Spiele verwenden kann. In diesem Artikel werde ich Gedankengänge und Versuche schildern und nach der Vorlesung vom 06.11 werde ich hier nachtragen, ob das Script, wie ich es mir vorgestellt habe funktioniert, oder nicht. Lernmaterial Verweise ich unten in den Quellen.
 
-**Anmerkung:**
+# Was frage ich mich aktuell?
 
-Ich könnte es auch so machen, dass ich immer wieder, wenn ich einen Meilenstein erreicht habe, zu diesem Artikel zurückkehre und entsprechend abhaken kann, damit man den Progress des Projekts nachvollziehen kann.
+Die Primärfrage, die ich mir stelle, ist ob der Rasberry Pi, den ich in der Veranstaltung verwende bereits pip und pygame installiert hat. Falls nein, sollte dies erst noch geregelt werden.
 
-# Roadmap
+### Python installieren
 
-### Arbeitswoche 01 - Set Up Phase und Gegner, 23.10.2023 - 29.10.2023
+Mit Python kommt auch der Package Manager pip, den wir auf jeden Fall brauchen werden.
 
-- Screen erstellen ✅
-- Name fürs Spiel finden
-- Layouting des Main und des Aside Bereichs
-- Enemy Klasse erstellen
-- Waypoints
-- die AI hinter den Gegnern
+[Download Python](https://www.python.org/downloads/)
 
-### Arbeitswoche 02 - Load Maps System und Placing der Turrets, 30.10.2023 - 05.11.2023
+### PyGame installieren
 
-- Load Maps System
-- 2, 3 Prototyp Maps aufsetzen
-- Turret Placement
-- Buttons, um zu interagieren
+Ich erinnere mich noch daran, wie anstrengend es war PyGame zu installieren, weil es quasi 100 verschiedene Wege gibt den entsprechenden Call in der Kommandozeile zu machen.
 
-### Arbeitswoche 03 - Kleinere Animationen und Mechanics 06.11.2023 - 12.11.2023
+**Wichtig Teil 1:** Es gibt 2 verschiedene Arten von PyGame. PyGame und PyGame-CE (Community Edition). Die CE ist VIEL, also wirklich VIEL stabiler, als die Grundversion, daher sollte sich immer für diese entschieden werden. 
 
-- Animationen (Placeholder, aber einfach für die Einschätzung der Playtime und der Dynamik des Spiels)
-- Das Aiming und das Fireing der Turrets
-- Das Verbessern der Turrets
-- Das automatische spawnen der Enemies
+**Wichtig Teil 2** ist, dass man die Kommandozeile so öffnet, dass man im User Verzeichnis ist, wenn man beginnt Kommandos einzugeben (da wo Python auch installiert sein sollte!). 
 
-### Arbeitswoche 04 - Polish des Tests 13.11.2023 - 19.11.2023
+Ich liste hier mal alle Varianten auf, die mir auf Anhieb einfallen:
 
-- Mechaniken verbessern
-- Game Over Handling
-- Finishing touches
-- Main Menu (Waiting Mode)
+```python
+py -m pip install pygame-ce
+```
 
-### Arbeitswoche 05 -  Das Gridsystem 20.11.2023 - 26.11.2023
+```python
+pip install pygame-ce
+```
 
-- Das Gridsystem über das Spiel legen
+```python
+pip3 install pygame-ce
+```
 
-### Arbeitswoche 06 - Designpolishing und Einfügen weitere Türme und Gegner 27.11.2023 - 03.12.2023
+```python
+python pip install pygame-ce
+```
 
-- Die Designs des Designers ins Spiel einbringen
-- Weitere Türme und Gegner erstellen und ins Spiel bringen
-- 10 Level ausarbeiten
+```python
+python3 pip install pygame-ce
+```
 
-### Ab dann:
+Was ich nach Recherche (ein Freund von mir ist Linux-Crack) rausgekriegt habe ist, dass es in den meisten Fällen
 
-- Testing
-- Testing
-- Testing
-- Fixing
-- Fixing
-- Fixing
+```python
+python3 pip install pygame-ce
+```
+
+ist (Ich hoffe, dass das auch hier der Fall ist).
+
+# JoyStick Inputs einlesen - Theorie
+
+Wie gesagt kenne ich mich mit JoyStick Inputs nicht aus, allerdings habe ich in Technischer Informatik in Semester 2 aufgepasst und weiß, dass es 2 verschiedene Möglichkeiten für einen JoyStick gibt, wenn es darum geht die Inputs zu lesen.
+
+### Basics
+
+Die 4 (eigentlich 6, oder 9, oder 32 (mittlerweile sind es glaube ich sogar mehr)) Richtungen werden mit verschiedenen Volt Stärken kommuniziert. Hier gibt es 2 verschiedene Ansätze, die im Code berücksichtigt werden sollten.
+
+### Always High
+
+Hier sind alle Richtungen immer mit auf voller Stärke an und nur die Richtung, die gerade gedrückt wird, wird unterdrückt. Ich meine mich zu erinnern, dass das High 0,5 Volt pro Eingang bekommt und das Low 0,3 Volt oder drunter, jedenfalls ist dort der Schwellwert.
+
+### Always Low
+
+Hier ist es genau anders herum. Hier sind alle Eingänge im Low. Bewege ich in den JoyStick in eine bestimmte Richtung, dann wechselt diese ins High.
+
+### Zusammenfassend
+
+lässt sich also feststellen, dass die entsprechenden Ports so eingelesen werden können.
+
+# JoyStick Inputs einlesen - Erste Idee
+
+## Was ich weiß
+
+Ich weiß, dass es eine PyGame Library gibt, die sich genau darum kümmert. Controller Inputs einzulesen und entsprechend zu verwalten. Ich hab mir dazu folgende Gedanken gemacht. Hier für sollten die Kommentare im  Code gelesen werden:
+
+```python
+### Init ###
+import pygame
+
+def main():
+    pygame.init()
+
+###Fenster und Titel als Formalie (brauchen wir nicht) ###
+
+    window = pygame.display.set_mode((400, 400))
+    pygame.display.set_caption("Joystick Inputs")
+
+###JoyStick über die Lib erfassen Joystick(0) nimmt sich den ersten JoyStick,
+### den er findet. ###
+
+###Danach initialisieren ###
+
+    joystick = pygame.joystick.Joystick(0)
+    joystick.init()
+
+###Schleife ###
+
+    while True:
+        for event in pygame.event.get():
+    
+    ### Fenster soll sich wieder schließen können, wenn ich auf das rote X klicke ###
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+    
+    ### Horizontale Achse und vertikale Achse erfassen (Kann die JoyStick Lib
+		### auch über einen Tupel (x,y)). ###
+        
+        horizontal_axis = joystick.get_axis(0)
+        vertical_axis = joystick.get_axis(1)
+
+    ### Damit man dann gleich was sieht möchte ich die entsprechende Richtung
+		### speichern ###
+
+        direction = ""
+
+    ### Für Always High JoySticks ###
+
+    ### Wenn die vertikale Achse kleiner ist als negativ 0,5 dann wird
+		### der Stick nach oben gedrückt ###
+    ### Gleiches System für alle anderen auch ###
+    ### Die JoyStick Lib hängt ein Minus an hoch und links dran, um unterscheiden
+		### zu können...### 
+        if vertical_axis < -0.5:
+            direction = "OBEN"
+        elif vertical_axis > 0.5:
+            direction = "UNTEN"
+        elif horizontal_axis < -0.5:
+            direction = "LINKS"
+        elif horizontal_axis > 0.5:
+            direction = "RECHTS"
+
+        print("Richtung:", direction)
+
+main()
+```
+
+# Schlusswort
+
+Wir werden sehen, ob dieses Script funktioniert, oder nicht, da bleiben wir gespannt, ich werde ein entsprechendes Update geben, wenn es soweit ist. 
+
+## Quellen
+
+Bisher habe ich keine verwendet, außer besagten Freund, dieser Artikel ist ein Make in Progress, daher weiß ich nicht, ob sich das nochmal ändert.
