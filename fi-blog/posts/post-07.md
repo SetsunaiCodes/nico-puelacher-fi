@@ -2,10 +2,12 @@
 title: JoyStick Inputs mit PyGame
 des: In diesem Artikel versuche ich ein Script zu schreiben, welches JoyStick Inputs von einem RasberryPi entgegen nimmt
 date: 2023-11-06
-imagepath: articlecontents/FirstScetch.jpg
+imagepath: articleheads/JoySticks.jpg
 id: Hausaufgabe
 topic: Hausaufgabe 03
 ---
+
+# Hausaufgabe 03: Inputs einlesen Python
 
 # Einleitung
 
@@ -147,10 +149,81 @@ def main():
 main()
 ```
 
+# — Nachtrag 07.11.2023
+
+# Wir haben ein Problem
+
+Das Script was ich hier geschrieben habe funktioniert nicht mit einem Rasberry Pi. Dieses Script funktioniert tatsächlich einwandfrei mit einem XBOX oder Playstation Controller aber nicht mit einem JoyStick oder den entsprechenden Buttons. Hätte mich auch ein bisschen gewundert, wenn PyGame wirklich so smart gewesen wäre die SerialPins automatisch durch zu tracken.
+
+Aber das ist noch lange kein Weltuntergang. Ich habe eine bisschen hin und hergesucht und diverse Lösungen gefunden wie ich mit meinem Code GPIO Pins auslesen kann. 
+
+Dafür kann man die RPi.GPIO Library benutzen und damit den bereits bestehenden Code verändern. 
+
+Wichtig ist, dass sich dadurch die Struktur eines PyGame Projects ein bisschen verändert.
+
+Ein PyGame besteht aus einem Init Bereich und der Loop. Mit der GPIO Library erweitert sich dieses Projekt um ein Stet-Up Bereich für die Pins.
+
+Das System dahinter ist tatsächlich genau das selbe, wie man es eigentlich kennt. Pins initialisieren ist eigentlich ja auch immer ähnlich.
+
+```python
+import time
+import pygame
+import RPi.GPIO as GPIO
+# Zählweise der Pins festlegen
+
+GPIO.setmode(GPIO.BOARD)
+#setup gpio
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(22, GPIO.OUT)
+GPIO.setup(23, GPIO.OUT)
+GPIO.setup(24, GPIO.OUT)
+GPIO.setup(25, GPIO.OUT)
+
+###Hier müssten dann jetzt die Assets geladen, der Player und das Fenster erstellt werden
+###damit das Spiel dann läuft. Aktuell werden nur Konsolen Inputs geregelt.
+
+while True:
+     
+     for event in pygame.event.get():
+            
+            direcion = ""
+    
+    ### Fenster soll sich wieder schließen können, wenn ich auf das rote X klicke ###
+            if event.type == pygame.QUIT:
+                pygame.quit()
+                quit()
+            if event.type == pygame.K_w:
+                     GPIO.output(22, GPIO.HIGH)
+                     direction = "hoch"
+
+            if event.type == pygame.K_a:
+                     GPIO.output(23, GPIO.HIGH)
+                     direction = "links"
+            if event.type == pygame.K_s:
+                     GPIO.output(24, GPIO.HIGH)
+                     direction = "runter"
+            if event.type == pygame.K_a:
+                     GPIO.output(24, GPIO.HIGH)
+                     direction = "rechts"
+            
+            print("JoyStick Richtung:" + direction)
+        
+            
+# Ausgänge wieder freigeben
+GPIO.cleanup()
+```
+
+## Mini Problem
+
+Diese Library lässt sich nicht außerhalb eines RasberryPi s kompilieren, was auch bedeutet, dass ich immernoch nicht 100% weiß, ob der Code, den ich hier geschrieben habe funktioniert oder nicht. Das ist aber eigentlich kein großes Problem, im Fokus steht die Entwicklung des Spiels selbst.  
+
 # Schlusswort
 
 Wir werden sehen, ob dieses Script funktioniert, oder nicht, da bleiben wir gespannt, ich werde ein entsprechendes Update geben, wenn es soweit ist. 
 
-## Quellen
+## — Nachtrag 07.11.2023
 
-Bisher habe ich keine verwendet, außer besagten Freund, dieser Artikel ist ein Make in Progress, daher weiß ich nicht, ob sich das nochmal ändert.
+Ich habe hier dann jetzt eine finale Lösung, wie man GPIO Pins in Python auslesen und verwenden kann. Sobald wir einen RasberryPi und den entsprechenden JoyStick habe, werde ich das Script testen.
+
+## Quellen
+[Read GPIO.output to make something happen in PyGame](https://raspberrypi.stackexchange.com/questions/38371/read-gpio-output-to-make-something-happen-in-pygame)
