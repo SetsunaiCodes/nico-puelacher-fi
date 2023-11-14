@@ -2,7 +2,7 @@
 title: JoyStick Inputs mit PyGame
 des: In diesem Artikel versuche ich ein Script zu schreiben, welches JoyStick Inputs von einem RasberryPi entgegen nimmt
 date: 2023-11-06
-imagepath: articleheads/JoySticks.jpg
+imagepath: articlesheads/JoySticks.jpg
 id: Hausaufgabe
 topic: Hausaufgabe 03
 ---
