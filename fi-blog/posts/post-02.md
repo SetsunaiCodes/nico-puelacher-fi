@@ -54,8 +54,15 @@ In der Regel sind 60 Bilder pro Sekunde eigentlich Standard geworden. Es gibt zw
 
 In PyGame spielt dies eine **sehr** relevante Rolle. Wenn man kurz darüber nachdenkt was FPS eigentlich heißt, dann erschließt sich, dass die schlussendliche Game-Loop 60 (oder 30) Mal pro Sekunde durchlaufen wird.
 
-**Übrigens:** Würde man keinen Framecap festlegen, dann würde die Game-Loop so schnell es geht wieder und wieder sequentiell durchlaufen werden, was A zu 100% CPU Auslastung und B zu inkonsistenten Werten führen würde.
+**Übrigens:** Würde man keinen Framecap festlegen, dann würde die Game-Loop so schnell es geht wieder und wieder sequentiell durchlaufen werden, was A zu einer hohen CPU Auslastung und B zu inkonsistenten Werten führen würde.
 Die Bildwiederholrate steht zum Beispiel in Zusammenhang damit, wie schnell der Player laufen oder springen kann. Generell werden Bewegungsabläufe durch die Bildwiederholrate beeinflusst.
+
+_"Wie siehts denn aus mit Multithreading / Multitasking?"_
+
+PyGame ist nicht besonders gut für Multithreading geeignet. Dies hat folgenden Grund:
+In PyGame wird alles sequientiell abgearbeitet, **was auch bedeutet**, dass die Sprites sequentiell geladen und gerendert werden müssen. In der grafischen Darstellung führt dies zu Problemen. 
+
+Nebenläufigkeit ist aber zumindest nicht unmöglich, jedoch für die PyGame Entwicklung nicht geeignet. Man könnte die Python-Multiprocessing Library verwenden und so Aufgaben in sperate Prozesse auslagern. Hier ist der Rattenschwanz aber viel länger als der schlussendliche Vorteil, denn die Kommunikation zwischen Prozessen untereinander hat extrem viel Overhead ist macht das Entwickeln um einiges komplexer. PyGame ist darauf ausgelegt eine einzige Thread-Umgebung zu verwenden.
 
 Ich habe hierfür eine Anlage verlinkt, die den hier zwar sehr kleinen, aber doch existierenden Unterschied am Beispiel Super Mario 64 zeigt. Dort spielt ein Speedrunner genau den selben Bewegungsablauf, nur 1 Mal in 30 und 1 Mal in 60 FPS. Dabei reagiert das Spiel marginal anders.
 
