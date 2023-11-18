@@ -71,7 +71,15 @@ Die 4 (eigentlich 6, oder 9, oder 32 (mittlerweile sind es glaube ich sogar mehr
 
 ### Always High
 
-Hier sind alle Richtungen immer mit auf voller Stärke an und nur die Richtung, die gerade gedrückt wird, wird unterdrückt. Ich meine mich zu erinnern, dass das High 0,5 Volt pro Eingang bekommt und das Low 0,3 Volt oder drunter, jedenfalls ist dort der Schwellwert.
+Hier sind alle Richtungen immer mit auf voller Stärke an und nur die Richtung, die gerade gedrückt wird, wird unterdrückt.
+
+Bei RasberryPi's (bei Arduinos auch) ist es so, dass zwischen "High" und "Low" (an oder aus / 1 oder 0) unterschieden wird. Jenachdem wie viel Spannung gerade auf einen GPIO-Pin gesetzt wird, wird entweder das Eine oder das Andere "aktiviert". 
+
+Man merke sich:
+
+**High:** 3,3 Volt
+
+**Low:** ca. 0 Volt
 
 ### Always Low
 
