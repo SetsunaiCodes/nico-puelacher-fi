@@ -4,6 +4,7 @@ import { allPosts, Post } from "contentlayer/generated";
 
 /*Components*/
 import { Navbar } from "./components";
+import { MainHighlight } from "./components";
 import { PostCard } from "./components";
 import { AsideBar } from "./components";
 
@@ -20,8 +21,11 @@ export default function Home() {
 
   return (
     <div>
-      <Navbar />
+      <MainHighlight/>
       <div className="flex-a-start-j-center section margintop">
+        <aside className="margin-aside">
+          <AsideBar/>
+        </aside>
         <main>
           <h1>Uploads</h1>
           <div style={cardContainerStyle}>
@@ -30,9 +34,6 @@ export default function Home() {
             ))}
           </div>
         </main>
-        <aside className="margin-aside">
-          <AsideBar/>
-        </aside>
       </div>
     </div>
   );

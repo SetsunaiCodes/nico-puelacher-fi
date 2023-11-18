@@ -2,7 +2,6 @@ import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts } from "contentlayer/generated";
 
 /*Components*/
-import { Navbar } from "src/app/components";
 import { AsideBar } from "src/app/components";
 
 export const generateStaticParams = async () =>
@@ -21,9 +20,11 @@ const PostLayout = ({ params }) => {
   const currentImagePath = "/" + post.imagepath;
   return (
     <div>
-      <Navbar />
       <div className="section">
         <div className="flex-a-start-j-center">
+          <aside className="margin-aside">
+            <AsideBar />
+          </aside>
           <main>
             <article>
               <div>
@@ -39,9 +40,6 @@ const PostLayout = ({ params }) => {
               <div dangerouslySetInnerHTML={{ __html: post.body.html }} />
             </article>
           </main>
-          <aside className="margin-aside">
-            <AsideBar />
-          </aside>
         </div>
       </div>
     </div>
