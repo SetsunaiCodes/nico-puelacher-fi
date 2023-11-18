@@ -36,7 +36,6 @@ export function AsideBar() {
 
   return (
     <div>
-      <PersonalCard/>
       <div className="section">
         <h2>Quick Links</h2>
         <QuickSelectGroup title = "Gedankengänge"/>
@@ -87,21 +86,6 @@ export function PostCard(post) {
   );
 }
 
-function PersonalCard(){
-  const name = "Nico Puelacher"
-  const role = "Programmierer"
-
-  return(
-    <div className="personal-card flex-a-center-j-start-column gap">
-        <img src="/JAKEPB.jpg" />
-        <div>
-          <div className="flex gap"><b>Name:</b><p>{name}</p></div>
-          <div className="flex gap"><b>Rolle:</b><p>{role}</p></div>
-        </div>
-      </div>
-  )
-}
-
 function QuickSelectGroup(props) {
   const posts = allPosts.sort((a, b) =>
   compareDesc(new Date(a.date), new Date(b.date)),
@@ -147,6 +131,26 @@ export function AboutMeCard() {
           <FaPython/>
         </div>
       </div>
+    </div>
+  )
+}
+
+/* Main Highlight */
+
+export function MainHighlight() {
+
+  return(
+    <div className="highlight-main">
+      <div className="black-transparent">
+        <Navbar/>
+        <div className=" flex-a-j-center height-100">
+          <div className="flex-a-j-center-column">
+            <h1>Nico Puelacher</h1>
+            <p>Fortgeschrittene Interaktionstechnologien</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   )
 }
