@@ -7,8 +7,6 @@ id: Hausaufgabe
 topic: Hausaufgabe 03
 ---
 
-# Hausaufgabe 03: Inputs einlesen Python
-
 # Einleitung
 
 Hier wandere ich tatsächlich auf vollkommen fremden Terrain. Ich hab mich immer für Arcade Automaten interessiert, aber nie darüber nachgedacht selbst welche zu bauen, was sich nach diesem Modul durchaus ändern könnte, weil ich das Thema durchaus spannend finde und man so ein Projekt über ein ganzen Jahr haben könnte. Immer nebenbei. Jedenfalls soll es in diesem Artikel darum gehen, wie man mit PyGame JoyStick Inputs einließt. Wie bereits erwähnt weiß ich nicht zu 100%, wie dies funktioniert, ich weiß aber wie man Controller (PlayStation oder XBOX) als Input Source für Spiele verwenden kann. In diesem Artikel werde ich Gedankengänge und Versuche schildern und nach der Vorlesung vom 06.11 werde ich hier nachtragen, ob das Script, wie ich es mir vorgestellt habe funktioniert, oder nicht. Lernmaterial Verweise ich unten in den Quellen.
