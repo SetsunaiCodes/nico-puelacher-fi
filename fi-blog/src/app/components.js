@@ -66,19 +66,19 @@ export function PostCard(post) {
         <img src={post.imagepath} />
       </Link>
       <div className="section flex-a-center-j-start-column">
-        <div className="flex-a-j-center">
+        <h2>
+          <Link className="card-heading" href={post.url}>
+            {post.title}
+          </Link>
+        </h2>
+        <div className="flex-a-j-center card-topic">
           <time dateTime={post.date}>
             {format(parseISO(post.date), "dd.MM.yyyy")}
           </time>
           <p>/{post.topic}</p>
         </div>
 
-        <h2>
-          <Link className="card-heading" href={post.url}>
-            {post.title}
-          </Link>
-        </h2>
-        <div>
+        <div className="margintop">
           <p>{post.des}</p>
         </div>
       </div>
