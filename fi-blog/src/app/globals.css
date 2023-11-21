@@ -174,10 +174,16 @@ nav ul li a:hover {
 .article-cards img {
   height: 300px;
   width: 100%;
+  object-fit: cover;
 }
 
 .article-cards p {
   margin: 0;
+}
+
+.card-topic{
+  margin-bottom: 10px;
+  font-weight: 600;
 }
 
 
