@@ -68,7 +68,7 @@ Kurzer Exkurs zu JoySticks. Es existieren 2 gängige Varianten von Arcade JoySti
 
 # Praxis
 
-Max Overlack und ich trafen uns, um gemeinsam dem RasberryPi zu verkabeln und das Skript zu testen.
+Max Overlack und ich trafen uns, um gemeinsam den RasberryPi zu verkabeln und das Skript zu testen.
 
 ## Download der Software
 
