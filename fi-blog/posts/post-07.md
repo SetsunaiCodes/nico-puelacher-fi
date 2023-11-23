@@ -44,7 +44,7 @@ Ein Meer aus Abkürzungen, die alle super wichtig und entscheidend wirken. Damit
 
 ![Table](/articlecontents/Table.png)
 
-Tatsächlich werden wir für dieses Projekt nicht im Ansatz gebrauch von allen Inputs machen dennoch fühle ich mich sehr wohl mit dieser Tabelle!
+Tatsächlich werden wir für dieses Projekt nicht im Ansatz Gebrauch von allen Inputs machen dennoch fühle ich mich sehr wohl mit dieser Tabelle!
 
 ### HIGH und LOW
 
