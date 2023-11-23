@@ -1,235 +1,234 @@
 ---
 title: JoyStick Inputs mit PyGame
-des: In diesem Artikel versuche ich ein Script zu schreiben, welches JoyStick Inputs von einem RasberryPi entgegen nimmt
-date: 2023-11-06
+des: In diesem Artikel setzte ich mich mit Max Overlack zusammen, um das Input Script für den JoyStick zu testen.
+date: 2023-11-21
 imagepath: articlesheads/JoySticks.jpg
 id: Hausaufgabe
 topic: Hausaufgabe 03
 ---
 
+
+# Hausaufgabe 03: JoyStick Inputs
+
 # Einleitung
 
-Hier wandere ich tatsächlich auf vollkommen fremden Terrain. Ich hab mich immer für Arcade Automaten interessiert, aber nie darüber nachgedacht selbst welche zu bauen, was sich nach diesem Modul durchaus ändern könnte, weil ich das Thema durchaus spannend finde und man so ein Projekt über ein ganzen Jahr haben könnte. Immer nebenbei. Jedenfalls soll es in diesem Artikel darum gehen, wie man mit PyGame JoyStick Inputs einließt. Wie bereits erwähnt weiß ich nicht zu 100%, wie dies funktioniert, ich weiß aber wie man Controller (PlayStation oder XBOX) als Input Source für Spiele verwenden kann. In diesem Artikel werde ich Gedankengänge und Versuche schildern und nach der Vorlesung vom 06.11 werde ich hier nachtragen, ob das Script, wie ich es mir vorgestellt habe funktioniert, oder nicht. Lernmaterial Verweise ich unten in den Quellen.
+Pfiffigen Augen wird aufgefallen sein, dass hier eigentlich ein anderer Artikel zum Thema JoyStick Inputs in PyGame stehen sollte. Ich entschied mich dazu diesen Artikel wieder offline zu nehmen, da dieser weder großartigen Mehrwert bietet, noch Skripte thematisiert, die tatsächlich 100%ig funktionieren. Ich möchte mit diesem Artikel ein bisschen Aufklärungsarbeit betreiben. Dies in einem informativeren und strukturierteren Rahmen als zuvor. Sollte sich irgendwer über den vorherigen Artikel gefreut haben, so kann ich nur mit
 
-# Was frage ich mich aktuell?
+**¯\_(ツ)_/¯**
 
-Die Primärfrage, die ich mir stelle, ist ob der Rasberry Pi, den ich in der Veranstaltung verwende bereits pip und pygame installiert hat. Falls nein, sollte dies erst noch geregelt werden.
+reagieren.
 
-### Python installieren
+Fangen wir also direkt mit der Aufklärungsarbeit an!
 
-Mit Python kommt auch der Package Manager pip, den wir auf jeden Fall brauchen werden.
+# Theorie
 
-[Download Python](https://www.python.org/downloads/)
+## RasberryPi
 
-### PyGame installieren
+### Allgemeines
 
-Ich erinnere mich noch daran, wie anstrengend es war PyGame zu installieren, weil es quasi 100 verschiedene Wege gibt den entsprechenden Call in der Kommandozeile zu machen.
+Ein Raspberry Pi ist ein kleiner, preiswerter Computer, der von der **“Raspberry Pi Foundation“** entwickelt wurde. Er wurde entworfen, um Menschen aller Altersgruppen das Erlernen von Programmierung und Computertechnik zu ermöglichen. Trotz seiner Größe verfügt der Raspberry Pi über alle wesentlichen Elemente eines normalen Computers, einschließlich Prozessor, Arbeitsspeicher, USB-Anschlüsse und mehr.
 
-**Wichtig Teil 1:** Es gibt 2 verschiedene Arten von PyGame. PyGame und PyGame-CE (Community Edition). Die CE ist VIEL, also wirklich VIEL stabiler, als die Grundversion, daher sollte sich immer für diese entschieden werden. 
+In der Regel wird ein RasberryPi mit **Linux** als Betriebssystem verwendet.
 
-**Wichtig Teil 2** ist, dass man die Kommandozeile so öffnet, dass man im User Verzeichnis ist, wenn man beginnt Kommandos einzugeben (da wo Python auch installiert sein sollte!). 
+Ich kannte den RasberryPi bisher auch nur als Möglichkeit Retro-Spiele, über ein eigenständiges System wieder zum Leben zu erwecken. Ich habe mal ein bisschen umherrecherchiert und dabei herausgefunden, dass man den RasberryPi sogar als Webserver benutzen könnte. Das bedeutet, dass ich mit meiner Berufung Webentwickler näher an RasberryPis sein könnte, als erwartet. Auch Dinge wie Smarthome-Technologie sind einfach möglich, auch wenn ich dabei eher auf Arduinos setzen würde, aber das ist ja jetzt nicht Thema. Was ich sagen will ist, dass RasberryPis vielseitig angewendet werden können.
 
-Ich liste hier mal alle Varianten auf, die mir auf Anhieb einfallen:
+### GPIO-Pins
 
-```python
-py -m pip install pygame-ce
-```
+Damit der RasberryPi mehr kann als Luft auf die CPU pusten und rot leuchten brauchts sowohl GPIO-Pins, Kabel und die entsprechenden Komponenten, die man verwenden will. 
 
-```python
-pip install pygame-ce
-```
+Das Thema GPIO-Pins kann komplexer sein, als man im ersten Moment vielleicht denkt, daher kann diese Grafik hier, die ich auf der offiziellen RasberryPi Seite gefunden habe Hilfestellung bieten.
 
-```python
-pip3 install pygame-ce
-```
+![PinInputs](/articlecontents/PiInputs.png)
 
-```python
-python pip install pygame-ce
-```
+Ein Meer aus Abkürzungen, die alle super wichtig und entscheidend wirken. Damit ich vollständig innerhalb dieses Artikels aufklären kann liefere ich im folgenden eine geschriebene Tabelle, die all diese Abkürzungen kurz erklärt. Ich möchte wirklich, dass man etwas aus diesem Artikel mitnehmen kann, die Foundation für dieses Projekt sollte fest und klar verständlich sein. Außerdem kann ich mir ganz ehrlich gut vorstellen, dass ich mir das Hobby Arcade Systeme entwerfen nach diesem Modul beibehalten werde und da ist ein solches Wissen ohnehin nicht schlecht.
 
-```python
-python3 pip install pygame-ce
-```
+![Table](/articlecontents/Table.png)
 
-Was ich nach Recherche (ein Freund von mir ist Linux-Crack) rausgekriegt habe ist, dass es in den meisten Fällen
+Tatsächlich werden wir für dieses Projekt nicht im Ansatz gebrauch von allen Inputs machen dennoch fühle ich mich sehr wohl mit dieser Tabelle!
 
-```python
-python3 pip install pygame-ce
-```
+### HIGH und LOW
 
-ist (Ich hoffe, dass das auch hier der Fall ist).
+Wie man bereits aus der Tabelle entnehmen kann gibt es 2 verschiedene “Power-Pins” (geiles Wort). 
 
-# JoyStick Inputs einlesen - Theorie
+Auch wenn ich gleich erst genauer darauf eingehen möchte schneide ich hier schonmal an:
 
-Wie gesagt kenne ich mich mit JoyStick Inputs nicht aus, allerdings habe ich in Technischer Informatik in Semester 2 aufgepasst und weiß, dass es 2 verschiedene Möglichkeiten für einen JoyStick gibt, wenn es darum geht die Inputs zu lesen.
+GPIO Pins können je nach Input entweder HIGH oder LOW sein. Äquivalent zu an oder aus. 1 oder 0. Man versteht das System denke ich. High bei einem RasberryPi bedeutet 3,3 Volt, Low bedeutet ca. 0 Volt. 
 
-### Basics
+### Always HIGH / Always LOW JoySticks
 
-Die 4 (eigentlich 6, oder 9, oder 32 (mittlerweile sind es glaube ich sogar mehr)) Richtungen werden mit verschiedenen Volt Stärken kommuniziert. Hier gibt es 2 verschiedene Ansätze, die im Code berücksichtigt werden sollten.
+Kurzer Exkurs zu JoySticks. Es existieren 2 gängige Varianten von Arcade JoySticks, die sich mit einem RasberryPi verbinden lassen. Ein Arcade JoyStick besteht in der Regel aus 4 analogen Inputs (oben, unten, rechts, links). Bei unserem JoyStick kann man diese sogar sehen, da die untere Seite transparent ist.
 
-### Always High
+![JoyStick von unten](/articlecontents/JoyStickBottom.jpg)
 
-Hier sind alle Richtungen immer mit auf voller Stärke an und nur die Richtung, die gerade gedrückt wird, wird unterdrückt.
+(Wenn man genau ins Innenleben schaut, kann man die roten Knöpfe erkennen)
 
-Bei RasberryPi's (bei Arduinos auch) ist es so, dass zwischen "High" und "Low" (an oder aus / 1 oder 0) unterschieden wird. Jenachdem wie viel Spannung gerade auf einen GPIO-Pin gesetzt wird, wird entweder das Eine oder das Andere "aktiviert". 
+**Always HIGH:** Bei Betrieb laufen alle 4 Pins auf Spannung. Der Input der über den JoyStick gedrückt wird, wird blockiert und so entsteht ein Input.
 
-Man merke sich:
+**Always LOW:** Das genaue Gegenteil. Alle Inputs verfügen über keine Spannung. Betätige ich den JoyStick, dann wird die entsprechende Richtung mit Strom befeuert. 
 
-**High:** 3,3 Volt
+# Praxis
 
-**Low:** ca. 0 Volt
+Max Overlack und ich trafen uns, um gemeinsam dem RasberryPi zu verkabeln und das Skript zu testen.
 
-### Always Low
+## Download der Software
 
-Hier ist es genau anders herum. Hier sind alle Eingänge im Low. Bewege ich in den JoyStick in eine bestimmte Richtung, dann wechselt diese ins High.
+Auf der offiziellen Seite von RasberryPi fanden wir Download Links zum entsprechenden Betriebssystem RasberryPi OS. Wirklich schön ist, dass Python, PyGame, RPIO (Die Library um GPIO Pins einzulesen) bereits vorinstalliert mit dem System gekommen sind.
 
-### Zusammenfassend
+https://www.raspberrypi.com/software/
 
-lässt sich also feststellen, dass die entsprechenden Ports so eingelesen werden können.
+![Rasberry Pi Set Up 01](/articlecontents/PiOSSetup.jpg)
 
-# JoyStick Inputs einlesen - Erste Idee
+Hier sieht man einen Screenshot vom Installationsvorgang. Herr Overlack mag zwar über ein Macbook aus diesem Jahrhundert verfügen, doch zu unseren Gunsten verfügt dieses immernoch über ein internes SD-Karten Lesegerät. Heureka.
 
-## Was ich weiß
+![Rasberry Pi Set Up 02](/articlecontents/PiOSSetup2.jpg)
 
-Ich weiß, dass es eine PyGame Library gibt, die sich genau darum kümmert. Controller Inputs einzulesen und entsprechend zu verwalten. Ich hab mir dazu folgende Gedanken gemacht. Hier für sollten die Kommentare im  Code gelesen werden:
+(Hier ein Screenshot der Installationsmöglichkeiten des Pis)
 
-```python
-### Init ###
-import pygame
+Hier konnten wir verschiedenste Einstellungen vor dem Download des Betriebssystems festlegen, damit dies im Nachhinein nicht mehr getan werden muss.
 
-def main():
-    pygame.init()
+Wir schlossen Maus, Tastatur und HDMI an den Pi an und warteten auf den Abschluss des Schreibvorgangs.
 
-###Fenster und Titel als Formalie (brauchen wir nicht) ###
+![RasberryPi](/articlecontents/RasberryPi.jpg)
 
-    window = pygame.display.set_mode((400, 400))
-    pygame.display.set_caption("Joystick Inputs")
+Nach erfolgreichem Schreieben des OS auf die SD Karte, steckten wir diese in den Pi und schlossen ihn an den Strom an. Daraufhin erschien dieses Bild und alles startete perfekt.
 
-###JoyStick über die Lib erfassen Joystick(0) nimmt sich den ersten JoyStick,
-### den er findet. ###
+![RasberryPi Launch](/articlecontents/RasberryPiLaunch.png)
 
-###Danach initialisieren ###
+Nach diversen Neustarts wegen der Installation des Systems ging es dann auch los. Der Pi ist startklar.
 
-    joystick = pygame.joystick.Joystick(0)
-    joystick.init()
+## Anschließen des JoySticks
 
-###Schleife ###
+Für eine ausführliche Erklärung wie man den JoyStick an den RasberryPi anschließt verweise ich an dieser Stelle an den entsprechenden Artikel von Herrn Overlack (ist ja auch nicht meine Aufgabe).
 
-    while True:
-        for event in pygame.event.get():
-    
-    ### Fenster soll sich wieder schließen können, wenn ich auf das rote X klicke ###
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                quit()
-    
-    ### Horizontale Achse und vertikale Achse erfassen (Kann die JoyStick Lib
-		### auch über einen Tupel (x,y)). ###
-        
-        horizontal_axis = joystick.get_axis(0)
-        vertical_axis = joystick.get_axis(1)
+Jedenfalls sah das Endprodukt so aus:
 
-    ### Damit man dann gleich was sieht möchte ich die entsprechende Richtung
-		### speichern ###
+![Rasberry Pi mit JoyStick](/articlecontents/PimitJoyStick.jpg)
 
-        direction = ""
+## Inputs einlesen
 
-    ### Für Always High JoySticks ###
-
-    ### Wenn die vertikale Achse kleiner ist als negativ 0,5 dann wird
-		### der Stick nach oben gedrückt ###
-    ### Gleiches System für alle anderen auch ###
-    ### Die JoyStick Lib hängt ein Minus an hoch und links dran, um unterscheiden
-		### zu können...### 
-        if vertical_axis < -0.5:
-            direction = "OBEN"
-        elif vertical_axis > 0.5:
-            direction = "UNTEN"
-        elif horizontal_axis < -0.5:
-            direction = "LINKS"
-        elif horizontal_axis > 0.5:
-            direction = "RECHTS"
-
-        print("Richtung:", direction)
-
-main()
-```
-
-# — Nachtrag 07.11.2023
-
-# Wir haben ein Problem
-
-Das Script was ich hier geschrieben habe funktioniert nicht mit einem Rasberry Pi. Dieses Script funktioniert tatsächlich einwandfrei mit einem XBOX oder Playstation Controller aber nicht mit einem JoyStick oder den entsprechenden Buttons. Hätte mich auch ein bisschen gewundert, wenn PyGame wirklich so smart gewesen wäre die SerialPins automatisch durch zu tracken.
-
-Aber das ist noch lange kein Weltuntergang. Ich habe eine bisschen hin und hergesucht und diverse Lösungen gefunden wie ich mit meinem Code GPIO Pins auslesen kann. 
-
-Dafür kann man die RPi.GPIO Library benutzen und damit den bereits bestehenden Code verändern. 
-
-Wichtig ist, dass sich dadurch die Struktur eines PyGame Projects ein bisschen verändert.
-
-Ein PyGame besteht aus einem Init Bereich und der Loop. Mit der GPIO Library erweitert sich dieses Projekt um ein Stet-Up Bereich für die Pins.
-
-Das System dahinter ist tatsächlich genau das selbe, wie man es eigentlich kennt. Pins initialisieren ist eigentlich ja auch immer ähnlich.
+Nun zu meiner Aufgabe des Abends. Das Aufsetzen eines Skripts. Angekommen bin ich mit diesem Skript:
 
 ```python
 import time
 import pygame
 import RPi.GPIO as GPIO
-# Zählweise der Pins festlegen
 
-GPIO.setmode(GPIO.BOARD)
-#setup gpio
+pygame.init()
+
 GPIO.setmode(GPIO.BCM)
-GPIO.setup(22, GPIO.OUT)
-GPIO.setup(23, GPIO.OUT)
-GPIO.setup(24, GPIO.OUT)
-GPIO.setup(25, GPIO.OUT)
-
-###Hier müssten dann jetzt die Assets geladen, der Player und das Fenster erstellt werden
-###damit das Spiel dann läuft. Aktuell werden nur Konsolen Inputs geregelt.
+GPIO.setup(18, GPIO.PUD_UP)
+GPIO.setup(17, GPIO.PUD_UP)
+GPIO.setup(27, GPIO.PUD_UP)
+GPIO.setup(22, GPIO.PUD_UP)
 
 while True:
-     
-     for event in pygame.event.get():
-            
-            direcion = ""
-    
-    ### Fenster soll sich wieder schließen können, wenn ich auf das rote X klicke ###
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                quit()
-            if event.type == pygame.K_w:
-                     GPIO.output(22, GPIO.HIGH)
-                     direction = "hoch"
-
-            if event.type == pygame.K_a:
-                     GPIO.output(23, GPIO.HIGH)
-                     direction = "links"
-            if event.type == pygame.K_s:
-                     GPIO.output(24, GPIO.HIGH)
-                     direction = "runter"
-            if event.type == pygame.K_a:
-                     GPIO.output(24, GPIO.HIGH)
-                     direction = "rechts"
-            
-            print("JoyStick Richtung:" + direction)
+    direcion = ""
+    if GPIO.input(17):
+        direction = "hoch"
+        print("JoyStick Richtung:" + direction)
+    if GPIO.input(18):
+        direction = "links"
+        print("JoyStick Richtung:" + direction)
+    if GPIO.input(27):
+        direction = "runter"
+        print("JoyStick Richtung:" + direction)
+    if GPIO.input(22):
+        direction = "rechts"
+        print("JoyStick Richtung:" + direction)                     
         
             
-# Ausgänge wieder freigeben
 GPIO.cleanup()
 ```
 
-## Mini Problem
+Und der erste Test schlug vollkommen fehl. Es ging gar nichts. Dann recherchierte ich nochmal kurz und erkannte, dass es ein Syntax Problem beim initialisieren der Pins gibt. Dies änderte ich so ab:
 
-Diese Library lässt sich nicht außerhalb eines RasberryPi s kompilieren, was auch bedeutet, dass ich immernoch nicht 100% weiß, ob der Code, den ich hier geschrieben habe funktioniert oder nicht. Das ist aber eigentlich kein großes Problem, im Fokus steht die Entwicklung des Spiels selbst.  
+```python
+import time
+import pygame
+import RPi.GPIO as GPIO
+pygame.init()
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(18, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+GPIO.setup(17, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+GPIO.setup(27, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+GPIO.setup(22, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+
+while True:
+    direcion = ""
+    if not GPIO.input(17):
+        direction = "hoch"
+        print("JoyStick Richtung:" + direction)
+    if not GPIO.input(18):
+        direction = "links"
+        print("JoyStick Richtung:" + direction)
+    if not GPIO.input(27):
+        direction = "runter"
+        print("JoyStick Richtung:" + direction)
+    if not GPIO.input(22):
+        direction = "rechts"
+        print("JoyStick Richtung:" + direction)
+
+            
+            
+GPIO.cleanup()
+```
+
+Und dann wurde das Skript ausgeführt. Allerdings nicht so, wie gedacht. Denn es wurden immer wieder hintereinander alle Input Nachrichten ausgegeben. Wieder und wieder. 
+
+Nach kurzem überlegen kam mir dann die Erleuchtung. Ich erinnerte mich an die Vorlesung zu JoySticks (und an heute Morgen, immerhin hab ich es bereits in diesem Artikel thematisiert), dass es Always High und Always Low JoySticks gibt. 
+
+*”Wenn doch immer **ALLE** Ausgänge abgefeuert werden und wir wissen, dass das Skript funktioniert, dann heißt das, dass auf allen Inputs permanent Strom liegen muss. Dann ist das hier ein Always High JoyStick! Das bedeutet, dass wir nicht nach einem High fragen müssen, sondern nach einem LOW!(oder in unserem Fall nach einem “nicht High”)”* war das wahrscheinlich einzig 100% geistreiche was an diesem Tag aus mir herausgekommen war, aber genau das war die Lösung.
+
+Ich änderte das Skript abermals so ab:
+
+```python
+import time
+import pygame
+import RPi.GPIO as GPIO
+pygame.init()
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(18, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+GPIO.setup(17, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+GPIO.setup(27, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+GPIO.setup(22, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+
+while True:
+#Das ist ein Always High JoyStick, das bedeutet, 
+#dass wir nach if not fragen, da wir nach KEINEM Strom für einen Input suchen
+    direcion = ""
+    if not GPIO.input(17):
+        direction = "hoch"
+        print("JoyStick Richtung:" + direction)
+    if not GPIO.input(18):
+        direction = "links"
+        print("JoyStick Richtung:" + direction)
+    if not GPIO.input(27):
+        direction = "runter"
+        print("JoyStick Richtung:" + direction)
+    if not GPIO.input(22):
+        direction = "rechts"
+        print("JoyStick Richtung:" + direction)
+
+            
+GPIO.cleanup()
+```
+
+Und siehe da: Es funktioniert🥳🥳
+
+Damit man hier in diesem Artikel auch sehen kann, dass es funktioniert haben wir hier ein Beweisvideo angefügt.
+
+[Testvideo](/articlecontents/JoyStickTest.mp4)
 
 # Schlusswort
 
-Wir werden sehen, ob dieses Script funktioniert, oder nicht, da bleiben wir gespannt, ich werde ein entsprechendes Update geben, wenn es soweit ist. 
+Ich hab aus diesem Tag tatsächlich mehrere Learnings mitgenommen.
 
-## — Nachtrag 07.11.2023
+### RasberryPi Set-Up
 
-Ich habe hier dann jetzt eine finale Lösung, wie man GPIO Pins in Python auslesen und verwenden kann. Sobald wir einen RasberryPi und den entsprechenden JoyStick habe, werde ich das Script testen.
+Es geht unfassbar schnell und das RasberryPi OS zu konfigurieren und die Voreinstellung, die man für das Schreiben des OS treffen kann ersparen einem den ein oder anderen Kopfschmerz im Bash Terminal.
 
-## Quellen
-[Read GPIO.output to make something happen in PyGame](https://raspberrypi.stackexchange.com/questions/38371/read-gpio-output-to-make-something-happen-in-pygame)
+## Man lese die Beschreibung
+
+Ich bin mir ziemlich sicher, dass auf der Arcade Express Seite des JoySticks steht, dass es sich bei diesem Modell um einen Always High JoyStick handelt. Alternativ opfert man 1,2 Gehirnzellen.

@@ -1,5 +1,6 @@
 import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts } from "contentlayer/generated";
+import remarkGfm from "remark-gfm";
 
 /*Components*/
 import { AsideBar } from "src/app/components";
@@ -14,6 +15,7 @@ export const generateMetadata = ({ params }) => {
 };
 
 const PostLayout = ({ params }) => {
+
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
 
