@@ -2,7 +2,7 @@
 title: Button Inputs mit PyGame
 des: In diesem kurzen Artikel möchte ich einen Nachtrag zum Joy Stick Script liefern
 date: 2023-12-01
-imagepath: articlecontents/JoyStickWallpaper.jpg
+imagepath: articlecontents/Pimitbtn.jpg
 id: Hausaufgabe
 topic: Hausaufgabe 04
 ---
