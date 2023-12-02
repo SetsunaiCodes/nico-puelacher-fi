@@ -4,7 +4,7 @@ des: In diesem Artikel finden wir als Gruppe einen Namen für das Spiel und ich 
 date: 2023-12-01
 imagepath: articlecontents/Artikel8/LogoCollection.png
 id: DevLog
-topic: DevLog X
+topic: DevLog Bonus
 ---
 
 # Einleitung
@@ -23,8 +23,7 @@ Die Wahrheit ist: Wir haben ChatGPT erklärt, was wir für eine Spielidee haben 
 
 Der Prompt sah aus wie folgt:
 
-> *”*Wir bauen ein Arcade Spiel. Ein Tower Defense Spiel im Pixel Art Style wo der Spieler verschiedene Türme platzieren kann um rundenbasiert Gegner abzuwehren. Das Spiel baut Raumschiffe, Aliens und Sterne mit ein. Was wir noch nicht haben ist ein Name. Liefere mir 10 Ideen”.
-> 
+_”Wir bauen ein Arcade Spiel. Ein Tower Defense Spiel im Pixel Art Style wo der Spieler verschiedene Türme platzieren kann um rundenbasiert Gegner abzuwehren. Das Spiel baut Raumschiffe, Aliens und Sterne mit ein. Was wir noch nicht haben ist ein Name. Liefere mir 10 Ideen”._
 
 **Antwort von ChatGPT:**
 
@@ -43,7 +42,7 @@ Hey Nico! Das klingt nach einem coolen Projekt! Hier sind 10 Namensideen für eu
 
 Hoffentlich ist der richtige Name für euer Spiel dabei! Wenn du weitere Ideen oder Anpassungen möchtest, lass es mich einfach wissen.
 
-—
+
 
 Aus diesen Ideen wählten wir die Top 3 Vorschläge. 
 
