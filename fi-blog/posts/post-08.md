@@ -290,9 +290,9 @@ Dieses Ergebnis gefiel mir ganz besonders gut
 
 ![StarGuardV1.png](/articlecontents/Artikel8/StarGuardV1.png)
 
-### Versuch 3: Eingebungen meiner besseres Hälfte
+### Versuch 3: Eingebungen meiner definitiv grandiosen Freundin
 
-An dieser Stelle stapfelte meine bessere Hälfte in das Wohnzimmer hinein und äußerte eine dezente Idee, die doch großen Einfluss gehabt hat.
+An dieser Stelle traf meine definitiv grandiose Freundin (die gerade natürlich mit ließt) ins Wohnzimmer und äußerte eine dezente Idee, die doch großen Einfluss gehabt hat.
 
 *”Wieso schiebst du die erste Silbe nicht ein bisschen hoch und die zweite ein bisschen runter und drehst die Farben ein bisschen hoch?”*
 
