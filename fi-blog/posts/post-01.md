@@ -9,7 +9,7 @@ topic: Gedankengänge 01
 
 # Einleitung
 
-In diesem ersten Artikel zum Thema _'Gedankengänge'_ möchte ich darauf eingehen, warum ich mich bei der Wahl der Programmier-Library für PyGame (Python) entschieden habe. Dies geschieht, indem ich folgende Gesichtspunkte die mir wichig waren, miteinander vergleiche:
+In diesem ersten Artikel zum Thema _'Gedankengänge'_ möchte ich darauf eingehen, warum ich mich bei der Wahl der Programmier-Library für PyGame (Python) entschieden habe und nicht für Processing. Dies geschieht, indem ich folgende Gesichtspunkte die mir wichig waren miteinander vergleiche:
 
 - Persönliche Präferenz und gesammelte Erfahrung
 - Community bei Fragen und Baustellen
@@ -21,7 +21,7 @@ Ich hätte mich wahrscheinlich in jedem Fall für PyGame entschieden, dennoch m�
 
 ## 01. Persönliche Präferenz und Erfahrung
 
-Der definitiv subjektivste Punkt auf dieser Liste. Es ist einfach so, dass ich in der Vergangenheit bereits diverse Platformer Games in PyGame entwickelt habe und damit ein kleines "Erfahrungs-Skillset" erlangen konnte. Im ersten Semester thematisierten wir die Grundlagen von Processing und mussten auch damit arbeiten, jedoch gefiel mir diese Arbeit überhaupt nicht. Sie machte mir grundsätzlich einfach keinen Spaß, da ich Processing als "anstrengend" und "einschränkend" aufgefasst habe, was **nicht** bedeutet, dass man mit Processing nicht genau die gleichen Resultate erreichen könnte wie mit PyGame, versteht sich.
+Der definitiv subjektivste Punkt auf dieser Liste. Es ist einfach so, dass ich in der Vergangenheit bereits diverse Platformer Games (Jump'N'Runs oder storybasierte walking simulator) in PyGame entwickelt habe und damit ein kleines "Erfahrungs-Skillset" erlangen konnte. Im ersten Semester thematisierten wir die Grundlagen von Processing und mussten auch damit arbeiten (Tabellen und Diagramme erstellen und rendern), jedoch gefiel mir diese Arbeit überhaupt nicht. Sie machte mir grundsätzlich einfach keinen Spaß, da ich Processing als "anstrengend" und "einschränkend" aufgefasst habe, was **nicht** bedeutet, dass man mit Processing nicht genau die gleichen Resultate erreichen könnte wie mit PyGame, versteht sich.
 
 ## 02. Community und Fragen bei Baustellen
 
@@ -38,8 +38,12 @@ Diese Erkenntnis erhielt ich spätestens, als ich anfing meine eigenen Leveledit
 
 PyGame baut auf Python auf. Das bedeutet, dass es immer einen Weg gibt, die Spiele auf jedem gängigen Betriebssystem ausführen zu können. Klar muss man sich manchmal besondere Gedanken machen (gerade beim Stichwort _"Linux"_), aber dafür hat Python sehr gute Lösungen gefunden.
 
+## Bonus: Syntax
+
+Wer liebt es nicht? Python kommt mit weniger Klammern aus und glänzt mit schön eingereihtem Code! :)))))))
+
 ---
 
 # Schlusswort
 
-Diese 4 Argumente sprechen für die Entwicklung mit PyGame. Ich möchte abermals hervorheben, dass es mindestens genauso viele Argumente gibt mit Processing zu arbeiten, dennoch überwiegt für mich der große Vorteil bei PyGame. Auch wegen bereits gesammelter Erfahrungen.
+Diese 5 Argumente sprechen für die Entwicklung mit PyGame. Ich möchte abermals hervorheben, dass es mindestens genauso viele Argumente gibt mit Processing zu arbeiten, dennoch überwiegt für mich der große Vorteil bei PyGame. Primär wegen bereits gesammelter Erfahrungen.

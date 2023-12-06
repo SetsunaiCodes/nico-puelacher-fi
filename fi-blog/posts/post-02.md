@@ -1,10 +1,10 @@
 ---
-title: Getting started
+title: Getting Started
 des: Ziel diesen Artikels ist es die grundsätzliche Anmerkungen zu thematisieren und bereits ein laufendes Spielfenster zu erhalten.
 date: 2023-10-17
 imagepath: articlesheads/DevLog0Thumb.jpg
 id: DevLog
-topic: DevLog 00
+topic: Einleitung
 ---
 
 # Anmerkungen
@@ -13,7 +13,7 @@ Es dürfte offensichtlich sein, aber ich möchte kurz hervorheben, dass es für 
 
 # Terminologie
 
-Grundsätzlich nicht notwendig, allerdings hat es sich bei PyGame Games etabliert, dass man die “Hauptdatei” (damit meine ich jene Datei, in der schlussendlich das Spiel läuft) “game.py” nennt, so auch in diesem Projekt.
+Grundsätzlich nicht notwendig, allerdings hat es sich bei PyGame Games etabliert, dass man die “Hauptdatei” (damit meine ich jene Datei, in der schlussendlich das Spiel läuft) “game.py” oder "main.py" nennt, so auch in diesem Projekt.
 
 # Die Klasse "Game"
 
@@ -62,13 +62,15 @@ _"Wie siehts denn aus mit Multithreading / Multitasking?"_
 PyGame ist nicht besonders gut für Multithreading geeignet. Dies hat folgenden Grund:
 In PyGame wird alles sequientiell abgearbeitet, **was auch bedeutet**, dass die Sprites sequentiell geladen und gerendert werden müssen. In der grafischen Darstellung führt dies zu Problemen. 
 
-Nebenläufigkeit ist aber zumindest nicht unmöglich, jedoch für die PyGame Entwicklung nicht geeignet. Man könnte die Python-Multiprocessing Library verwenden und so Aufgaben in sperate Prozesse auslagern. Hier ist der Rattenschwanz aber viel länger als der schlussendliche Vorteil, denn die Kommunikation zwischen Prozessen untereinander hat extrem viel Overhead ist macht das Entwickeln um einiges komplexer. PyGame ist darauf ausgelegt eine einzige Thread-Umgebung zu verwenden.
+Nebenläufigkeit ist aber zumindest nicht unmöglich, jedoch nicht für die PyGame Entwicklung geeignet. Man könnte die Python-Multiprocessing Library verwenden und so Aufgaben in sperate Prozesse auslagern. Hier ist der Rattenschwanz aber viel länger als der schlussendliche Vorteil, denn die Kommunikation zwischen Prozessen untereinander hat extrem viel Overhead und macht das Entwickeln um einiges komplexer. PyGame ist darauf ausgelegt eine einzige Thread-Umgebung zu verwenden und dieses System sollte man nach Möglichkeit auch nicht umgehen.
 
-Ich habe hierfür eine Anlage verlinkt, die den hier zwar sehr kleinen, aber doch existierenden Unterschied am Beispiel Super Mario 64 zeigt. Dort spielt ein Speedrunner genau den selben Bewegungsablauf, nur 1 Mal in 30 und 1 Mal in 60 FPS. Dabei reagiert das Spiel marginal anders.
+**Nochmal zurück zum Thema FPS und Verhalten des Spiels:** Ich habe hierfür eine Anlage verlinkt, die den hier zwar sehr kleinen, aber doch existierenden Unterschied am Beispiel Super Mario 64 zeigt. Dort spielt ein Speedrunner genau den selben Bewegungsablauf, nur 1 Mal in 30 und 1 Mal in 60 FPS. Dabei reagiert das Spiel marginal anders.
 
 _”Dafür muss es doch aber eine Lösung geben! Das kann ja eigentlich nicht sein. Die meisten Spiele haben doch sogar mehrere Optionen, um unterschiedliche Framerates festzulegen und da geht nicht alles kaputt???”_ wäre an dieser Stelle eine gute Anmerkung.
 
 Die Antwort hier ist: _“Natürlich gibt es dafür eine Lösung. Diese nennt sich Delta-Time!”_
+
+Einfach gesagt ist Delta-Time ein Wert, der sich dynamisch mit der Framerate anpasst und so die Rechenoperationen gleichmäßig und ohne Probleme lässt.
 
 Was genau das ist und ob wir diese überhaupt verwenden werden, wird in einem späteren Artikel geklärt, denn bei Arcade Automaten gibt es eigentlich keine Einstellungen zu Bildrate oder Fenstergröße, dennoch wollte ich dies einmal erwähnt haben.
 
@@ -115,7 +117,7 @@ Damit jetzt wirklich was passieren kann braucht es eine Game-Loop.
 
 ## Das Erstellen einer Game-Loop
 
-Eigentlich wird uns im Unterricht (besonders bei Java) immer beigebracht, dass Endlosschleifen katastrophal wären und dazu führen, dass sich ein schwarzen Loch vor unserem Bildschirm bildet und das Universum vernichten wird (Quelle: Professor Richter).
+Eigentlich wird uns im Unterricht (besonders bei Java) immer beigebracht, dass Endlosschleifen "katastrophal" wären und dazu führen, "dass sich ein schwarzen Loch vor unserem Bildschirm bildet und das Universum vernichten wird"(Quelle: Professor Richter).
 
 NA DANN PROBIEREN WIR DIES DOCH MAL AUS!
 
@@ -139,7 +141,7 @@ class Game:
 		    while True:
 ```
 
-Ich lege noch einen schwarzen Hintergrund fest, damit gleich genossen werden kann, dass wir nichts sehen werden.
+Ich lege noch einen schwarzen Hintergrund fest, damit gleich genossen werden kann, dass wir **nichts** sehen werden.
 
 Da dieser Artikel im Internet gelandet ist, wird zum Stand 17.10.2023, 12:47 kein schwarzes Loch aufgetaucht sein. Wir wurden also 3 Monate belogen...
 
@@ -148,9 +150,9 @@ Da dieser Artikel im Internet gelandet ist, wird zum Stand 17.10.2023, 12:47 kei
 Jetzt gibt es eine Kleinigkeit, die ich, als ich mit PyGame begonnen habe, wieder und wieder vergessen habe. In PyGame ist es so, dass **wirklich jeder** Input in der Gameloop in einem Event-Handler untergebracht werden muss…
 
 Darunter fällt auch, dass sich das Spiel schließen soll, wenn ich auf das rote X oben rechts am Bildschirmrand klicke.
-Im späteren Verlauf wird die Anwendung über ein Shell Script beendet werden, sobald man den Automaten ausschaltet, aber für die Entwicklung des Spiel wäre es ratsam, wenn ich das Fenster wieder schließen könnte.
+Im späteren Verlauf der Arbeit wird die Anwendung über ein Shell-Skript beendet werden, sobald man den Automaten ausschaltet, aber für die Entwicklung des Spiel wäre es ratsam, wenn ich das Fenster wieder schließen könnte und dafür nicht jedes Mal den Task-Manager bemühen müsste.
 
-Daher schreibe ich diesen Event-Handler, der später auch dafür zuständig sein wird alle anderen Inputs entgegen zu nehmen:
+Daher schreibe ich folgenden Event-Handler, der später auch dafür zuständig sein wird alle anderen Inputs entgegen zu nehmen:
 
 ```py
 import sys
@@ -175,11 +177,9 @@ class Game:
 		                sys.exit()
 ```
 
-So, nun sind wir alle auf der sicheren Seite und müssen die Anwendung nicht über den Taskmanager zum Schließen zwingen… Glück gehabt.
-
 ## Framerate und Update
 
-Jetzt gibt es noch eine Kleinigkeit zu beachten. Damit nicht jeder Frame den anderen einfach überschreibt, sollte man den Screen mit jedem neuen Frame einmal leeren. Das merkt der Spieler so auch nicht.
+Jetzt gibt es noch eine Kleinigkeit zu beachten. Damit nicht jeder Frame den anderen einfach überschreibt, sollte man den Screen mit jedem neuen Frame einmal leeren. Das merkt der Spieler so auch nicht.Hingegeben würde der Spieler sehr wohl merken, wenn wir den Bildschirm nicht leeren würden, dann dann würde jedes sich bewegende Objekt immer wieder übereinander angezeigt werden.
 
 Dann wird schlussendlich die Framerate festgelegt. In diesem Fall werden wie bereits erwähnt keine Delta-Time Keys verwendet, sondern einfach die Zahl 60.
 
@@ -219,11 +219,9 @@ Dann wird das Spiel zusammen mit seiner neuen Methode **run** ausgeführt und da
 
 Damit ist es vollbracht. Die Entwicklung am Spiel kann nun beginnen, wir haben nun die “Leinwand” geschaffen und die Kreativität kann ihren Lauf nehmen.
 
-In den kommenden DevLog Artikeln wird sich mit der Grundmechanik eines Tower Defense Spiels beschäftigt.
+In den kommenden DevLog Artikeln wird sich mit den Grundmechaniken eines Tower Defense Spiels beschäftigt.
 
 ---
 
 # Anlagen
-
-Super Mario 64: 30 vs 60 FPS:
 [Super Mario 64 - 60 Fps vs 30 Fps](https://youtu.be/3XEvED6VEfQ)

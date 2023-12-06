@@ -9,9 +9,9 @@ topic: DevLog Bonus
 
 # Einleitung
 
-Das Erstellen eines Logos fällt eigentlich nicht in meinen Aufgabenbereich, dennoch möchte unserem Designer mit meinen Fähigkeiten, aus gesundheitlichen Gründen unter die Arme greifen und unterstützen. Da zum gegeben Zeitpunkt ohnehin die “Einzelarbeitsphase” endet dürfte dies auch denke ich / hoffe ich kein Problem sein.
+Das Erstellen eines Logos fällt eigentlich nicht in meinen Aufgabenbereich, dennoch möchte unserem Designer mit meinen Fähigkeiten, aus gesundheitlichen Gründen unter die Arme greifen und unterstützen. Da zum gegeben Zeitpunkt ohnehin die “Einzelarbeitsphase” endet dürfte dies auch (denke ich / hoffe ich) kein Problem sein.
 
-Darüber hinaus gibt es nichts was ich mehr liebe als Designarbeit (Das ist keine Ironie, ich könnte Stunden darüber schreiben). :))
+Darüber hinaus gibt es nichts was ich mehr liebe als Designarbeit (Das ist keine Ironie, ich könnte Stunden lange darüber schreiben). :))
 
 In diesem Artikel werde ich den Fortschritt und die Prozessarbeit dokumentieren, damit ein klares Bild entstehen kann, wie Logoarbeit funktioniert.
 
@@ -326,8 +326,38 @@ Ich habe ihm Rahmen eines anderen Projekts mal ein Logo erstellt, wo ich im Name
 
 Mein persönlicher Favorit ist das unterste direkt über diesem Text hier. Ich werde die Vorschläge jetzt bei Discord teilen und dann mal abwarten, was die anderen Gruppenmitglieder so davon halten und dann einen Nachtrag in diesen Artikel hier schreiben.
 
+# ~Nachtrag 06.12.2023 - Ich denke ich werde arbeitslos...~
+
+Wir haben uns gerade den Spaß erlaubt AI zu fragen, ob sie uns ein Logo designen könnte. Was als Spaß anfing resultierte in Tränen meinerseits und einem Logo, was die 1 Stunde Arbeit, die ich in die selbst gemachten Logos gesteckt habe vernichtete.
+
+Das hier waren die Grafiken, die enstanden sind. Darunter sind auch Grafiken, die wir auf die Seite des Automaten drucken können.
+
+![StarGuardAI1.jpeg](/articlecontents/Artikel8/StarGuard5.jpeg)
+
+![StarGuardAI2.jpeg](/articlecontents/Artikel8/StarGuard6.jpeg)
+
+![StarGuardAI3.jpeg](/articlecontents/Artikel8/StarGuardGraphic2.jpeg)
+
+![StarGuardAI4.jpeg](/articlecontents/Artikel8/StarGuardGraphicGraphic3.jpeg)
+
+![StarGuardAI5.jpeg](/articlecontents/Artikel8/StarGuardLogo1.jpeg)
+
+![StarGuardAI6.jpeg](/articlecontents/Artikel8/StarGuardLogo2.jpeg)
+
+![StarGuardAI7.jpeg](/articlecontents/Artikel8/StarGuardLogo3.jpeg)
+
+Das ist so cool, ich möchte weinen.
+
+Ich denke, dass wir uns bei den Logos dann doch eher auf die Unterstütung von AI verlassen werden.
+
 ---
 
 # Schlusswort
 
+## Vorwissen
+
 Design kann sehr vielfältig werden. Eine Idee, die einem vorschwebt kann sich als totaler Schwachsinn, oder einfach untauglich herausstellen. Schön ist aber immer wieder, wenn man sich eine Art “Werkzeugkasten” an Wissen angeeignet hat aus dem man greifen kann und sich bedienen kann, um sich so einer Lösung des Problems zu nähern.
+
+## AI ist bemerkenswert
+
+Es ist sooo krass, was mit AI Unterstützung aktuell alles möglich ist und wie man innerhalb von Sekunden Designarbeit erledigen kann, die mich mehrere Stunden gebraucht hätten. Angefangen mit der Planung hin zur Ausarbeitung wären dies tatsächlich Stunden gewesen.

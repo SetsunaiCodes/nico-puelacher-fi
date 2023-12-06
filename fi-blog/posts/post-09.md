@@ -4,12 +4,12 @@ des: In diesem kurzen Artikel möchte ich einen Nachtrag zum Joy Stick Script li
 date: 2023-12-01
 imagepath: articlecontents/Pimitbtn.jpg
 id: Hausaufgabe
-topic: Hausaufgabe 04
+topic: Hausaufgabe 05
 ---
 
 # Einleitung
 
-Dieser Artikel baut auf den Ergebnissen von “Hausaufgabe 3 - JoyStick Inputs mit PyGame” auf und verfolgt das Ziel das dort entstandene Skript zu erweitern.
+Dieser Artikel baut auf den Ergebnissen von [Hausaufgabe 3 - JoyStick Inputs mit PyGame](https://nico-puelacher-fi.vercel.app/posts/post-09) auf und verfolgt das Ziel das dort entstandene Skript um eine interagierbare Oberfläche zu erweitern zu erweitern.
 
 # Kontext
 
@@ -47,25 +47,10 @@ GPIO.setup(22, GPIO.IN, pull_up_down = GPIO.PUD_UP)
 ###damit das Spiel dann läuft. Aktuell werden nur Konsolen Inputs geregelt.
 
 while True:
-#Das ist ein Always High JoyStick, das bedeutet, dass wir nach if not fragen, da wir nach KEINEM Strom für einen Input suchen
-    direcion = ""
-    if not GPIO.input(17):
-        direction = "hoch"
-        print("JoyStick Richtung:" + direction)
-    if not GPIO.input(18):
-        direction = "links"
-        print("JoyStick Richtung:" + direction)
-    if not GPIO.input(27):
-        direction = "runter"
-        print("JoyStick Richtung:" + direction)
-    if not GPIO.input(22):
-        direction = "rechts"
-        print("JoyStick Richtung:" + direction)
-
             
             
-            
-#Das ist ein Always High JoyStick, das bedeutet, dass wir nach if not fragen, da wir nach KEINEM Strom für einen Input suchen
+#Das ist ein Always High JoyStick, das bedeutet, 
+##dass wir nach if not fragen, da wir nach KEINEM Strom für einen Input suchen
     direcion = ""
     if not GPIO.input(17):
         direction = "hoch"
@@ -101,7 +86,7 @@ GPIO.setup(28, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
 
 ## Overhead für das Spielfenster
 
-Damit wir gleich neben den Konsolenausgaben auch ein weiteres Fenster bekommen sollten wir die relevanten Faktoren für dieses Fenster definieren.
+Damit wir gleich neben den Konsolenausgaben auch ein weiteres Fenster bekommen können, sollten wir die relevanten Faktoren für dieses Fenster definieren.
 
 ```python
 
@@ -130,7 +115,7 @@ square_color = BLUE
 
 ```
 
-Wir definieren im Vorfeld welche Farben wir gleich brauchen werden, um dem Viereck den Farbwechsel Effekt zu geben. BLACK initialisiere ich nur, weil ich gleich zu gemächlich bin es in der Loop zu tun, um den Hintergrund zu definieren, macht aber eigentlich keinen großen Unterschied.
+Ich definiere im Vorfeld welche Farben wir gleich brauchen werden, um dem Viereck den Farbwechsel-Effekt zu geben. BLACK initialisiere ich nur, weil ich gleich zu "gemächlich" sein werde es in der Loop zu tun (hat aber keine Auswirkung auf das Programm), um den Hintergrund zu definieren, macht aber eigentlich keinen großen Unterschied.
 
 ## Die Gameloop
 
@@ -188,11 +173,9 @@ while True:
 GPIO.cleanup()
 ```
 
----
-
 Der Code hier ähnelt sich stark dem was wir bereits in der Ausgangssituation hatten, mit dem Unterschied, dass neben dem Print Statement eben noch das Bewegen des Quadrates erfolgt. 
 
-Ich erinnere mich hier an meinen ersten Artikel “Getting started”, wo ich bereits erklärt habe, wie man ein Quadrat bewegen kann.
+Ich erinnere mich hier an meinen Artikel [DevLog 01: Getting Started](https://nico-puelacher-fi.vercel.app/posts/post-02), wo ich bereits erklärt habe, wie man ein Quadrat bewegen kann.
 
 Bei einem Button Knopfdruck sollte sich die Farbe des Quadrates ändern. Dies erfolgt indem wir die dafür erstellte Variable umschreiben.
 
@@ -214,8 +197,9 @@ Wir spielten das Skript ab und die Magie nahm ihren Lauf. In diesem Video kann m
 
 Ich habe nur eine kleine Anmerkung, die ich im fertigen Spiel berücksichtigen möchte. 
 
-EIGENTLICH sollte man unter Button Inputs immer einen Sleep setzen. Das bedeutet, dass der Input nicht solange wieder und wieder gefeuert werden kann, wie ich den Knopf gedrückt halte.
-Das ist hier im fertigen Skript nicht implementiert, wird aber im fertigen Spiel eine große Rolle spielen.
+**Eigentlich** sollte man unter Button Inputs immer einen Sleep setzen. Das bedeutet, dass der Input nicht solange wieder und wieder abgefeuert werden kann, wie ich den Knopf gedrückt halte. Ein Knopfdruck ist nicht immer direkt auch nur ein Input. Der Input wird ohne Sleep solange gefeuert, wie es dem Computer möglich ist, während ich Strom auf den Button bringe.
+
+Das ist hier im fertigen Skript nicht implementiert, wird aber im fertigen Spiel zum tragen kommen.
 
 ---
 

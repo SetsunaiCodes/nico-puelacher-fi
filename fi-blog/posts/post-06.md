@@ -9,9 +9,7 @@ topic: DevLog 01
 
 # Einleitung
 
-Es gibt Leute die behaupten, dass die Planung eines Projekts wichtiger ist, als die schlussendliche Umsetzung. Ich bin ein solcher Mensch. Genau deswegen möchte ich in diesem ersten Eintrag darüber sprechen, wie ich an das Projekt Tower Defense Game herangehen möchte und wie ich mir das Spiel vorstelle.
-
-Des Weiteren möchte ich hier eine kleine “Roadmap” mitgeben. Das mache ich mit allen Projekten, die ich umsetzen möchte. Darüber hinaus teste ich gerade eine neue Software mit der man Ideen auf einer Art Whiteboard (mit mehr Funktionen) festhalten und sammeln kann. Diese nennt sich [**Milanote**](https://milanote.com/) Ich füge hier im Laufe der Entwicklung bestimmt mal den ein oder anderen Screenshot aus der Software an. 
+Es gibt Leute die behaupten, dass die Planung eines Projekts wichtiger ist, als die schlussendliche Umsetzung. Ich bin ein solcher Mensch. Genau deswegen möchte ich in diesem ersten DevLog Eintrag darüber sprechen, wie ich an das Projekt Tower Defense Game herangehen möchte und wie ich mir das Spiel vorstelle.
 
 **Anmerkung:**
 
@@ -58,11 +56,11 @@ Wenn die Mechaniken hinter diesem System einmal funktionieren und optimiert sind
 
 ### Grund 2: Der User
 
-Der User könnte, wenn wir keine festen unterschiede machen würden und die Gegner sich zufällig in das Bild bewegen würden so viele Vorteile nutzen um das Spiel kaputt zu machen (Einfach eine Art “Wand” aus Türmen aufstellen, dann kommt ja kein Gegner mehr vorbei), dass sich dies für uns nicht lohnt. In der gegebenen Zeitspanne wäre das Betatesting und Debugging für so etwas **viel** zu massiv. Unser Anspruch ist ein richtig gutes Spiel. Kein halbgares Spiel. Daher entschieden wir uns als Gruppe festes Pathfinding zu verwenden.
+Der User könnte, wenn wir keine festen Unterschiede machen würden und die Gegner sich zufällig in das Bild bewegen würden so viele Vorteile nutzen um das Spiel kaputt zu machen (Einfach eine Art “Wand” aus Türmen aufstellen, dann kommt ja kein Gegner mehr vorbei), dass sich dies für uns nicht lohnt. In der gegebenen Zeitspanne wäre das Beta-Testing und Debugging für so etwas **viel** zu massiv. Unser Anspruch ist ein richtig gutes Spiel. Kein halbgares Spiel. Daher entschieden wir uns als Gruppe festes Pathfinding zu verwenden.
 
 ## Auswählen und platzieren
 
-Der Pfeil steht dafür, dass der Spieler einen Turm auswählen und dann auf dem Spielfeld platzieren können soll. Dies über einen Knopf und den Joystick. Im Hintergrund läuft ein Gridsystem, damit das platzieren ein bisschen berechenbarer bleibt. 
+Der Pfeil steht dafür, dass der Spieler einen Turm auswählen und dann auf dem Spielfeld platzieren können soll. Dies über einen Knopf und den Joystick. Im Hintergrund läuft ein Gridsystem, damit das Platzieren ein bisschen berechenbarer bleibt. 
 
 # Roadmap
 

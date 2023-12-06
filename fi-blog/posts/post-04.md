@@ -11,23 +11,23 @@ topic: Hausaufgabe 02
 
 ![Spritesheet](/articlecontents/Sprites.png)
 
-Das hier ist das Spritesheet, was mir für die Ausarbeitung dieser Aufgabe zur Verfügung gestellt wurde. An diesem Spritesheet gibt es mehrere Probleme, die alle nacheinander durchgearbeitet werden, um diese zu lösen. Es existieren folgende 3 Probleme:
+Das hier ist das Spritesheet, was mir für die Ausarbeitung dieser Aufgabe zur Verfügung gestellt wurde. An diesem Spritesheet gibt es mehrere Probleme, die alle nacheinander durchgearbeitet werden um diese zu lösen. Es existieren folgende 3 Probleme:
 
 ## Das Spritesheet ist weiß und nicht transparent
 
 Immer dann, wenn unser Läufer über einem nicht weißen Hintergrund laufen wird, dann wird ihn ein Viereck umranden. Das wünscht man ja keinem, daher sollte dieser verschwinden.
 
-## Das hier ist 1 Image
+## Das hier ist 1 Image und kein richtiges Tileset
 
-Das ist grundsätzlich **eigentlich** kein Problem. Es wäre kein Problem einen “Leser” zu schreiben, der sich die einzelnen Frames selbst holt, allerdings ist mir dieser Ansatz zu performancefressend, daher wird dieses Problem anderweitig gelöst.
+Das ist **grundsätzlich** kein Problem, wobei das nicht ganz stimmt. Es wäre kein Problem einen “Leser” zu schreiben, der sich die einzelnen Frames selbst holt, allerdings ist mir dieser Ansatz zu performancefressend. Daher wird dieses Problem anderweitig gelöst.
 
 ## Es gibt keine Idle Animation
 
-Es liegen jeweils 17 Animationen vor, die entweder laufen, oder sprinten repräsentieren. Es gibt aber keinen Sprite, wo unser Läufer still steht. Das ist eine Kleinigkeit, aber dies wird im Folgenden ebenfalls gelöst.
+Es liegen jeweils 17 Animationen vor, die entweder laufen oder sprinten repräsentieren. Es gibt aber keinen Sprite, wo unser Läufer still steht. Das ist eine Kleinigkeit, aber dies wird im Folgenden ebenfalls gelöst.
 
 # Projektinitialisierung
 
-Ich referiere an dieser Stelle auf den Artikel “DevLog 0: Getting Started”, wo sehr detailliert geschildert wird, wie man ein Projekt erstellt und wie man es schafft am Ende ein Fenster zu öffnen, daher führe ich an dieser Stelle direkt den Start Code des Projekts “Hausaufgabe Movement” an:
+Ich referiere an dieser Stelle auf den Artikel [DevLog 0: Getting Started](https://nico-puelacher-fi.vercel.app/posts/post-02), wo sehr detailliert geschildert wird, wie man ein Projekt erstellt und wie man es schafft am Ende ein Fenster zu öffnen, daher führe ich an dieser Stelle direkt den Start Code des Projekts “Hausaufgabe Movement” an:
 
 ```python
 import sys
@@ -60,7 +60,7 @@ Game().run()
 
 Bevor nun weiter am Code gearbeitet werden kann, müssen die zuvor geschilderten Probleme gelöst werden, damit wir weiter programmieren können.
 
-## Lösung 01: Das Bild aufteilen
+## Thema 01: Das Bild aufteilen
 
 Das hier ist die zeitlich weitaus aufwendigste, aber ressourcenfreundlichste Lösung, die auch weniger Code hervorbringen wird.
 
@@ -74,15 +74,15 @@ Die einzelnen Sprites werden dann auf 2 Ordner im Projekt aufgeteilt. Ein Ordner
 
 **Anmerkung:** Beim Aufteilen der Sprites ist es ratsam darauf zu achten, dass die Bilder alle gleich groß sind. Ich zeige später im Code einen kleinen Trick mit dem dieses Detail unwichtig wird. Dies sorgt für ein bisschen mehr Code, aber viel mehr Freiheit. In diesem Fall haben wir das Glück, dass beide Animationsabfolgen 17 Sprites lang sind. Das ist aber nicht der Regelfall, daher werden wir auch diese Abhängigkeit später im Code relativieren, einfach damit ich auch diese Thematiken in diesem Blog festhalten kann.
 
-## Lösung 02: Es gibt keine Idle Animation
+## Thema 02: Es gibt keine Idle Animation
 
-Damit es wenigstens so aussieht, als könnte unser Läufer stehen, entschied ich mich dazu einen bestehenden Sprite zu nehmen und zu verändern. Ich nach dem Sprite, der am nächsten an “stehen” dran war und versuche eine Animation dafür zu entwerfen. Ausgehend von Sprite 7 in der oberen Reihe entstand dann dieser 18. Sprite:
+Damit es wenigstens so aussieht, als könnte unser Läufer stehen, entschied ich mich dazu einen bestehenden Sprite zu nehmen und zu verändern. Ich habe nach dem Sprite gesucht, der am nächsten an “stehen” dran war und versuchte eine Animation dafür zu entwerfen. Ausgehend von Sprite 7 in der oberen Reihe entstand dann dieser 18. Sprite:
 
 ![IdleSprite](/articlecontents/IdleSprite.png)
 
 Alles, was ich getan habe ist das “hintere” Bein wegzuschneiden. Dann sieht es so aus, als hätte der Läufer beide Beine nebeneinanderstehen und man könnte das andere Bein einfach nicht sehen. Da es sich bei diesem Läufer um kein hochauflösendes Bild handelt, fällt diese Herangehensweise auch nicht auf. Jetzt kann unser Läufer auch mal durchatmen und muss sich nicht permanent anstrengen.
 
-Lösung 3 folgt im Laufe des nächsten Abschnittes.
+Die Lösung zum dritten Thema wird im Laufe des folgenden Abschnitts gelöst.
 
 # Implementierung
 
@@ -99,7 +99,7 @@ Daher die Struktur. Diese ist relevant, da die Einträge später chronologisch a
 
 ## Das Utility Script
 
-Für die reine Übersicht erstellte ich einen Ordner Scripts, wo dann die erste neue Datei utiliy.py entsteht. Hier sollen alle Funktionen gelagert werden, die damit zusammenhängen, Ladevorgänge zu verwalten.
+Für die reine Übersicht erstellte ich einen Ordner namens "scripts", wo dann die erste neue Datei utiliy.py entsteht. Hier sollen alle Funktionen gelagert werden, die damit zusammenhängen, Ladevorgänge zu verwalten.
 
 ### Load_Image(path)
 
@@ -146,7 +146,7 @@ def load_images(path):
     return images
 ```
 
-Der Unterschied liegt nicht nur im hinteren s, sondern auch in der Funktionsweise. Ziel dieser Funktion ist es, alle Sprites in einer Liste / einem Array zu speichern und zurückzugeben.
+Der Unterschied liegt nicht nur im hinteren "s", sondern auch in der Funktionsweise. Ziel dieser Funktion ist es, alle Sprites in einer Liste / einem Array zu speichern und zurückzugeben.
 
 Dafür wird erst die leere Liste "images" erstellt und danach wird über eine for-Schleife chronologisch durch den Ordner iteriert, um dann nacheinander die Liste mit Einträgen zu füllen und schlussendlich wieder zurückzugeben. Dabei kann diese Funktion von der vorherigen profitieren, da die Bilder so leichter “herangezogen” werden können.
 
@@ -186,13 +186,13 @@ class Animation:
 
 Diese Klasse muss diverse Parameter entgegen nehmen, damit am Ende richtig operiert werden kann.
 
-Wirklich besonders erwähnenswert sind hier aber nur die self.img_dur, die darüber entscheiden wird, wie schnell die Bilder nacheinander abgespielt werden und die self.loop. Ein Boolean, der darüber entscheidet ob nach Ablauf der Animation wieder von vorne begonnen wird, oder nicht.
+Wirklich besonders erwähnenswert sind hier aber nur die self.img_dur, die darüber entscheiden wird, wie schnell die Bilder nacheinander abgespielt werden und die self.loop. Ein Boolean, der darüber entscheidet ob nach Ablauf der Animation wieder von vorne begonnen wird oder nicht.
 
 self.frame startet bei 0, was klar ist, die Animation soll ja am Anfang starten.
 
-self.done geht mit Loop einher, damit geschaut werden kann, wann wieder neu gestartet wird.
+self.done geht mit loop einher, damit geschaut werden kann, wann wieder neu gestartet wird.
 
-self.images ist die Liste an Bildern.
+self.images liefert die Liste an Bildern.
 
 Dieser Klasse habe ich 3 Funktionen zugefügt, um möglichst flexibel zu sein.
 
@@ -244,7 +244,7 @@ Wirklich interessant ist die update Funktion. Dort wird abgefragt ob loop True i
 
 Ist loop gerade False, dann wird self.frame auf den minimalen Wert bestehend aus Frame +1, der Image Duration mal der Länge der Imageliste -1 genommen und self.done auf True gesetzt.
 
-Schnell formuliert ist die Idee hinter der update Funktion, dass die Loop so entsprechend verwaltet werden kann und durch die Liste iteriert werden kann, um die Animation schlussendlich in einer bestimmten Geschwindigkeit anzeigen zu können.
+Schnell formuliert ist die Idee hinter der update Funktion, dass die Loop so entsprechend verwaltet werden kann und durch die Liste iteriert werden kann, um die Animation schlussendlich in einer bestimmten Geschwindigkeit anzeigen zu können. Update ist des Weiteren dazu da, um in der Gameloop aufgerufen werden zu können.
 
 ## Integration in die Game Klasse
 
@@ -290,4 +290,4 @@ Innerhalb der Game Klasse wird self.assets dazu genutzt alle spielrelevanten Ass
 
 # Schlusswort
 
-Das wars schon. Damit müssen diese Animationen nur noch einem Player zugewiesen werden, damit man diesen dann auch entsprechend steuern kann. Wie das funktioniert zeige ich im nächsten Artikel.
+Das wars schon. Damit müssen diese Animationen nur noch einem Player zugewiesen werden, damit man diesen dann auch entsprechend steuern kann. Wie das funktioniert zeige ich im nächsten Artikel zum Thema Hausaufgaben.

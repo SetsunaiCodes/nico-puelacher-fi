@@ -9,9 +9,9 @@ topic: Hausaufgabe 03
 
 # Einleitung
 
-Ich möchte im Folgenden auf den Ergebnissen des Artikels “Hausaufgabe 02: Animation” aufbauen und dort weitermachen wo ich aufgehört habe, um die gegebene Hausaufgabe ein Movement Script zu schreiben umzusetzen. Hier gilt wieder: Viele Wege führen nach Rom. Das bedeutet, dass mein Weg **nicht** der perfekte Weg ist, besonders weil ich im Folgenden erstmal nur die Aufgabe erfüllen werde und keine Vorbereitung leiste, für den Fall, dass wir diese Aufgabein den kommenden Wochen weiter verfeinern sollen. Sollten wir diese Anwendungen weiter ausbauen müssen, dann werde ich entsprechende Änderungen in einem weiteren Artikel vorführen und hier dokumentieren. 
+Ich möchte im Folgenden auf den Ergebnissen des Artikels [Hausaufgabe 02: Animation](https://nico-puelacher-fi.vercel.app/posts/post-04) aufbauen und dort weitermachen wo ich aufgehört habe, um die gegebene Hausaufgabe: "Ein Movement-Script zu schreiben umzusetzen" zu erledigen. Hier gilt wieder: Viele Wege führen nach Rom. Das bedeutet, dass mein Weg **nicht** der perfekte Weg ist, besonders weil ich im Folgenden erstmal nur die Aufgabe erfüllen werde und keine Vorbereitung leiste, für den Fall, dass wir diese Aufgabe in den kommenden Wochen weiter verfeinern sollen. Sollten wir diese Anwendungen weiter ausbauen müssen, dann werde ich entsprechende Änderungen in einem weiteren Artikel vorführen und hier dokumentieren. 
 
-Jetzt wo dies gesagt ist, kann ich kurz aufzeigen, wie der “Schlachtplan” für diesen Artikel aussehen wird:
+Jetzt wo dies gesagt ist, kann ich kurz aufzeigen wie der “Schlachtplan” für diesen Artikel aussehen wird:
 
 - Movement Script schreiben
 - Animationen mit Movement Script verbinden, damit unser Läufer sich bewegen kann
@@ -20,9 +20,9 @@ Jetzt wo dies gesagt ist, kann ich kurz aufzeigen, wie der “Schlachtplan” f�
 
 ---
 
-# Movement-Script
+# Movement-Skript
 
-Bevor ich mit dem programmieren beginnen konnte, stellte ich mir die Frage, was der Player eigentlich können muss?
+Bevor ich mit dem programmieren begonnen habe, stellte ich mir die Frage, was der Player eigentlich können muss?
 
 - Nach oben laufen
 - Nach unten laufen
@@ -34,7 +34,7 @@ In der Realität ist ein Player um einiges komplexer. In der Realität geht es b
 - Collisions
 - Gravitation (Velocity)
 
-und je nach Spiel auch 
+und je nach Spiel auch um
 
 - Angriffe
 - Sprünge
@@ -48,15 +48,15 @@ Ich bin jedenfalls sehr gespannt wohin die Reise in dieser Hausaufgabenreihe noc
 
 Für den Moment fange ich aber erstmal an eine Klasse zu schreiben, mit der wir ein Rechteck bewegen können. Diese Klasse braucht sich selbst und die jeweilige X und Y Koordinate des Spielers. 
 
-Wenn man sich Movement im Kontext Computer oder Mathe vorstellt , dann ist *"sich bewegen"* nichts anderes als:
+Wenn man sich "Movement" im Kontext Computer oder im Kontext Mathematik vorstellt, dann ist *"sich bewegen"* nichts anderes als:
 
-oben = ich bewege mich um X viele Einheiten auf der y Achse nach oben (Bewegung: y + X Varianten)
+oben = ich bewege mich um X viele Einheiten auf der y-Achse nach oben (Bewegung: y + X Varianten)
 
-unten = ich bewege mich um X viele Einheiten auf der y Achse nach unten (Bewegung: y - X Varianten)
+unten = ich bewege mich um X viele Einheiten auf der y-Achse nach unten (Bewegung: y - X Varianten)
 
-rechts = ich bewege mich um X viele Einheiten auf der x Achse nach rechts (Bewegung: x + X Varianten)
+rechts = ich bewege mich um X viele Einheiten auf der x-Achse nach rechts (Bewegung: x + X Varianten)
 
-links = ich bewege mich um X viele Einheiten auf der x Achse nach links (Bewegung: x - X Varianten)
+links = ich bewege mich um X viele Einheiten auf der x-Achse nach links (Bewegung: x - X Varianten)
 
 Ich denke man versteht meinen Punkt und genauso ist es in der Entwicklung hier auch. Ich lege einen Wert fest, der umschreibt um wie viele Einheiten sich bewegt werden soll. 
 
@@ -106,15 +106,15 @@ class Game:
         self.player = Player(window_width // 2, window_height //2)
 ```
 
-Hier werden die Startkoordinaten des Players mit übergeben. Ich möchte, dass der Player in der Mitte erscheint, wenn ich das Spiel starte, daher teile ich sowohl die Höhe wie auch die Breite durch 2, damit der Player in der Mitte spawnt. 
+Hier werden die Startkoordinaten des Players mit übergeben. Ich möchte, dass der Player in der Mitte erscheint, wenn ich das Spiel starte, daher teile ich sowohl die Höhe wie auch die Breite durch 2 damit der Player in der Mitte spawnt. 
 
 ## Änderungen an der Game Loop
 
 Theoretisch hat das Programm jetzt alles, was es braucht um einen Spieler erscheinen und sich bewegen zu lassen… alles außer Inputs. daher weise ich jetzt noch Inputs zu, damit das Programm weiß, wenn sich der Player bewegt und wenn nicht. 
 
-Dies wird immer über den Event-Handler geregelt. Jeder Input wird dort thematisiert.
+Dies wird immer über den Event-Handler geregelt. Jeder Input wird dort thematisiert (siehe [DevLog 0: Getting Started](https://nico-puelacher-fi.vercel.app/posts/post-02)).
 
-```python
+```python 
 def run(self):
         while True:
             self.screen.fill((0,0,0))
@@ -140,7 +140,7 @@ def run(self):
 
 # Der erste Test
 
-Damit wir jetzt gleich was sehen können erstelle ich ein blaues Quadrat um zu testen, ob der bisherige Code funktioniert:
+Damit wir jetzt gleich was sehen können erstelle ich ein blaues Quadrat um zu testen ob der bisherige Code funktioniert:
 
 ```python
 
@@ -172,7 +172,7 @@ Damit wir jetzt gleich was sehen können erstelle ich ein blaues Quadrat um zu t
 Game().run()
 ```
 
-Und tatsächlich! Wenn ich das Programm starte, dann sehen wir ein blaues Quadrat, was sich mit den Pfeiltasten steuern lässt!
+Und tatsächlich! Wenn ich das Programm starte, dann sehen wir ein blaues Quadrat was sich mit den Pfeiltasten steuern lässt!
 
 ![Test1](/articlecontents/Test01.png)
 
@@ -205,7 +205,7 @@ class Player:
         self.is_flipped = False
 ```
 
-Die Richtung soll mit self.is_flipped abgefragt werden. Dann brauche ich eine aktuelle Animation, die abgespielt werden soll. Standardmäßig (wenn nichts gedrückt wird)  bewegt sich der Spieler nicht, also idlet er. Dann brauche ich alle Assets, damit ich diese verwalten kann.
+Die Richtung soll mit dem Boolean self.is_flipped abgefragt werden. Dann brauche ich eine aktuelle Animation, die abgespielt werden soll. Standardmäßig (wenn nichts gedrückt wird)  bewegt sich der Spieler nicht, also sollte die Idle Animation (in unserem Fall nur ein Image) abgespielt werden. Dann brauche ich alle Assets, damit ich diese verwalten kann.
 
 Das hier ist der gesamte Code für die Player Klasse:
 
@@ -256,9 +256,9 @@ class Player:
 
 Gehen wir die einzelnen Methoden doch mal durch. 
 
-Rect zeichnet ein neues Eck auf dem “Spielfeld”. Update aktualisiert die die aktuelle Animation je nachdem welche Aktion gerade getätigt wird. 
+**Rect** zeichnet ein neues Eck auf dem “Spielfeld”. **Update** aktualisiert die die aktuelle Animation je nachdem welche Aktion gerade getätigt wird. 
 
-Die einzelnen Move Funktionen haben sich auch ein bisschen verändert. Je nachdem wohin ich gehe muss eine Animation getriggert werden.
+Die einzelnen **Move Funktionen** haben sich auch ein bisschen verändert. Je nachdem wohin ich gehe muss eine entsprechende Animation getriggert werden.
 
 Wenn ich nach rechts gehe, dann wird in der Render Methode die PyGame interne Funktion für das flippen von Sprites verwendet.
 
@@ -270,11 +270,12 @@ Theoretisch müsste man in der Game Loop eine Variable self.movement = (0,0) anl
 - runter: -1,0
 - links: 0,-1
 - rechts: 0,1
+
 Letzten Endes fragt man dann ab, ob die zweite Stelle im Tupel = 1 ist und flipt dann. Ich kann dies gerne später nochmal in einem Artikel thematisieren.
 
 ## Änderungen an der Game Klasse
 
-Eigentlich muss ich hier nur die Attribute erweitern, die der Player benötigt. Darunter Höhe und Breite, sowie die Animationen, die in den assets gespeichert werden.
+Eigentlich muss ich hier nur die Attribute erweitern, die der Player benötigt. Darunter Höhe und Breite sowie die Animationen, die in den assets gespeichert werden.
 
 ```python
 class Game:
@@ -299,25 +300,25 @@ class Game:
 
 ## Änderungen in der Game Loop
 
-In der Game Loop muss ich nur festlegen, dass die Idle Animation abgespielt wird, wenn ich nichts drücke und sowohl die render, wie auch die update Methode aufrufen.
+In der Game Loop muss ich nur festlegen, dass die Idle Animation abgespielt wird, wenn ich nichts drücke und sowohl die **render**, wie auch die **update** Methode aufrufen.
 
 **Anmerkung:**
 
-Die Game Loop wird 60 Mal die Sekunde ausgeführt, dass heißt es wird nicht nur 1 Mal geupdatet und dann gerendert sondern 60 Mal die Sekunde und genau deswegen funktioniert das auch. 
+Die Game Loop wird 60 Mal die Sekunde ausgeführt, das heißt es wird nicht nur 1 Mal geupdatet und dann gerendert sondern 60 Mal die Sekunde und genau deswegen funktioniert das auch. 
 
 # Der finale Test
 
-Schauen wir doch mal, ob das alles klappt:
+Schauen wir doch mal, ob alles funktioniert:
 
 ![Test2](/articlecontents/Test02.png)
 
-Das klappt! Und der Läufer hat laufen gelernt! Sie werden doch so schnell erwachsen...
+Das klappt! Und unser Läufer hat laufen gelernt! Sie werden doch so schnell erwachsen...
 
 ----
 
 # Schlusswort
 
-Ich habe es bereits erwähnt, wenn wir dieses Programm erweitern sollen, dann werde ich die Player Klasse in eine weitere Datei auslagern, um dann weiter damit zu arbeiten. Für den Moment soll es das aber gewesen sein. Ich freue mich bereits auf die nächste Aufgabe!
+Ich habe es bereits erwähnt. Wenn wir dieses Programm erweitern sollen, dann werde ich die Player Klasse in eine weitere Datei auslagern, um dann weiter damit zu arbeiten. Für den Moment soll es das aber gewesen sein. Ich freue mich bereits auf die nächste Aufgabe!
 
 ## Gesamter Code
 

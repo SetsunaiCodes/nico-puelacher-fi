@@ -9,7 +9,7 @@ topic: Hausaufgabe 01
 
 # Einleitung
 
-In diesem ersten Artikel, der im Rahmen der Hausaufgabe für die Programmierer entsteht, möchte ich die Unterschiede zwischen Python und PyGame näher erläutern, um ein allgemeineres Verständnis liefern zu können. Ich liefere im Folgenden 5 segnifikante Unterschiede.
+In diesem ersten Artikel, der im Rahmen der Hausaufgabe für die Programmierer entsteht, möchte ich die Unterschiede zwischen Python und PyGame näher erläutern, um ein allgemeineres Verständnis liefern zu können. Ich gebe im Folgenden 5 segnifikante Unterschiede mit auf den Weg.
 
 ## 01. Library oder Programmiersprache?
 
@@ -28,15 +28,15 @@ Der Punkt geht ein Stück weit mit dem vorherigen einher. Da Python eine Program
 angegangen werden.
 
 PyGame ist eine Library die extra für einen bestimmten Anwendungsbereich erstellt wurde:
-Das Entwickeln von 2D Spielen ohne dabei Gebrauch von einer Game-Engine wie Unity, Unreal oder Gadoot zu machen.
+Das Entwickeln von 2D Spielen ohne dabei Gebrauch von einer Game-Engine wie Unity, Unreal oder Gadoot machen zu müssen.
 
 ## 03. Aufwand
 
-Python glänzt damit komplexe Programme, mit möglichst wenig Code zu schreiben. PyGame wandert hier in die ganz andere Richtung. PyGame verfügt über interne Libraries, die das Entwickeln von Spielen leichter machen, jedoch sind diese durchaus ressourcenfressend. Daher geht der Trend hier eher in die Richtung sich die einzelnen Funktionalitäten selbst auszutüfteln, was häufig zu sehr viel Code führt.
+Python glänzt damit komplexe Programme, mit möglichst wenig Code zu schreiben. PyGame wandert hier in die ganz andere Richtung. PyGame verfügt über interne Libraries, die das Entwickeln von Spielen leichter machen, jedoch sind diese durchaus ressourcenfressend. Daher geht der Trend hier eher in die Richtung sich die einzelnen Funktionalitäten selbst auszutüfteln, was häufig zu sehr viel Code aber **viel mehr Freiraum** führt.
 
 ## 04. SDL
 
-PyGame basiert auf SDL (Simple DirectMediaStructure). Einfach formuliert ist dies ein C++ Tool, um Grafikoberflächen zu erstellen. Das bedeutet auch, dass PyGame Code immer erst zu C++ kompiliert werden muss, was dazu führt, dass PyGame **eigentlich** sehr langsam ist was Laufzeit angeht. Da Spiele aber nun in jedem Fall ein FPS Limit bekommen, ist dies mehr oder weniger _egal_, da 60 FPS für einen Computer sehr langsam ist.
+PyGame basiert auf SDL (Simple DirectMediaStructure). Einfach formuliert ist dies ein C++ Tool, um Grafikoberflächen zu erstellen. Das bedeutet auch, dass PyGame Code immer erst zu C++ kompiliert werden muss, was dazu führt, dass PyGame **eigentlich** sehr langsam ist was das Thema Laufzeit betrifft. Da Spiele aber nun in jedem Fall ein FPS Limit bekommen, ist dies mehr oder weniger _"egal"_, da 60 FPS für einen Computer sehr langsam ist.
 
 Python ist in der Regel zwar in der Lage eine Benutzeroberfläche zu erstellen, aber eigentlich liegt die Qualität in der Berechnung von komplexeren Datenmengen.
 
@@ -50,6 +50,10 @@ Ein Pythonprogramm ist nicht an eine gewisse Syntax gebunden.
 PyGame braucht einen Initialisierungsbereich und eine Game-Loop.
 
 **Anmerkung:** Dies ist auch bei Processing und "unter der Haube" bei Unity (C#) der Fall.
+
+**Bonusanmerkung:** Für diesen Artikel tatsächlich komplett unwichtig, aber ich finds super interessant,
+dass Gadoot eine eigenen Programmiersprache für die Engine ins Leben gerufen hat. Die übrigens ebenfalls auf Python
+aufbaut.
 
 ---
 
