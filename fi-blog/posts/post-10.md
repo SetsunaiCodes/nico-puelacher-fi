@@ -2,7 +2,7 @@
 title: Der Gegner
 des: Heute beginnen wir mit der eigentlichen Entwicklung des Spiels indem ich eine erste Gegnerklasse erstellen.
 date: 2023-12-04
-imagepath: articlesheads/EnemyTower.png
+imagepath: articlecontents/Artikel11/EnemyTower.png
 id: DevLog
 topic: DevLog 02
 ---
