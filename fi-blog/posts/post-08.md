@@ -15,6 +15,9 @@ Darüber hinaus gibt es nichts was ich mehr liebe als Designarbeit (Das ist kein
 
 In diesem Artikel werde ich den Fortschritt und die Prozessarbeit dokumentieren, damit ein klares Bild entstehen kann, wie Logoarbeit funktioniert.
 
+**Anmerkung:**
+In diesem Artikel verwende ich Ingame Screenshots und Logos, die offensichtlich nicht meine eigenen sein können. Ich habe weder Rechte an den Spielen noch an den Bildern. Die Rechte liegen immer beim entsprechenden Entwicklerstudio. Ich gebe das entsprechende Studio unter den Bildern an.
+
 # Namensfindung
 
 Bevor ich ein Logo erstellen kann, sollten wir uns als Gruppe auf einen Namen einigen. Hier könnte ich jetzt groß darüber schreiben, wie kreativ wir stundenlang darüber nachgedacht haben, was wir für einen Namen wählen…
@@ -109,7 +112,11 @@ Ich habe hier mal 2 Beispiele mitgebracht aus dem Jahre 2023 und 2022.
 
 ![Starfield Logo](/articlecontents/Artikel8/StarFieldLogo.png)
 
+(Starfield Logo, Bethesda Games)
+
 ![God of War Logo](/articlecontents/Artikel8/GOWLogo.png)
+
+(God of War: Ragnarök, Santa Monica Games)
 
 Starfield kam jüngst dieses Jahr (2023) raus und minimalistischer kann ein Logo glaube ich nicht mehr werden. Angenommen Sie (der Leser) wüsste nicht worum es in Starfield geht. Was würden Sie denken? 
 
@@ -120,6 +127,8 @@ Das hier ist übrigens ein Screenshot aus dem Spiel:
 
 ![Starfield Ingame](/articlecontents/Artikel8/StarfieldIngame.png)
 
+(Starfield, Bethesda Games)
+
 Das gesamte UI des Spiels ist generell minimalistisch.
 
 2022 kam das (großartige) “God of War: Ragnarök” raus.
@@ -127,6 +136,8 @@ Das gesamte UI des Spiels ist generell minimalistisch.
 Wenn ich mir das Logo so ansehe, dann sehe ich nordische Runen, ein Omega Symbol, das Wort “God” und “War” und “Ragnarök” ist die Katastrophe, die mit “Fimbulwinter” (dem nicht endenden Winter auf der Erde) eingeleitet werden sollte (Ganz ernsthaft, wer sich für nordische Mythologie interessiert und eine Playstation 5 hat sollte dieses Spiel spielen… keine Werbung sondern Liebe).
 
 ![God of War Ingame](/articlecontents/Artikel8/GOWIngame.png)
+
+(God of War: Ragnarök, Santa Monica Games)
 
 # Der Designprozess
 

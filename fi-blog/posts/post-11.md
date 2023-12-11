@@ -12,6 +12,9 @@ In diesem DevLog möchte ich die AI und das Pathfinding für die Gegner aufsetze
 
 Der Plan steht also! Legen wir direkt los!
 
+**Anmerkung:**
+In diesem Artikel verwende ich Ingame Screenshots, die offensichtlich nicht meine eigenen sein können. Ich habe weder Rechte an den Spielen noch an den Bildern. Die Rechte liegen immer beim entsprechenden Entwicklerstudio. Ich gebe das entsprechende Studio unter den Bildern an.
+
 # Das Pathfinding
 
 ## Was ist Pathfinding?
@@ -20,19 +23,28 @@ Der Plan steht also! Legen wir direkt los!
 
 ![BloonsTD6](/articlecontents/Artikel11/BloonsTD.png)
 
+(Bloons TD6, Ninja Kiwi)
+
 Hier sieht man klar, wo die Gegner entlang laufen werden. Über den Steg. Damit dies funktioniert müssen die Gegner Instanzen aber wissen, wo der Weg entlang läuft. Dafür wird “Pathfinding” genutzt. 
 
 Pathfinding ist allerdings um einiges vielseitiger, als man in Tower Defense Spielen sieht. Eigentlich läuft Pathfinding in den meisten Fällen “unter der Haube” von den meisten Stealth-Games (Spiele wo es darum geht sich an Gegnern vorbei zu schleichen oder diese zu überwältigen). “Unter der Haube” meint in diesem Fall, dass man den Weg den die Gegner gehen nicht direkt sehen kann, weil diese nicht durch einen festen Weg, Pfeile oder Sonstiges gekennzeichnet werden. Dazu möchte ich zwei Spiele zeigen, die ein solches System verwenden, ohne den Path aufzuzeigen, da das Spiel sonst zu “berechenbar” wäre und das “nicht wissen” zum Stilmittel für Stimmung gehört.
 
 ![The Last of Us Part II](/articlecontents/Artikel11/TheLastofUsII.png)
 
+(The Last of Us Part II, Naughty Dog)
+
+
 Hier sehen wir einen Screenshot aus dem Spiel “**The Last of Us Part II**”. Dem wahrscheinlich besten Spiel in Punkto Atmosphäre, Storytelling und Gameplay (Neben dem Vorgänger “**The Last of Us**”. Auch hier wieder: Wer eine PS4 / PS5 besitzt **muss** dieses Spiel gespielt haben…). Jedenfalls laufen die Gegner hier einen immer nahezu gleichen Weg ab und der Spieler muss darauf achten, wo der Gegner stehen bleibt, mit welchen Objekten er interagiert und wo er hinschaut, um nicht entdeckt zu werden. Dabei verfügt der Spieler über kaum Munition und ist so dazu gezwungen sich das Pathfinding anzusehen, da ein Schusswechsel die letzte Option sein sollte. 
 
 ![Assassins Creed: Mirage](/articlecontents/Artikel11/ACMirage.png)
 
+(Assassins Creed: Mirage, Ubisoft)
+
 Da hat jetzt bestimmt niemand mit gerechnet, aber das hier ist “**Assassins Creed: Mirage**”. Die Vorzeige-Spielereihe in Sachen Stealth Games. Hier versteckt sich der Spieler in einer Unterhaltung um so den Gegner in rot zu inspizieren und sich seinen Weg einzuprägen und zu verfolgen. Das direkte Pathfinding ist auch hier nicht zu erkennen.
 
 ![Horizon Zero Dawn](/articlecontents/Artikel11/HorizonZeroDawn.png)
+
+(Horizon: Zero Dawn, Guerilla Games)
 
 Ausnahmen bestätigen die Regel. In **Horizon: Zero Dawn** gehört es zum grundliegenden Gameplay dazu das Pathfinding der Gegner sehen zu können, um so eine Strategie zu entwickeln, wie sich Fallen innerhalb der Wege setzen lassen. Der Path der Gegner wird hier dreidimensional auf die Map gelegt, wenn man diesen Gegner scannt. 
 
