@@ -17,6 +17,7 @@ html {
   --whiteSecondary: rgb(230, 230, 230);
   --whiteHover: rgb(201, 201, 201);
   --whiteShadow: 0px 8px 15px rgb(209, 208, 208);
+  --whiteHoverShadow: 0px 8px 15px rgb(142, 142, 237);
   --whiteFooter: rgb(229, 229, 229);
 
   /*black colors*/
@@ -177,6 +178,11 @@ nav ul li a:hover {
   object-fit: cover;
 }
 
+.article-cards img:Hover{
+
+  box-shadow: var(--whiteHoverShadow);
+}
+
 .article-cards p {
   margin: 0;
 }
@@ -185,8 +191,6 @@ nav ul li a:hover {
   margin-bottom: 10px;
   font-weight: 600;
 }
-
-
 
 
 /*flex classes*/
