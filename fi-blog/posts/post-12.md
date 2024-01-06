@@ -2,7 +2,7 @@
 title: Würstchen grillen im Laser Cutter
 des: In diesem Artikel erläutere ich, wie man rein theoretisch Würstchen im Laser Cutter grillen kann.
 date: 2023-12-18
-imagepath: /articlecontents/Artikel12/LaserCutter.jpg
+imagepath: articlecontents/Artikel12/LaserCutter.jpg
 id: Hausaufgabe
 topic: Hausaufgabe 06
 ---

@@ -2,7 +2,7 @@
 title: Der Level-Editor
 des: In diesem Artikel bauen wir das erste Level und schreiben eine Klasse, die dynamisch korrekte Waypoints setzt.
 date: 2023-12-31
-imagepath: /articlecontents/Artikel13/LevelGebaut.png
+imagepath: articlecontents/Artikel13/LevelGebaut.png
 id: DevLog
 topic: DevLog 04
 ---

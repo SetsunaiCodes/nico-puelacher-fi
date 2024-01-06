@@ -2,7 +2,7 @@
 title: Türme platzieren
 des: In diesem Artikel baue ich eine weitere Mechanik in das Spiel ein. Das Platzieren von Türmen.
 date: 2024-01-01
-imagepath: /articlecontents/Artikel13/LevelGebaut.png
+imagepath: articlecontents/Artikel14/Test3.png
 id: DevLog
 topic: DevLog 05
 ---
