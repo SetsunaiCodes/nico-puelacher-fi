@@ -2,7 +2,7 @@
 title: Der Grid-Controller 1
 des: In diesem Artikel nehme ich die Maussteuerung aus dem Spiel und ersetze sie durch ein vorher getestetes Grid System.
 date: 2024-01-06
-imagepath: articlecontents/Artikel15/Test3.png
+imagepath: articlesheads/Artikel15.jpeg
 id: DevLog
 topic: DevLog 06
 ---

@@ -2,7 +2,7 @@
 title: Movement-Script
 des: In diesem Artikel wird thematisiert, wie man einen Player auf einem Screen anzeigen und mit den Pfeiltasten bewegen kann.
 date: 2023-10-28
-imagepath: articlesheads/WASDWallpaper.png
+imagepath: articlesheads/Artikel05.jpeg
 id: Hausaufgabe
 topic: Hausaufgabe 03
 ---

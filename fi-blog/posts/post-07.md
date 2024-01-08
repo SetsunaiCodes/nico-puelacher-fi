@@ -2,7 +2,7 @@
 title: JoyStick Inputs mit PyGame
 des: In diesem Artikel setzte ich mich mit Max Overlack zusammen, um das Input Script für den JoyStick zu testen.
 date: 2023-11-21
-imagepath: articlecontents/JoyStickWallpaper.jpg
+imagepath: articlesheads/Artikel07.jpeg
 id: Hausaufgabe
 topic: Hausaufgabe 04
 ---

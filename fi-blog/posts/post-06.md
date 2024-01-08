@@ -2,7 +2,7 @@
 title: Erste Konzeption
 des: In diesem ersten richtigen DevLog Eintrag gehe ich auf die ersten Grundideen des Spiels ein.
 date: 2023-10-30
-imagepath: articlecontents/FirstScetch.jpg
+imagepath: articlesheads/Artikel06.jpeg
 id: DevLog
 topic: DevLog 01
 ---

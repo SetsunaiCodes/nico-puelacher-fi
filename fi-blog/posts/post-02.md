@@ -2,7 +2,7 @@
 title: Getting Started
 des: Ziel diesen Artikels ist es die grundsätzliche Anmerkungen zu thematisieren und bereits ein laufendes Spielfenster zu erhalten.
 date: 2023-10-17
-imagepath: articlesheads/DevLog0Thumb.jpg
+imagepath: articlesheads/Artikel02.jpeg
 id: DevLog
 topic: Einleitung
 ---

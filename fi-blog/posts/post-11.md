@@ -2,7 +2,7 @@
 title: Die Gegner AI
 des: In diesem Artikel sorge ich dafür, dass der Gegner auf jedem Satz von Wegpunkten laufen kann und sich entsprechend dreht
 date: 2023-12-09
-imagepath: articlecontents/Artikel11/GegnerAufTrack.png
+imagepath: articlesheads/Artikel11.jpeg
 id: DevLog
 topic: DevLog 03
 ---
