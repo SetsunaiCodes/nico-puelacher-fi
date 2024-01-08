@@ -4,7 +4,7 @@ des: In diesem Artikel sorge ich dafür, dass der Gegner auf jedem Satz von Wegp
 date: 2023-12-09
 imagepath: articlecontents/Artikel11/GegnerAufTrack.png
 id: DevLog
-topic: DevLog 3
+topic: DevLog 03
 ---
 # Einleitung
 

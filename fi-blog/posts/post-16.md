@@ -1,8 +1,8 @@
 ---
 title: Designs, Animationen, Aiming und Schießen
 des: In diesem Artikel zeige ich unsere neuen Designs, baue diese ein und beginne mit der Arbeit am Ziel und Schieß System.
-date: 2024-01-07
-imagepath: articlecontents/Artikel15/Test3.png
+date: 2024-01-08
+imagepath: articlecontents/Artikel16/Test2.png
 id: DevLog
 topic: DevLog 07
 ---
