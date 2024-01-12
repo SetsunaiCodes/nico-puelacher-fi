@@ -4,7 +4,8 @@ des: In diesem Artikel soll näher erläutert werden wo genau der Unterschied zw
 date: 2023-10-17
 imagepath: articlesheads/Artikel03.jpeg
 id: Hausaufgabe
-topic: Hausaufgabe 01
+topic: "01"
+emote: 🥊
 ---
 
 # Einleitung

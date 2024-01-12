@@ -4,7 +4,8 @@ des: In diesem Artikel zeige ich unsere neuen Designs, baue diese ein und beginn
 date: 2024-01-08
 imagepath: articlesheads/Artikel14.jpeg
 id: DevLog
-topic: DevLog 07
+topic: "07"
+emote: 🏯
 ---
 # Einleitung
 

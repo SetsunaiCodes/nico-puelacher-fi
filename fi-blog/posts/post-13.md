@@ -4,7 +4,8 @@ des: In diesem Artikel bauen wir das erste Level und schreiben eine Klasse, die 
 date: 2023-12-31
 imagepath: articlesheads/Artikel13.jpeg
 id: DevLog
-topic: DevLog 04
+topic: "04"
+emote: 👨🏻‍🎨
 ---
 
 # Einleitung

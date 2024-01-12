@@ -4,7 +4,8 @@ des: Ziel diesen Artikels ist es die grundsätzliche Anmerkungen zu thematisiere
 date: 2023-10-17
 imagepath: articlesheads/Artikel02.jpeg
 id: DevLog
-topic: Einleitung
+topic: "00"
+emote: 🎉
 ---
 
 # Anmerkungen

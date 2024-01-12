@@ -4,7 +4,8 @@ des: In diesem Artikel möchte ich näher bringen, wie man in PyGame mit Sprites
 date: 2023-10-19
 imagepath: articlesheads/Artikel04.jpeg
 id: Hausaufgabe
-topic: Hausaufgabe 02
+topic: "02"
+emote: 🏃🏻"
 ---
 
 # Das Spritesheet

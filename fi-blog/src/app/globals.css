@@ -3,6 +3,11 @@ body,
 html {
   margin: 0;
   padding: 0;
+  background-image: url("/Background.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: var(--whiteMain);
 }
 ::-webkit-scrollbar {
   width: 0rem;
@@ -12,18 +17,22 @@ html {
   /*Main colors*/
   --mainBlue: rgb(86, 86, 231);
 
+
+  /*Values*/
+  --border-radius: 3px;
+
   /*white colors*/
   --whiteMain: rgb(249, 249, 249);
   --whiteSecondary: rgb(230, 230, 230);
   --whiteHover: rgb(201, 201, 201);
   --whiteShadow: 0px 8px 15px rgb(209, 208, 208);
-  --whiteHoverShadow: 0px 8px 15px rgb(142, 142, 237);
+  --whiteHoverShadow: 0px 8px 15px rgb(15, 15, 214);
   --whiteFooter: rgb(229, 229, 229);
 
   /*black colors*/
   --blackMain: rgb(15, 15, 15);
-  --blackSecondary: rgb(100, 100, 100);
-  --blackHover: rgb(56, 56, 56);
+  --blackSecondary: rgb(27, 27, 27);
+  --blackHover: rgb(30, 30, 30);
 }
 
 /*Components*/
@@ -32,12 +41,14 @@ main {
   width: 80%;
 }
 aside {
-  height: 10vh;
+  height: auto;
   width: 20%;
+  margin: 10px;
+  border-right: 2px solid var(--blackHover);
 }
 
 .section {
-  width: 80%;
+  width: 85%;
   margin: 30px 10%;
 }
 
@@ -58,9 +69,9 @@ aside {
 
 pre {
   padding: 20px;
-  background-color: var(--whiteSecondary);
-  border-radius: 12px;
-  box-shadow: var(--whiteShadow);
+  background-color: var(--blackSecondary);
+  color: var(--whiteMain);
+  border-radius: var(--border-radius);
 }
 
 code {
@@ -98,6 +109,15 @@ nav span {
   color: var(--mainBlue);
 }
 
+.nav-search{
+  height: 35px;
+  width: 180px;
+  margin: 0 0 0 30px;
+  background-color: var(--blackSecondary);
+  border: none;
+  border-radius: var(--border-radius);
+}
+
 .quick-links {
   margin: 0;
   padding: 0;
@@ -106,11 +126,15 @@ nav span {
 
 .quick-links li {
   margin: 10px 0;
+  padding: 5px;
+  border-radius: var(--border-radius);
+}
+.quick-links li:hover{
+  background-color: var(--blackSecondary);
 }
 
 img {
-  box-shadow: var(--whiteShadow);
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   max-width: 100%;
 }
 
@@ -139,21 +163,20 @@ nav ul li a:hover {
   padding: 10px;
   margin: 0 5%;
   background-color: var(--whiteMain);
-  box-shadow: var(--whiteShadow);
-  border-radius: 12px;
+  border-radius: var(--border-radius);
 }
 
 .about-card{
   height: 200px;
   width: 60%;
   background-color: var(--whiteMain);
-  box-shadow: var(--whiteShadow);
 }
 
 .about-card img{
   height: 100%;
   object-fit: cover;
 }
+
 
 .personal-card p {
   margin: 0;
@@ -176,10 +199,11 @@ nav ul li a:hover {
   height: 300px;
   width: 100%;
   object-fit: cover;
+  transition: transform .2s;
 }
 
 .article-cards img:Hover{
-
+  transform: scale(1.05);
   box-shadow: var(--whiteHoverShadow);
 }
 
@@ -216,6 +240,11 @@ nav ul li a:hover {
   justify-content: space-between;
   align-items: center;
 }
+.flex-a-center-j-start {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
 
 .flex-a-center-j-start-column {
   display: flex;
@@ -237,11 +266,11 @@ nav ul li a:hover {
 
 .topic-quick {
   font-size: 13px;
-  color: var(--blackSecondary);
+  color: var(--whiteSecondary);
 }
 
 .card-heading {
-  color: var(--blackMain);
+  color: var(--whiteMain);
   text-decoration: none;
 }
 
@@ -250,7 +279,7 @@ nav ul li a:hover {
 }
 
 .title-quick {
-  color: var(--blackMain);
+  color: var(--whiteMain);
   text-decoration: none;
   font-weight: 600;
   font-size: 16px;
@@ -273,9 +302,8 @@ nav ul li a:hover {
   width: 80%;
   height: 450px;
   margin: 20px 10%;
-  border-radius: 12px;
+  border-radius: var(--border-radius);
   object-fit: cover;
-  box-shadow: var(--whiteShadow);
 
 }
 
@@ -297,8 +325,15 @@ nav ul li a:hover {
   gap: 10px;
 }
 
+.emote{
+  font-size: 30px;
+}
 .margintop {
   margin-top: 10px;
+}
+
+.margin-right{
+  margin-right: 5px;
 }
 
 .height70{
@@ -311,7 +346,7 @@ nav ul li a:hover {
 
 .margin-aside {
   margin-top: 50px;
-}
+} 
 
 .no-margin {
   margin: 0;

@@ -4,7 +4,8 @@ des: In diesem kurzen Artikel möchte ich einen Nachtrag zum Joy Stick Script li
 date: 2023-12-01
 imagepath: articlesheads/Artikel09.jpeg
 id: Hausaufgabe
-topic: Hausaufgabe 05
+topic: "05"
+emote: 🎮
 ---
 
 # Einleitung

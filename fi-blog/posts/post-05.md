@@ -4,7 +4,8 @@ des: In diesem Artikel wird thematisiert, wie man einen Player auf einem Screen 
 date: 2023-10-28
 imagepath: articlesheads/Artikel05.jpeg
 id: Hausaufgabe
-topic: Hausaufgabe 03
+topic: "03"
+emote: 📝
 ---
 
 # Einleitung

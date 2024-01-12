@@ -3,10 +3,9 @@ import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
 
 /*Components*/
-import { Navbar } from "./components";
-import { MainHighlight } from "./components";
 import { PostCard } from "./components";
 import { AsideBar } from "./components";
+import { Navbar } from "./components";
 
 const cardContainerStyle = {
   display: "flex",
@@ -21,7 +20,7 @@ export default function Home() {
 
   return (
     <div>
-      <MainHighlight/>
+      <Navbar/>
       <div className="flex-a-start-j-center section margintop">
         <aside className="margin-aside">
           <AsideBar/>

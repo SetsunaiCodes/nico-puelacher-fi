@@ -4,7 +4,8 @@ des: In diesem Artikel setzte ich mich mit Max Overlack zusammen, um das Input S
 date: 2023-11-21
 imagepath: articlesheads/Artikel07.jpeg
 id: Hausaufgabe
-topic: Hausaufgabe 04
+topic: "04"
+emote: 🕹️
 ---
 
 

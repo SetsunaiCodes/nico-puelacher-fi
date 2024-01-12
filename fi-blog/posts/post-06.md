@@ -4,7 +4,8 @@ des: In diesem ersten richtigen DevLog Eintrag gehe ich auf die ersten Grundidee
 date: 2023-10-30
 imagepath: articlesheads/Artikel06.jpeg
 id: DevLog
-topic: DevLog 01
+topic: "01"
+emote: 🖌️
 ---
 
 # Einleitung

@@ -4,7 +4,8 @@ des: In diesem Artikel finden wir als Gruppe einen Namen für das Spiel und ich 
 date: 2023-12-01
 imagepath: articlesheads/Artikel08.png
 id: DevLog
-topic: DevLog Bonus
+topic: Bonus
+emote: 🎨
 ---
 
 # Einleitung

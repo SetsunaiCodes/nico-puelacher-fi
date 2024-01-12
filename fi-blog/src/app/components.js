@@ -16,10 +16,16 @@ export function Navbar() {
             <li>
               <Link href="/">Home</Link>
             </li>
-            <li>
-              <Link href="/about">About</Link>
-            </li>
           </ul>
+          {/*
+          
+          <div>
+            <input className="nav-search" type="search"/>
+          </div>
+          
+          
+          
+          */}
 
           <div className="btn-container-nav">
             <a target="_blank" href="https://github.com/SetsunaiCodes">
@@ -35,12 +41,12 @@ export function Navbar() {
 export function AsideBar() {
 
   return (
-    <div>
-      <div className="section">
+    <div className="margin-right">
+      <div>
         <h2>Quick Links</h2>
-        <QuickSelectGroup title = "Gedankengänge"/>
-        <QuickSelectGroup title = "Hausaufgabe"/>
         <QuickSelectGroup title = "DevLog"/>
+        <QuickSelectGroup title = "Hausaufgabe"/>
+        <QuickSelectGroup title = "Gedankengänge"/>
       </div>
     </div>
   );
@@ -100,14 +106,16 @@ const id = props.title;
           {posts
             .filter((post) => post.id === id)
             .map((post, idx) => (
-              <li key={idx}>
+              <li key={idx} className="flex flex-a-center-j-start gap">
                 <div>
-                  <p className="no-margin topic-quick">{post.topic}</p>
+                  <p>{post.emote}</p>
+                </div>
+                <div>
                   <Link className="no-margin title-quick" href={post.url}>
                     {post.title}
                   </Link>
                 </div>
-                <div className="divider-hor"></div>
+                <p className="no-margin topic-quick">{post.topic}</p>
               </li>
             ))}
         </ul>
@@ -135,22 +143,3 @@ export function AboutMeCard() {
   )
 }
 
-/* Main Highlight */
-
-export function MainHighlight() {
-
-  return(
-    <div className="highlight-main">
-      <div className="black-transparent">
-        <Navbar/>
-        <div className=" flex-a-j-center height-100">
-          <div className="flex-a-j-center-column">
-            <h1>Nico Puelacher</h1>
-            <p>Fortgeschrittene Interaktionstechnologien</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  )
-}

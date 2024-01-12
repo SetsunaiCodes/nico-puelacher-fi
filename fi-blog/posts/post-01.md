@@ -4,7 +4,8 @@ des: Ziel diesen Artikels ist es die grundsätzliche Anmerkungen zu thematisiere
 date: 2023-10-16
 imagepath: articlesheads/Artikel01.jpeg
 id: Gedankengänge
-topic: Gedankengänge 01
+topic: "01"
+emote: 🐍
 ---
 
 # Einleitung

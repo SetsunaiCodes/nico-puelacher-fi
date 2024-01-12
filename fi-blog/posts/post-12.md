@@ -4,7 +4,8 @@ des: In diesem Artikel erläutere ich, wie man rein theoretisch Würstchen im La
 date: 2023-12-18
 imagepath: articlesheads/Artikel12.jpeg
 id: Hausaufgabe
-topic: Hausaufgabe 06
+topic: "06"
+emote: ✂️
 ---
 # Einleitung
 

@@ -4,7 +4,8 @@ des: In diesem Artikel nehme ich die Maussteuerung aus dem Spiel und ersetze sie
 date: 2024-01-06
 imagepath: articlesheads/Artikel15.jpeg
 id: DevLog
-topic: DevLog 06
+topic: "06"
+emote: 📈
 ---
 # Einleitung
 

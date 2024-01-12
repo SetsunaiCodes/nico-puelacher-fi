@@ -11,6 +11,7 @@ export const Post = defineDocumentType(() => ({
     imagepath: { type: "string", required: true },
     topic: { type: "string", required: false },
     id: { type: "string", required: false },
+    emote: { type: "string", required: false }
   },
   computedFields: {
     url: {

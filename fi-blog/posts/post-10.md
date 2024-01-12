@@ -4,7 +4,8 @@ des: Heute beginnen wir mit der eigentlichen Entwicklung des Spiels indem ich ei
 date: 2023-12-04
 imagepath: articlesheads/Artikel10.jpeg
 id: DevLog
-topic: DevLog 02
+topic: "02"
+emote: 👽
 ---
 # Einleitung
 

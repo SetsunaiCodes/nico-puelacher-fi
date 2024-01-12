@@ -4,7 +4,8 @@ des: In diesem Artikel baue ich eine weitere Mechanik in das Spiel ein. Das Plat
 date: 2024-01-01
 imagepath: articlesheads/Artikel16.png
 id: DevLog
-topic: DevLog 05
+topic: "05"
+emote: 🏰
 ---
 # Einleitung
 
