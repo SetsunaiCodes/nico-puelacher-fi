@@ -32,7 +32,7 @@ html {
   /*black colors*/
   --blackMain: rgb(15, 15, 15);
   --blackSecondary: rgb(27, 27, 27);
-  --blackHover: rgb(30, 30, 30);
+  --blackHover: rgba(161, 161, 161, 0.324);
 }
 
 /*Components*/
@@ -130,7 +130,7 @@ nav span {
   border-radius: var(--border-radius);
 }
 .quick-links li:hover{
-  background-color: var(--blackSecondary);
+  background-color: var(--blackHover);
 }
 
 img {

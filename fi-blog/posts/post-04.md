@@ -5,7 +5,7 @@ date: 2023-10-19
 imagepath: articlesheads/Artikel04.jpeg
 id: Hausaufgabe
 topic: "02"
-emote: 🏃🏻"
+emote: 🏃🏻
 ---
 
 # Das Spritesheet
