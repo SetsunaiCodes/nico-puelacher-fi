@@ -1,10 +1,17 @@
+"use client"
 import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts } from "contentlayer/generated";
-import { FaHtml5, FaCss3, FaJs, FaReact, FaPython, FaGithub } from 'react-icons/fa';
-
+import { FaHtml5, FaCss3, FaJs, FaReact, FaPython, FaGithub, FaSearch, FaXRay } from 'react-icons/fa';
+import React ,{useState} from "react";
 /*Page Layout*/
-export function Navbar() {
+export function Navbar( {onSearch} ) {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleSearch = () => {
+    onSearch(searchTerm);
+  };
+
   return (
     <nav className="flex-a-j-center">
       <div className="section flex-a-center-j-between">
@@ -17,15 +24,16 @@ export function Navbar() {
               <Link href="/">Home</Link>
             </li>
           </ul>
-          {/*
-          
-          <div>
-            <input className="nav-search" type="search"/>
-          </div>
-          
-          
-          
-          */}
+    
+          <div className="flex flex-a-j-center">
+          <input
+            className="nav-search"
+            type="search"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <button className="search-icon" onClick={handleSearch}><FaSearch/></button>
+         </div>
 
           <div className="btn-container-nav">
             <a target="_blank" href="https://github.com/SetsunaiCodes">

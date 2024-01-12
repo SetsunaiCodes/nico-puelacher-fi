@@ -113,9 +113,20 @@ nav span {
   height: 35px;
   width: 180px;
   margin: 0 0 0 30px;
-  background-color: var(--blackSecondary);
+  background-color: var(--blackHover);
   border: none;
-  border-radius: var(--border-radius);
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+  color: white;
+}
+
+.search-icon{
+  background-color: var(--blackHover);
+  font-size: 15px;
+  height: 35px;
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+
 }
 
 .quick-links {

@@ -1,3 +1,5 @@
+"use client"
+import React, { useState } from "react";
 import Link from "next/link";
 import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
@@ -14,21 +16,28 @@ const cardContainerStyle = {
 };
 
 export default function Home() {
-  const posts = allPosts.sort((a, b) =>
-    compareDesc(new Date(a.date), new Date(b.date)),
-  );
+  const [searchTerm, setSearchTerm] = useState("");
+  const filteredPosts = allPosts
+    .filter((post) =>
+      post.title.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
+
+  const handleSearch = (term) => {
+    setSearchTerm(term);
+  };
 
   return (
     <div>
-      <Navbar/>
+      <Navbar onSearch={handleSearch} />
       <div className="flex-a-start-j-center section margintop">
         <aside className="margin-aside">
-          <AsideBar/>
+          <AsideBar />
         </aside>
         <main>
           <h1>Uploads</h1>
           <div style={cardContainerStyle}>
-            {posts.map((post, idx) => (
+            {filteredPosts.map((post, idx) => (
               <PostCard key={idx} {...post} />
             ))}
           </div>
