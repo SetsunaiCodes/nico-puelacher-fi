@@ -89,7 +89,6 @@ export function PostCard(post) {
           <time dateTime={post.date}>
             {format(parseISO(post.date), "dd.MM.yyyy")}
           </time>
-          <p>/{post.topic}</p>
         </div>
 
         <div className="margintop">
