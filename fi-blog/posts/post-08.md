@@ -2,7 +2,7 @@
 title: Das Logo
 des: In diesem Artikel finden wir als Gruppe einen Namen für das Spiel und ich erstelle anschließend ein Logo.
 date: 2023-12-01
-imagepath: articlesheads/Artikel08.png
+imagepath: articlesheads/Artikel08.jpeg
 id: DevLog
 topic: Bonus
 emote: 🎨
