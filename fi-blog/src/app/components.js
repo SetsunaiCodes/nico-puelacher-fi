@@ -113,15 +113,17 @@ const id = props.title;
           {posts
             .filter((post) => post.id === id)
             .map((post, idx) => (
-              <li key={idx} className="flex flex-a-center-j-start gap">
-                <div>
+              <li key={idx} className="flex flex-a-center-j-between gap">
+                <div className="flex flex-a-j-center">
                   <p>{post.emote}</p>
-                </div>
-                <div>
+
                   <Link className="no-margin title-quick" href={post.url}>
                     {post.title}
                   </Link>
+
                 </div>
+            
+                
                 <p className="no-margin topic-quick">{post.topic}</p>
               </li>
             ))}
