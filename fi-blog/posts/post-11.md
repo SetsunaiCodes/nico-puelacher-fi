@@ -9,45 +9,45 @@ emote: 🖌️
 ---
 # Einleitung
 
-In diesem DevLog möchte ich die AI und das Pathfinding für die Gegner aufsetzen, damit ich im nächsten Artikel direkt damit anfangen kann erste Level zum testen aufzusetzen.
+In diesem DevLog möchte ich die AI und das Pathfinding für die Gegner aufsetzen, damit ich im nächsten Artikel direkt damit anfangen kann ein erstes Level zum testen aufzusetzen.
 
-Der Plan steht also! Legen wir direkt los!
+Klingt nach einer Herausforderung, daher fangen wir direkt an!
 
 **Anmerkung:**
-In diesem Artikel verwende ich Ingame Screenshots, die offensichtlich nicht meine eigenen sein können. Ich habe weder Rechte an den Spielen noch an den Bildern. Die Rechte liegen immer beim entsprechenden Entwicklerstudio. Ich gebe das entsprechende Studio unter den Bildern an.
+In diesem Artikel verwende ich Ingame Screenshots von Spielen, die offensichtlich nicht meine eigenen sein können. Ich habe weder Rechte an den Spielen noch an den Bildern. Die Rechte liegen immer beim entsprechenden Entwicklerstudio. Ich gebe das entsprechende Studio und den Publisher unter den Bildern an und werde dies auch in kommenden Artikeln so handhaben.
 
 # Das Pathfinding
 
 ## Was ist Pathfinding?
 
-“Pathfinding” umschreibt in unserem Kontext eine Spielmechanik, wo eine Instanz (ein COM, wie man in Spielen so schön sagt) einem festgelegten Weg folgen soll. Pathfinding wird immer seltener in der aktuellen Gamingwelt, da AI Support besonders auf den Spieler an sich achtet und mit diesem interagiert, aber dennoch ist es immernoch eine valide Mechanik besonders in Tower Defense Spielen. Hier ist ein Beispiel für einen solchen Path aus dem Spiel “**Bloons TD 6**”. 
+“Pathfinding” umschreibt in unserem Kontext eine Spielmechanik, bei der eine Instanz (ein COM, wie man in Spielen so schön sagt) einem festgelegten Weg folgen soll. Pathfinding wird immer seltener in der aktuellen Gamingwelt, da AI Technologien mittlerweile in der Lage sind besonders auf den Spieler und seine Bewegungen zu achten und entsprechend auf diese zu reagieren, dennoch ist grundsätzliches Pathfinding immernoch eine valide Mechanik besonders in Tower Defense Spielen. Hier ist ein Beispiel für einen solchen Path aus dem Spiel “**Bloons TD 6**”. 
 
 ![BloonsTD6](/articlecontents/Artikel11/BloonsTD.png)
 
 (Bloons TD6, Ninja Kiwi)
 
-Hier sieht man klar, wo die Gegner entlang laufen werden. Über den Steg. Damit dies funktioniert müssen die Gegner Instanzen aber wissen, wo der Weg entlang läuft. Dafür wird “Pathfinding” genutzt. 
+Hier sieht man klar, wo die Gegner entlang laufen werden. Über den Steg. Damit dies funktioniert müssen die Gegner Instanzen aber "wissen", wo der Weg entlang läuft. Dafür wird “Pathfinding” verwendet. Über Polygonen, die zusammen eine Linie ergeben, die über den Weg entlang gehen. 
 
-Pathfinding ist allerdings um einiges vielseitiger, als man in Tower Defense Spielen sieht. Eigentlich läuft Pathfinding in den meisten Fällen “unter der Haube” von den meisten Stealth-Games (Spiele wo es darum geht sich an Gegnern vorbei zu schleichen oder diese zu überwältigen). “Unter der Haube” meint in diesem Fall, dass man den Weg den die Gegner gehen nicht direkt sehen kann, weil diese nicht durch einen festen Weg, Pfeile oder Sonstiges gekennzeichnet werden. Dazu möchte ich zwei Spiele zeigen, die ein solches System verwenden, ohne den Path aufzuzeigen, da das Spiel sonst zu “berechenbar” wäre und das “nicht wissen” zum Stilmittel für Stimmung gehört.
+Pathfinding ist allerdings um einiges vielseitiger, als man in Tower Defense Spielen sehen kann. Eigentlich läuft Pathfinding in den meisten Fällen “unter der Haube” von den meisten Stealth-Games (Spiele wo es darum geht sich an Gegnern vorbei zu schleichen oder diese zu überwältigen). “Unter der Haube” meint in diesem Fall, dass man den Weg den die Gegner gehen nicht direkt sehen kann, weil diese nicht durch einen festen Weg, Pfeile oder Sonstiges gekennzeichnet werden. Dazu möchte ich zwei Spiele zeigen, die ein solches System verwenden, ohne den Path aufzuzeigen, da das Spiel sonst zu “berechenbar” wäre und das “nicht wissen des nächsten Schrittes” zum Stilmittel für Stimmung gehört.
 
 ![The Last of Us Part II](/articlecontents/Artikel11/TheLastofUsII.png)
 
 (The Last of Us Part II, Naughty Dog)
 
 
-Hier sehen wir einen Screenshot aus dem Spiel “**The Last of Us Part II**”. Dem wahrscheinlich besten Spiel in Punkto Atmosphäre, Storytelling und Gameplay (Neben dem Vorgänger “**The Last of Us**”. Auch hier wieder: Wer eine PS4 / PS5 besitzt **muss** dieses Spiel gespielt haben…). Jedenfalls laufen die Gegner hier einen immer nahezu gleichen Weg ab und der Spieler muss darauf achten, wo der Gegner stehen bleibt, mit welchen Objekten er interagiert und wo er hinschaut, um nicht entdeckt zu werden. Dabei verfügt der Spieler über kaum Munition und ist so dazu gezwungen sich das Pathfinding anzusehen, da ein Schusswechsel die letzte Option sein sollte. 
+Hier sehen wir einen Screenshot aus dem Spiel “**The Last of Us Part II**”. Dem wahrscheinlich besten Spiel in Punkto Atmosphäre, Storytelling und Gameplay (Neben dem Vorgänger “**The Last of Us**”. Auch hier wieder: Wer eine PS4 / PS5 besitzt **muss** dieses Spiel gespielt haben…). Jedenfalls laufen die Gegner hier einen immer nahezu gleichen Weg ab, um den Spieler zu finden und der Spieler muss darauf achten, wo der Gegner stehen bleibt, mit welchen Objekten er interagiert und wo er hinschaut, um nicht entdeckt zu werden. Dabei verfügt der Spieler über kaum Munition oder alternative Ressourcen zur Verteidigung und ist so dazu gezwungen sich das Pathfinding anzusehen und zu verstehen, da ein Schusswechsel die letzte Option sein sollte. 
 
 ![Assassins Creed: Mirage](/articlecontents/Artikel11/ACMirage.png)
 
 (Assassins Creed: Mirage, Ubisoft)
 
-Da hat jetzt bestimmt niemand mit gerechnet, aber das hier ist “**Assassins Creed: Mirage**”. Die Vorzeige-Spielereihe in Sachen Stealth Games. Hier versteckt sich der Spieler in einer Unterhaltung um so den Gegner in rot zu inspizieren und sich seinen Weg einzuprägen und zu verfolgen. Das direkte Pathfinding ist auch hier nicht zu erkennen.
+Da hat jetzt bestimmt niemand mit gerechnet, aber das hier ist “**Assassins Creed: Mirage**”. Die Vorzeige-Spielereihe in Sachen "Stealth-Games". Hier versteckt sich der Spieler in einer Unterhaltung um so den Gegner in rot zu inspizieren und sich seinen Weg einzuprägen und zu verfolgen. Das direkte Pathfinding ist auch hier ebenfalls nicht zu erkennen.
 
 ![Horizon Zero Dawn](/articlecontents/Artikel11/HorizonZeroDawn.png)
 
 (Horizon: Zero Dawn, Guerilla Games)
 
-Ausnahmen bestätigen die Regel. In **Horizon: Zero Dawn** gehört es zum grundliegenden Gameplay dazu das Pathfinding der Gegner sehen zu können, um so eine Strategie zu entwickeln, wie sich Fallen innerhalb der Wege setzen lassen. Der Path der Gegner wird hier dreidimensional auf die Map gelegt, wenn man diesen Gegner scannt. 
+Ausnahmen bestätigen bekanntlich die Regel. In **Horizon: Zero Dawn** gehört es zum grundliegenden Gameplay dazu das Pathfinding der Gegner sehen zu können, um so eine Strategie zu entwickeln, wie sich Fallen innerhalb der Wege setzen lassen. Der Path der Gegner wird hier dreidimensional auf die Map gelegt, wenn man diesen Gegner scannt. 
 
 **Um das Thema zusammenzufassen:** Pathfinding kann ein Werkzeug sein um innovatives Gameplay oder Atmosphäre möglich zu machen und ist eben nicht nur wichtig, um in Tower Defense Spielen grundliegendes Gameplay zu ermöglichen.
 
