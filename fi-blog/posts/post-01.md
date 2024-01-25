@@ -3,14 +3,14 @@ title: Python vs. Processing
 des: Ziel diesen Artikels ist es die grundsätzliche Anmerkungen zu thematisieren und bereits ein laufendes Spielfenster zu erhalten.
 date: 2023-10-16
 imagepath: articlesheads/Artikel01.jpeg
-id: Gedankengänge
+id: Exkurse
 topic: "01"
 emote: 🐍
 ---
 
 # Einleitung
 
-In diesem ersten Artikel zum Thema _'Gedankengänge'_ möchte ich darauf eingehen, warum ich mich bei der Wahl der Programmier-Library für PyGame (Python) entschieden habe und nicht für Processing. Dies geschieht, indem ich folgende Gesichtspunkte die mir wichig waren miteinander vergleiche:
+In diesem ersten Artikel zum Thema _'Exkurse'_ möchte ich darauf eingehen, warum ich mich bei der Wahl der Programmier-Library für PyGame (Python) entschieden habe und nicht für Processing. Dies geschieht, indem ich folgende Gesichtspunkte die mir wichig waren miteinander vergleiche:
 
 - Persönliche Präferenz und gesammelte Erfahrung
 - Community bei Fragen und Baustellen

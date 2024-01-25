@@ -54,7 +54,7 @@ export function AsideBar() {
         <h2>Quick Links</h2>
         <QuickSelectGroup title = "DevLog"/>
         <QuickSelectGroup title = "Hausaufgabe"/>
-        <QuickSelectGroup title = "Gedankengänge"/>
+        <QuickSelectGroup title = "Exkurse"/>
       </div>
     </div>
   );
