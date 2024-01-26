@@ -2,7 +2,7 @@
 title: Zelluläre Automaten
 des: In diesem Artikel arbeite ich zusammen mit 2 Online Quellen eine Möglichkeit aus fallenden Sand in PyGame darzustellen.
 date: 2024-01-26
-imagepath: articlesheads/Artikel23.jpeg
+imagepath: articlesheads/Artikel24.jpeg
 id: Exkurse
 topic: "03"
 emote: ⏳
@@ -204,15 +204,15 @@ def update_position(self):
             elif self.grid[points[0]][points[1] + T] == 1:
                 # Überprüfen der umliegenden Zellen
                 if (self.grid[points[0] + T][points[1] + T] == 1)
-								and (self.grid[points[0] - T][points[1] + T] == 1):
+				and (self.grid[points[0] - T][points[1] + T] == 1):
                     # Wenn beide umliegenden Zellen belegt sind, 
-										# behalte die aktuelle Position bei
+					# behalte die aktuelle Position bei
                     self.position.append(points)
                     
                 elif (self.grid[points[0] + T][points[1] + T] == 1)
-								and (self.grid[points[0] - T][points[1] + T] == 0):
+				and (self.grid[points[0] - T][points[1] + T] == 0):
                     # Wenn nur die rechte obere Zelle belegt ist, 
-										# bewege das Sandpartikel nach links oben
+					# bewege das Sandpartikel nach links oben
                     self.grid[points[0]][points[1]] = 0
                     self.grid[points[0] - T][points[1] + T] = 1
                     listpoints[0] -= T
@@ -221,9 +221,9 @@ def update_position(self):
                     self.position.append(points)
                     
                 elif (self.grid[points[0] + T][points[1] + T] == 0) 
-								and (self.grid[points[0] - T][points[1] + T] == 1):
+				and (self.grid[points[0] - T][points[1] + T] == 1):
                     # Wenn nur die linke obere Zelle belegt ist, 
-										# bewege das Sandpartikel nach rechts oben
+				    # bewege das Sandpartikel nach rechts oben
                     self.grid[points[0]][points[1]] = 0
                     self.grid[points[0] + T][points[1] + T] = 1
                     listpoints[0] += T
@@ -233,7 +233,7 @@ def update_position(self):
                     
                 else:
                     # Wenn beide umliegenden Zellen leer sind, 
-										# bewege das Sandpartikel zufällig nach links oder rechts oben
+					# bewege das Sandpartikel zufällig nach links oder rechts oben
                     self.grid[points[0]][points[1]] = 0
                     a = random.randint(0, 1)
                     if a == 0:
