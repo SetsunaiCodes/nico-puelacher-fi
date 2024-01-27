@@ -34,7 +34,7 @@ Soundkarten sind hier besonders. Wie wir für das Modul Medientechnik wissen sol
 
 ## Ein Lochkartenlesegerät
 
-![Untitled](articlecontents/Artikel25/Lochkarten.png)
+![Untitled](/articlecontents/Artikel25/Lochkarten.png)
 
 Ich habe gerade ein [YouTube Video](https://www.youtube.com/watch?v=WR2HXQO2RWg) gefunden, wo ein Lochkartenlesegerät aus LEGO gebaut wurde.
 
@@ -42,7 +42,7 @@ Links sieht man eine Karte, die verschiedene weiße und schwarze Kästchen hat. 
 
 ## Lichtgriffel
 
-![Untitled](articlecontents/Artikel25/Lightpen.png)
+![Untitled](/articlecontents/Artikel25/Lightpen.png)
 
 [Ivan Sutherland demonstriert im Jahre 1963 das Sketchpad.](https://en.wikipedia.org/w/index.php?curid=8641142)
 
@@ -52,7 +52,7 @@ Der Lightpen hat einen Fototransistor der Licht an einen Bildschirm sendet. Dies
 
 ## Maus
 
-![Untitled](articlecontents/Artikel25/Maus.png)
+![Untitled](/articlecontents/Artikel25/Maus.png)
 
 (Douglas Engelbart | Der erste Prototyp einer Maus)
 
@@ -65,7 +65,7 @@ select objects on the screen, to tell the computer that you wanted to do somethi
 
 ## Trackballs
 
-![Untitled](articlecontents/Artikel25/Trackball.png)
+![Untitled](/articlecontents/Artikel25/Trackball.png)
 
 Auch nicht unbekannt ist der Trackball. Ein Ball in einer Fassung, der sich in alle Richtungen bewegen lässt. Auch gut geeignet um einen Maus Cursor bewegen zu können.
 
@@ -75,11 +75,11 @@ Machen wir an dieser Stelle einen kleinen Sprung und sprechen über Touchpads. G
 
 # Tangibles
 
-![Untitled](articlecontents/Artikel25/Tisch.png)
+![Untitled](/articlecontents/Artikel25/Tisch.png)
 
 Das hier ist ein Tisch. Mit dem Twist, dass Analoge Objekte vom Tisch erkannt werden.
 
-![Untitled](articlecontents/Artikel25/Skylanders.png)
+![Untitled](/articlecontents/Artikel25/Skylanders.png)
 
 Kennt Sie noch **“Skylanders”**? Das wahrscheinlich bekannteste Beispiel für Tangibles.
 
@@ -89,13 +89,13 @@ Heute ist das Branding fast vollkommen von der Bildfläche verschwunden.
 
 ## Motion Capture
 
-![Untitled](articlecontents/Artikel25/Motion.png)
+![Untitled](/articlecontents/Artikel25/Motion.png)
 
 Viele Menschen sagen, dass sie es wichtig finden kein Gerät mehr in der Hand zu haben, sondern möglichst nah am Körper zu sein, dafür gibt es mittlerweile Anzüge, die Bewegungen digitalisieren. 
 
 An all jene, die God of War Ragnarök gespielt haben: 
 
-![Untitled](articlecontents/Artikel25/Gow.png)
+![Untitled](/articlecontents/Artikel25/Gow.png)
 
 Hier ist ein [Making Of Video](https://youtu.be/g90-Srl541I), wie die Szenen des Spiels entstehen. Mittlerweile werden Schauspieler engagiert um Rollen in Videospielen zu übernehmen. Es ist unglaublich interessant. 
 
@@ -111,7 +111,7 @@ Dies über Brillen und Controller. Hier wird über einen leistungsstarken PC das
 
 Dies lässt sich sogar soweit erweitert, dass ganze Bewegungen verwertet werden können:
 
-![Untitled](articlecontents/Artikel25/Lauf.png)
+![Untitled](/articlecontents/Artikel25/Lauf.png)
 
 ---
 
