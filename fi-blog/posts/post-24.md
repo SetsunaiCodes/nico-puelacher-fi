@@ -2,7 +2,7 @@
 title: Zelluläre Automaten
 des: In diesem Artikel arbeite ich zusammen mit 2 Online Quellen eine Möglichkeit aus fallenden Sand in PyGame darzustellen.
 date: 2024-01-26
-imagepath: articlesheads/Artikel24.jpeg
+imagepath: articlesheads/Artikel24.jpg
 id: Exkurse
 topic: "03"
 emote: ⏳

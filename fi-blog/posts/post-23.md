@@ -72,13 +72,13 @@ Für das **visuelle “Etwas”** ist eigentlich der Designer zuständig, aber d
 
 ### Bazel
 
-![Bazel](/articlecontens/Artikel23/Bazel.png)
+![Bazel](/articlecontents/Artikel23/Bazel.png)
 
 Ein **Bazel** ist eine Art **“Panel”**, welches **über** dem **Bildschirm** angesiedelt ist. Es ist dazu da das **Logo des Spiels hervorzuheben** und weitere Grafiken des Spiels in  Szene zu setzen. Ein Bazel lässt sich sogar **beleuchten**, wenn entsprechende LED Leisten und transparente Materialien eingeplant werden. Hier auf dem Bild steht “Games Machine” auf dem Bazel drauf.
 
 ### U-Moldings, T-Moldings
 
-![UMolding](/articlecontens/Artikel23/UMoldings.png)
+![UMolding](/articlecontents/Artikel23/UMoldings.png)
 
 Sie haben sich doch sicherlich mal an Papier geschnitten… schreckliches Gefühl. **Scharfe Kanten** an einem Automaten möchte man genauso wenig haben. Dafür können **U-Moldings** und **T-Moldings** genutzt werden. Ein **Silikonschlauch**, der in das Gehäuse eingearbeitet werden kann, damit man sich nicht über scharfe Kanten aufregen muss. Der **Unterschied** zwischen T und U liegt in der **Form**.
 
@@ -86,7 +86,7 @@ Sie haben sich doch sicherlich mal an Papier geschnitten… schreckliches Gefüh
 
 ## Das Resultat unseres Gehäusebauers (Stand 24.01.2024)
 
-![Gehäuse](/articlecontens/Artikel23/Gehäuse.png)
+![Gehäuse](/articlecontents/Artikel23/Gehäuse.png)
 
 # Elektronik - Die Organe.
 
