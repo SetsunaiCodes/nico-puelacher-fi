@@ -9,7 +9,7 @@ emote: ⏳
 ---
 # Einleitung
 
-Wir bekamen den Auftrag 2 Videos von Dan Shiffman zu schauen, die sich mit dem Thema **“Wie simuliere ich fallenden Sand?”** und dem Thema **“Zellulare Autoamten”** beschäftigen. Was diese Videos vermitteln und was ich daraus mitnehme schildere ich in diesem Artikel.
+Wir bekamen die freiwillige Aufgabe 2 Videos von Dan Shiffman zu schauen, die sich mit dem Thema **“Wie simuliere ich fallenden Sand?”** und dem Thema **“Zellulare Autoamten”** beschäftigen. Was diese Videos vermitteln und was ich daraus mitnehme schildere ich in diesem Artikel.
 
 # Zelluläre Automaten
 
@@ -21,7 +21,7 @@ jaaaa…
 
 war ich direkt vollkommen fasziniert, von den Dingen, die mir Dan Shiffman beibringen wollte.
 
-Der zelluläre Atamutu stammt aus der Feder von **Stephen Wolfram**, der im Rahmen seines Buches **“A new kind of Scienes”** publizieren wollte, was er erforscht hat. Durch zelluläre Automaten entstehen so schicke Werke, wie diese hier:
+**Stephen Wolfram** erforschte zelluläre Automaten um fasste diese im Rahmen seines Buches **“A new kind of Scienes”** publizierend auf. Durch zelluläre Automaten entstehen so schicke Werke, wie diese hier:
 
 ![Test1](/articlecontents/Artikel24/Test1.png)
 
